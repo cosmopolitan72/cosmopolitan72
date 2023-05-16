@@ -210,23 +210,64 @@
             </div>
         </div>
         
-        <div class="contact" id="contact">
-            <div class="violet-overlay">
-                <div class="container">
-                    <h2 class="text-center">Get in touch</h2>
-                    <div class="contact-form">
-                        <form>
-                            <input type="text" placeholder="Name">
-                            <input type="email" placeholder="Email">
-                            <input type="text" placeholder="Phone">
-                            <textarea placeholder="Message"></textarea>
-                            <input type="submit" value="SEND">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
+        <!--대체-->
+       <div id="calculator">
+      <div class="input">0</div>
+      <div class="row">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
+      </div>
+      <div class="row">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+      </div>
+      <div class="row">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>*</button>
+      </div>
+      <div class="row">
+        <button>0</button>
+        <button>/</button>
+        <button>=</button>
+        <button>AC</button>
+      </div>
+    </div>
+    <script>
+      const calculator = document.getElementById('calculator');
+      const input = calculator.querySelector('.input');
+      const buttons = calculator.querySelectorAll('button');
+      let inputValue = '';
+      let operand = '';
+      let lastOperator = '';
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          if (button.innerText === '=') {
+            inputValue = eval(inputValue + operand + lastOperator);
+            input.innerText = inputValue;
+            operand = '';
+            lastOperator = '';
+          } else if (button.innerText === 'AC') {
+            inputValue = '';
+            input.innerText = 0;
+          } else if ('+-*/'.indexOf(button.innerText) !== -1) {
+            operand = inputValue;
+            inputValue = '';
+            lastOperator = button.innerText;
+          } else {
+            inputValue += button.innerText;
+            input.innerText = inputValue;
+          }
+        });
+      });
+    </script>
+        <!--대체-->
         <footer>
             <div class="container">
                 <ul>
@@ -315,61 +356,5 @@
             })
         </script>
         
-        <div id="calculator">
-      <div class="input">0</div>
-      <div class="row">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>+</button>
-      </div>
-      <div class="row">
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
-      </div>
-      <div class="row">
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>*</button>
-      </div>
-      <div class="row">
-        <button>0</button>
-        <button>/</button>
-        <button>=</button>
-        <button>AC</button>
-      </div>
-    </div>
-    <script>
-      const calculator = document.getElementById('calculator');
-      const input = calculator.querySelector('.input');
-      const buttons = calculator.querySelectorAll('button');
-      let inputValue = '';
-      let operand = '';
-      let lastOperator = '';
-
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          if (button.innerText === '=') {
-            inputValue = eval(inputValue + operand + lastOperator);
-            input.innerText = inputValue;
-            operand = '';
-            lastOperator = '';
-          } else if (button.innerText === 'AC') {
-            inputValue = '';
-            input.innerText = 0;
-          } else if ('+-*/'.indexOf(button.innerText) !== -1) {
-            operand = inputValue;
-            inputValue = '';
-            lastOperator = button.innerText;
-          } else {
-            inputValue += button.innerText;
-            input.innerText = inputValue;
-          }
-        });
-      });
-    </script>
     </body>
 </html>
