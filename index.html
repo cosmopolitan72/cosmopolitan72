@@ -8,6 +8,38 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fontawesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+        <style>
+      #calculator {
+        background-color: #eee;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+      #calculator button {
+        margin: 5px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      #calculator .row {
+        display: flex;
+        flex-direction: row;
+      }
+      #calculator .col {
+        display: flex;
+        flex-direction: column;
+      }
+      #calculator .input {
+        font-size: 20px;
+        text-align: right;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    </style>
     </head>
     <body>
         
@@ -282,5 +314,62 @@
                 });
             })
         </script>
+        
+        <div id="calculator">
+      <div class="input">0</div>
+      <div class="row">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
+      </div>
+      <div class="row">
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+      </div>
+      <div class="row">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>*</button>
+      </div>
+      <div class="row">
+        <button>0</button>
+        <button>/</button>
+        <button>=</button>
+        <button>AC</button>
+      </div>
+    </div>
+    <script>
+      const calculator = document.getElementById('calculator');
+      const input = calculator.querySelector('.input');
+      const buttons = calculator.querySelectorAll('button');
+      let inputValue = '';
+      let operand = '';
+      let lastOperator = '';
+
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          if (button.innerText === '=') {
+            inputValue = eval(inputValue + operand + lastOperator);
+            input.innerText = inputValue;
+            operand = '';
+            lastOperator = '';
+          } else if (button.innerText === 'AC') {
+            inputValue = '';
+            input.innerText = 0;
+          } else if ('+-*/'.indexOf(button.innerText) !== -1) {
+            operand = inputValue;
+            inputValue = '';
+            lastOperator = button.innerText;
+          } else {
+            inputValue += button.innerText;
+            input.innerText = inputValue;
+          }
+        });
+      });
+    </script>
     </body>
 </html>
