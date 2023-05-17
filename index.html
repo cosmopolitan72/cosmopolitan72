@@ -8,61 +8,76 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fontawesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-        	<style>
-		input[id="menuicon"] {
-display:none;
-
-
-}
-input[id="menuicon"] + label {
-display:block;
-width:60px;
-height:40px;
-position:relative;
-cursor:pointer;
-}
-input[id="menuicon"] + label span {
-display:black;
-position:absolute;
-width:100%;
-height:5px;
-border-radius:30px;
-background:#000;
-transition:all ,35s;
-}
-input[id="menuicon"] label span:nth-child(1) {
-top:0;
-}
-input[id="menuicon"] + label span:nth-child(2) {
-top:50%
-transform:translateY(-50%);
-}
-input[id="menuicon"] + label span:nth-child(3) {
-}
-
-
-input[id="menuicon"]:checked + label span:nth-child(1) {
-top:50%;
-transform:translateY(-50%) rotate(45deg);
-}
-input[id="menuicon"]:checked + label span:nth-child(2) {
-opacity:0;
-}
-input[id="menuicon"]:checked + label span:nth=child(3) {
-bottom:50%;
-transform:translateY(50%) rotate(-45deg);
-}
+	    <style>
+		body {
+			margin: 0;
+		}
+		#menuicon {
+			position: fixed;
+			left: 0;
+			top: 0;
+			z-index: 1;
+			padding: 20px 30px;
+			cursor: pointer;
+			background-color: #000;
+			color: #fff;
+			font-size: 24px;
+			transition: all 0.5s;
+		}
+		#menuicon:hover {
+			background-color: #111;
+			color: #ff00ff;
+		}
+		#menuicon.active {
+			left: 260px;
+			background-color: #fff;
+			color: #333;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		}
+		#menu {
+			position: fixed;
+			left: -210px;
+			top: 0;
+			height: 100%;
+			width: 210px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+			transition: all 0.5s;
+			z-index: 0;
+		}
+		#menu.active {
+			left: 0;
+		}
+		#menu ul {
+			padding: 0;
+			margin: 0;
+			list-style: none;
+		}
+		#menu ul li a {
+			display: block;
+			padding: 10px;
+			color: #333;
+			text-decoration: none;
+			border-bottom: 1px solid #eee;
+			font-size: 18px;
+		}
+		#menu ul li a:hover {
+			background-color: #eee;
+		}
 	</style>
+        	
       
     </head>
     <body>
 	    <!--여기다 넣음-->
-        <input type="check box" id="menuicon">
-        <label for="menuicon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </label>
+        <div id="menuicon"></div>
+	<div id="menu">
+		<ul>
+			<li><a href="#">메뉴 항목1</a></li>
+			<li><a href="#">메뉴 항목2</a></li>
+			<li><a href="#">메뉴 항목3</a></li>
+		</ul>
+	</div>
 	    
         <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
             <div class="container">
@@ -339,6 +354,12 @@ transform:translateY(50%) rotate(-45deg);
                 });
             })
         </script>
+	    <script>
+		document.getElementById('menuicon').addEventListener('click', function() {
+			this.classList.toggle('active');
+			document.getElementById('menu').classList.toggle('active');
+		});
+	</script>
         
     </body>
 </html>
