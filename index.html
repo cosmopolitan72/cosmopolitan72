@@ -28,7 +28,7 @@
 			background:#000;
 			transition:all ,35s;
 		}
-		input[id="menuicon"] label span:nth-child(1) {
+		input[id="menuicon"] + label span:nth-child(1) {
 			top:0;
 		}
 		input[id="menuicon"] + label span:nth-child(2) {
@@ -36,6 +36,7 @@
 			transform:translateY(-50%);
 		}
 		input[id="menuicon"] + label span:nth-child(3) {
+			bottom:0;
 		}
 		input[id="menuicon"]:checked + label span:nth-child(1) {
 			top:50%;
@@ -52,6 +53,7 @@
       
     </head>
     <body>
+	    <!--여기다 넣음-->
         <input type="check box" id="menuicon">
         <label for="menuicon">
             <span></span>
