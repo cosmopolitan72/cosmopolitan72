@@ -11,6 +11,33 @@
 	    
     </head>
     <body>
+	      
+	    <!--여기 수정22-->
+	    <div class="kodfun-galeri">
+		    <div stlye"backgroumd-image: url('img1.jpg');"></div>
+		    <div stlye"backgroumd-image: url('img2.jpg');"></div>
+		    <div stlye"backgroumd-image: url('img3.jpg');"></div>
+	    </div>
+	    
+	    <style>
+		    .kodfun-galeri {
+			    display: flex;
+			    height: 20rem;
+			    gap: lrem
+		    }
+		    .kodfun-galeri > div {
+			    flex: 1;
+			    border-radius:1rem;
+			    background-position: center;
+			    background-repeat: no-repeat;
+			    background-size: auto 100%;
+			    transition: all .8s cubic-bezier(.25, .4, .45, 1.4);
+		    }
+		    .kodfun-galeri > div:hover {
+			    flex: 5;
+		    }
+	    </style>
+	    <!--여기까지-->
 	    
         <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
             <div class="container">
@@ -255,34 +282,7 @@
             <div class="copyright text-center">
                 <p>Copyright 2023  Design by <a href="https://sites.google.com/view/cosmopolitan72/home"> cosmopolitan72 </a></p>
             </div>
-        </footer>
-	    
-	    <!--여기 수정22-->
-	    <div class="kodfun-galeri">
-		    <div stlye"backgroumd-image: url('img1.jpg');"></div>
-		    <div stlye"backgroumd-image: url('img2.jpg');"></div>
-		    <div stlye"backgroumd-image: url('img3.jpg');"></div>
-	    </div>
-	    
-	    <style>
-		    .kodfun-galeri {
-			    display: flex;
-			    height: 20rem;
-			    gap: lrem
-		    }
-		    .kodfun-galeri > div {
-			    flex: 1;
-			    border-radius:1rem;
-			    background-position: center;
-			    background-repeat: no-repeat;
-			    background-size: auto 100%;
-			    transition: all .8s cubic-bezier(.25, .4, .45, 1.4);
-		    }
-		    .kodfun-galeri > div:hover {
-			    flex: 5;
-		    }
-	    </style>
-	    <!--여기까지-->
+	    </footer>
         
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
