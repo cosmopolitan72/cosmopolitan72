@@ -64,7 +64,32 @@
                 </div>
             </div>
         </header>
-        
+        <!--여기 수정22-->
+	    <div class="kodfun-galeri">
+		    <div stlye"backgroumd-image: url('img1.jpg');"></div>
+		    <div stlye"backgroumd-image: url('img2.jpg');"></div>
+		    <div stlye"backgroumd-image: url('img3.jpg');"></div>
+	    </div>
+	    
+	    <style>
+		    .kodfun-galeri {
+			    display: flex;
+			    height: 20rem;
+			    gap: lrem
+		    }
+		    .kodfun-galeri > div {
+			    flex: 1;
+			    border-radius:1rem;
+			    background-position: center;
+			    background-repeat: no-repeat;
+			    background-size: auto 100%;
+			    transition: all .8s cubic-bezier(.25, .4, .45, 1.4);
+		    }
+		    .kodfun-galeri > div:hover {
+			    flex: 5;
+		    }
+	    </style>
+	    <!--여기까지-->
         <div class="about-us" id="about">
             <div class="small-container">
                 <h2 class="text-center">Winter <span>Holiday</span></h2>
