@@ -236,7 +236,7 @@ header button:hover a {
     width: 100px;
     height: 200px;
     position: absolute;
-    background-color: #bd8cbf;
+    background-color: ##8cbf8c;
     top: 140px;
     z-index: -5;
 }
