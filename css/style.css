@@ -1,5 +1,5 @@
 header {
-    background-image: url(../imgs/blackheader.jpg);
+    background-image: url('blackheader.jpg')
     background-size: cover;
 }
 
