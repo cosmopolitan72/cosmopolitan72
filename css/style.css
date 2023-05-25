@@ -128,7 +128,7 @@ header button a {
 }
 
 header button:hover {
-    background-color: #bd8cbf;
+    background-color: #000000;
     border: 1px solid #bd8cbf;
 }
 
