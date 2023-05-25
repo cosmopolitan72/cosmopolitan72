@@ -175,12 +175,12 @@ header button:hover a {
     color: #FFF;
     padding: 10px 25px;
 }
-
+/* 여기 수정 */
 .about-us .item {
     width: 200px;
     position: absolute;
     color: white;
-    background-color: #ecf813;
+    background-color: #605f5f;
 }
 
 .about-us .item p {
