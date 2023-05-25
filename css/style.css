@@ -177,7 +177,7 @@ header button:hover a {
 }
 /* 여기 수정 */
 .about-us .item {
-    width: 180px;
+    width: 200px;
     position: absolute;
     color: white;
     background-color: #605f5f;
