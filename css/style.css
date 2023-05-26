@@ -233,7 +233,7 @@ header button:hover a {
 }
 /* 여기 수정 색 */
 .about-us .first {
-    width: 100px;
+    width: 110px;
     height: 200px;
     position: absolute;
     background-color: #000000;
