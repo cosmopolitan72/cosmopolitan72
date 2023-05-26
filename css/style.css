@@ -279,11 +279,11 @@ header button:hover a {
     height: 100%;
     width: 100%;
 }
-
+/* 여기 수정 색 08:45 */
 .services .carousel-control-next, .services .carousel-control-prev {
     width: 60px;
     height: 60px;
-    background: #bd8cbf;
+    background: #000000;
     border-radius: 50%;
 }
 
