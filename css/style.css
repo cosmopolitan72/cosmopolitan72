@@ -166,7 +166,7 @@ header button:hover a {
 }
 
 .about-us .small-container > p + div button {
-    background-color: #f5f90b;
+    background-color: #000000;
     border: none;
 }
 
@@ -201,7 +201,7 @@ header button:hover a {
 }
 /* 여기 수정 */
 .about-us .item:first-of-type {
-    left: 250px;
+    left: 400px;
     bottom: 100px;
     z-index: 2;
     box-shadow: -2px 2px 10px #5d5959;
