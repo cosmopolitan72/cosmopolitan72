@@ -201,14 +201,14 @@ header button:hover a {
 }
 /* 여기 수정 */
 .about-us .item:first-of-type {
-    left: 400px;
+    left: 410px;
     bottom: 100px;
     z-index: 2;
     box-shadow: -2px 2px 10px #5d5959;
 }
 
 .about-us .item:nth-of-type(2) {
-    left: 90px;
+    left: 80px;
     bottom: 115px;
     z-index: 2;
     box-shadow: 2px 2px 10px #5d5959;
@@ -228,7 +228,7 @@ header button:hover a {
 }
 
 .about-us .item:last-of-type {
-    left: 268px;
+    left: 300px;
     top: 90px;
 }
 /* 여기 수정 색 */
