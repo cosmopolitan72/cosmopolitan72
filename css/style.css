@@ -208,7 +208,7 @@ header button:hover a {
 }
 
 .about-us .item:nth-of-type(2) {
-    left: 80px;
+    left: 50px;
     bottom: 115px;
     z-index: 2;
     box-shadow: 2px 2px 10px #5d5959;
@@ -234,7 +234,7 @@ header button:hover a {
 /* 여기 수정 색 */
 .about-us .first {
     width: 110px;
-    height: 100px;
+    height: 70px;
     position: absolute;
     background-color: #000000;
     top: 120px;
