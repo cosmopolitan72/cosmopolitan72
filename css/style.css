@@ -199,9 +199,9 @@ header button:hover a {
 .about-us .item p {
     margin-bottom: 15px;
 }
-
+/* 여기 수정 */
 .about-us .item:first-of-type {
-    left: 405px;
+    left: 500px;
     bottom: 115px;
     z-index: 2;
     box-shadow: -2px 2px 10px #5d5959;
