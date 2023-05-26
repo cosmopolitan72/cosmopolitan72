@@ -91,7 +91,10 @@ nav.navbar form input {
 }
 
 /* header */
-
+@media (max-width: 600px) {
+  .title {
+    font-size: 20px;
+  }
 header {
     position: relative;
     color: #FFF;
