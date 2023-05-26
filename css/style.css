@@ -201,7 +201,7 @@ header button:hover a {
 }
 /* 여기 수정 */
 .about-us .item:first-of-type {
-    left: 500px;
+    left: 300px;
     bottom: 115px;
     z-index: 2;
     box-shadow: -2px 2px 10px #5d5959;
