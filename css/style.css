@@ -201,14 +201,14 @@ header button:hover a {
 }
 /* 여기 수정 */
 .about-us .item:first-of-type {
-    left: 300px;
-    bottom: 115px;
+    left: 250px;
+    bottom: 100px;
     z-index: 2;
     box-shadow: -2px 2px 10px #5d5959;
 }
 
 .about-us .item:nth-of-type(2) {
-    left: 105px;
+    left: 90px;
     bottom: 115px;
     z-index: 2;
     box-shadow: 2px 2px 10px #5d5959;
@@ -231,12 +231,12 @@ header button:hover a {
     left: 268px;
     top: 90px;
 }
-
+/* 여기 수정 색 */
 .about-us .first {
     width: 100px;
     height: 200px;
     position: absolute;
-    background-color: #8cbf8c;
+    background-color: #000000;
     top: 140px;
     z-index: -5;
 }
