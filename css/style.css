@@ -234,7 +234,7 @@ header button:hover a {
 /* 여기 수정 색 */
 .about-us .first {
     width: 110px;
-    height: 150px;
+    height: 100px;
     position: absolute;
     background-color: #000000;
     top: 140px;
