@@ -227,8 +227,9 @@ header button:hover a {
     z-index: 0;
 }
 
+/*04.25:pm08:41 */
 .about-us .item:last-of-type {
-    left: 300px;
+    left: 250px;
     top: 90px;
 }
 /* 여기 수정 색 */
