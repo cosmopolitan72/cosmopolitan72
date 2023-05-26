@@ -251,11 +251,11 @@ header button:hover a {
     right: 34px;
     z-index: -5;
 }
-
+/* 색 수정 09:10 */
 .about-us .row > div > .item:nth-of-type(3) div {
     position: relative;
     z-index: 5;
-    background-color: #bd8cbf;
+    background-color: #000000;
     padding: 5px;
 }
 
