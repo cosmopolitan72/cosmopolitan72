@@ -210,8 +210,8 @@ header button:hover a {
 }
 /* 여기 수정 08:59, 09:35, 07:58, AM09:09, 09:59 연필 LEFT 값 작아야 */
 .about-us .item:nth-of-type(2) {
-    left: -40px;
-    bottom: 100px;
+    left: -50px;
+    bottom: 125px;
     z-index: 4;
     box-shadow: 2px 2px 10px #ffffff;
 }
