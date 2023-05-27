@@ -84,11 +84,12 @@ nav.navbar form {
     display: none;
 }
 
+/* navbar pm08:58*/
 nav.navbar form input {
     padding: 5px 10px;
     border: 1px solid #b7b5b5;
     background-color: #e6e3e3;
-    width: 100%;
+    width: 200%;
 }
 
 /* header */
