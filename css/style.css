@@ -58,7 +58,7 @@ nav.navbar {
     top: 0;
     left: 0;
     background-color: transparent;
-    width: 80%;
+    width: 100%;
     z-index: 1000;
     font-family: 'Open Sans', sans-serif;
 }
@@ -80,7 +80,7 @@ nav.navbar form {
     padding: 5px;
     background-color: white;
     position: absolute;
-    width: 350px;
+    width: 300px;
     display: none;
 }
 
