@@ -52,13 +52,13 @@ body {
 }
 
 /* navbar */
-
+/* navbar pm08:54*/
 nav.navbar {
     position: absolute;
     top: 0;
     left: 0;
     background-color: transparent;
-    width: 100%;
+    width: 80%;
     z-index: 1000;
     font-family: 'Open Sans', sans-serif;
 }
