@@ -572,12 +572,13 @@ footer .copyright p {
     } 
     
     /* navbar */
-     /* pm09:07 */
+     /* pm09:07 여기 대대적 수 */
     .navbar ul {
         background-color: rgba(189, 140, 191, .85);
+        float: left;
     }
     .navbar ul li {
-        margin: 50px 0;
+        margin: 0;
     }
     nav.navbar form {
         width: 200%;
