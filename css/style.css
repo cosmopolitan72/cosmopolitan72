@@ -572,15 +572,15 @@ footer .copyright p {
     } 
     
     /* navbar */
-    
+     /* pm09:07 */
     .navbar ul {
         background-color: rgba(189, 140, 191, .85);
     }
     .navbar ul li {
-        margin: 10px 0;
+        margin: 50px 0;
     }
     nav.navbar form {
-        width: 100%;
+        width: 200%;
         position: static;
     }
     
