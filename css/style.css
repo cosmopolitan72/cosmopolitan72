@@ -56,7 +56,7 @@ body {
 nav.navbar {
     position: absolute;
     top: 0;
-    left: 60px;
+    left: 0;
     background-color: transparent;
     width: 100%;
     z-index: 1000;
@@ -575,10 +575,9 @@ footer .copyright p {
      /* pm09:07 여기 대대적 수 */
     .navbar ul {
         background-color: rgba(189, 140, 191, .85);
-        float: left;
     }
     .navbar ul li {
-        margin: 0;
+        margin: 10px 0;
     }
     nav.navbar form {
         width: 200%;
