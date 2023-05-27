@@ -75,11 +75,12 @@ nav.navbar .search-container {
     position: relative;
 }
 
+/* navbar pm08:58*/
 nav.navbar form {
     padding: 5px;
     background-color: white;
     position: absolute;
-    width: 260px;
+    width: 350px;
     display: none;
 }
 
