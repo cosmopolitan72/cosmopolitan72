@@ -345,9 +345,10 @@ header button:hover a {
 .agency .container > div h2 {
     position: absolute;
     color: white;
-    bottom: 130px;
+    bottom: 120px;
     left: 195px;
     font-size: 40px;
+    transform: translateY(-50%); 
 }
 
 /* statistics */
