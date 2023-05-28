@@ -349,7 +349,7 @@ header button:hover a {
     bottom: 120px;
     left: 195px;
     font-size: 40px;
-    transform: translateY(100%);
+    transform: translateY(150%);
 }
 
 /* statistics */
