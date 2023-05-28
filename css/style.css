@@ -320,9 +320,9 @@ header button:hover a {
 /* am01:51수정 */
 /* am03:02수정 */
 .agency .container > div {
-    margin: 50 auto;
+    margin: 0 auto;
     width: 86%;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
 
 .agency .white-overlay {
