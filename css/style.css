@@ -315,12 +315,12 @@ header button:hover a {
 .agency {
     background-image: url('../imgs/black.png');
     font-family: 'Open Sans', sans-serif;
-    background-size: ;
+    background-size: cover;
 }
 /* am01:51수정 */
-
+/* am03:02수정 */
 .agency .container > div {
-    margin: 0 auto;
+    margin: 50 auto;
     width: 86%;
     margin-bottom: 30px;
 }
