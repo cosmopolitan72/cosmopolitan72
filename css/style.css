@@ -317,11 +317,12 @@ header button:hover a {
     font-family: 'Open Sans', sans-serif;
     background-size: cover;
 }
+/* am01:51수정 */
 
 .agency .container > div {
     margin: 0 auto;
     width: 86%;
-    margin-bottom: 30px;
+    margin-bottom: 80px;
 }
 
 .agency .white-overlay {
