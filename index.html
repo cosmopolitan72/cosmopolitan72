@@ -304,8 +304,20 @@
         results.push(this);
       }
     });
-    $('html').animate({scrollTop: results[0].offset().top}, 1000);
-  });
+   $('.navbar form input').on('keydown', function (event) {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    var searchTerm = $(this).val();
+    var results = [];
+    $('.navbar ul.navbar-nav li a').each(function () {
+      if (this.textContent.toLowerCase().includes(searchTerm.toLowerCase())) {
+        results.push(this);
+      }
+    });
+    if (results.length > 0) {
+      $('html, body').animate({ scrollTop: $(results[0]).offset().top }, 1000);
+    }
+  }
 });
         </script>
 	    
