@@ -177,9 +177,9 @@ header button:hover a {
     color: #FFF;
     padding: 10px 25px;
 }
-/* 여기 수정, 09:35 */
+/* 여기 수정, 09:35, AM02:57 200->100으로 변경 */
 .about-us .item {
-    width: 200px;
+    width: 100px;
     position: absolute;
     color: black;
     background-color: #ffffff;
