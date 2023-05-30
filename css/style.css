@@ -234,16 +234,16 @@ header button:hover a {
     left: 150px;
     top: 100px;
 }
-/* 여기 수정 색 */
+/* am:06:23 수정 110 -> 200, 70 -> 90 */
 .about-us .first {
-    width: 110px;
-    height: 70px;
+    width: 200px;
+    height: 90px;
     position: absolute;
     background-color: #000000;
     top: 120px;
     z-index: -5;
 }
-/* 색 수정 AM 02:03수정 ㅌ*/
+/* 색 수정 AM 02:03수정 x*/
 .about-us .second {
     width: 100px;
     height: 150px;
@@ -535,8 +535,8 @@ footer .copyright p {
     }
            /* am:05:55 수정 305 -> 200, 132 -> 110 */
     .about-us .item:last-of-type {
-        left: 305px;
-        top: 132px;
+        left: 200px;
+        top: 110px;
     }
     
     .about-us .row > div > .item:nth-of-type(3) img {
