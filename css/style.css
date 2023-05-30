@@ -427,7 +427,7 @@ footer, footer a {
 }
 
 footer {
-    display: block;
+    display: white;
     overflow: hidden;
     background-color: #000000;
 }
