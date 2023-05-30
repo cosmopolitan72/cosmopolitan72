@@ -524,10 +524,10 @@ footer .copyright p {
         left: 440px;
         bottom: 154px;
     }
-       /* am:05:29 수정 167 -> 240 */
+       /* am:05:29 수정 167 -> 240, 153 -> 180 */
     .about-us .item:nth-of-type(2) {
-        left: 240px;
-        bottom: 153px;
+        left: 167px;
+        bottom: 180px;
     }
     .about-us .item:nth-of-type(3) {
         top: 149px;
