@@ -586,10 +586,10 @@ footer .copyright p {
         position: static;
     }
     
-    /* about */
+    /* about AM05:01 수정 50 -> 100 */
     
     .about-us .small-container > p + div {
-        padding: 50px 0;
+        padding: 100px 0;
     }
     .about-us .row > .col-lg-6:first-of-type {
         height: 350px;
