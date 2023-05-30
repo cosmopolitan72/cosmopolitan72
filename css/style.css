@@ -423,13 +423,13 @@ header button:hover a {
 /* footer */
 
 footer, footer a {
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 footer {
     display: block;
     overflow: hidden;
-    background-color: #563158;
+    background-color: #000000;
 }
 
 footer a:hover {
