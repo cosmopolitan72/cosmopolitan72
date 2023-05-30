@@ -282,10 +282,10 @@ header button:hover a {
     height: 100%;
     width: 100%;
 }
-/* 여기 수정 색 08:45, am12:21 */
+/* 여기 수정 색 08:45, am12:21, X */
 .services .carousel-control-next, .services .carousel-control-prev {
     width: 60px;
-    height: 80px;
+    height: 60px;
     background: #ffffff;
     border-radius: 50%;
 }
