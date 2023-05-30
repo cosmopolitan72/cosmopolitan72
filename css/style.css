@@ -243,9 +243,9 @@ header button:hover a {
     top: 120px;
     z-index: -5;
 }
-
+/* 색 수정 AM 02:03수정 */
 .about-us .second {
-    width: 100px;
+    width: 150px;
     height: 150px;
     position: absolute;
     background-color: #000000;
