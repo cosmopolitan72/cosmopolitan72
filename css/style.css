@@ -179,7 +179,7 @@ header button:hover a {
 }
 /* 여기 수정, 09:35, AM02:57 200->100으로 변경 */
 .about-us .item {
-    width: 100px;
+    width: 200px;
     position: absolute;
     color: black;
     background-color: #ffffff;
