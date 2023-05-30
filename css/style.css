@@ -234,13 +234,13 @@ header button:hover a {
     left: 150px;
     top: 100px;
 }
-/* am:06:23 수정 110 -> 200, 70 -> 90, 150 -> 100*/
+/* am:06:23 수정 110 -> 200, 70 -> 90, 150 -> 100 -> 180*/
 .about-us .first {
     width: 200px;
     height: 90px;
     position: absolute;
     background-color: #000000;
-    top: 100px;
+    top: 180px;
     z-index: -5;
 }
 /* 색 수정 AM 02:03수정 x*/
