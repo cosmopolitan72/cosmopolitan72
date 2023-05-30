@@ -284,7 +284,7 @@ header button:hover a {
 }
 /* 여기 수정 색 08:45, am12:21 */
 .services .carousel-control-next, .services .carousel-control-prev {
-    width: 90px;
+    width: 80px;
     height: 60px;
     background: #ffffff;
     border-radius: 50%;
