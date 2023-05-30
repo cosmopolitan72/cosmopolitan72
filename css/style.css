@@ -384,6 +384,40 @@ header button:hover a {
     color: white;
     margin-bottom: 30px;
 }
+.contact .contact-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.contact form input, .contact form textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.contact form input{
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.contact form textarea {
+    resize: none;
+    height: 130px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+}
+
+.contact form input[type="submit"] {
+    width: 130px;
+    height: 40px;
+    padding: 0;
+    line-height: 40px;
+    background-color: #ef44f8;
+    color: white;
+    margin: 0 auto;
+    display: block;
+}
 
 
 /* footer */
