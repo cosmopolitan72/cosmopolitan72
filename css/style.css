@@ -231,7 +231,7 @@ header button:hover a {
 
 /*04.25:pm08:41, am08:36, AM09:20 */
 .about-us .item:last-of-type {
-    left: 150px;
+    left: 80px;
     top: 100px;
 }
 /* 여기 수정 색 */
@@ -284,7 +284,7 @@ header button:hover a {
 }
 /* 여기 수정 색 08:45, am12:21 */
 .services .carousel-control-next, .services .carousel-control-prev {
-    width: 120px;
+    width: 90px;
     height: 60px;
     background: #ffffff;
     border-radius: 50%;
