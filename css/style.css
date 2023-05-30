@@ -203,7 +203,7 @@ header button:hover a {
 }
 /* 여기 수정, 09:35, am-8:31, am08:34 410 -> 350 */
 .about-us .item:first-of-type {
-    left: 350px;
+    left: 410px;
     bottom: 100px;
     z-index: 2;
     box-shadow: -2px 2px 10px #ffffff;
