@@ -45,6 +45,8 @@ a, button {
 
 button {
     padding: 0
+     border: 2px solid #000; /* 버튼 테두리 설정 */
+    border-radius: 5px; /* 둥근 모서리 설정 */
 }
 
 body {
