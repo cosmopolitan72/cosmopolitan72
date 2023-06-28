@@ -682,6 +682,7 @@ footer .copyright p {
 .sidebar {
   position: sticky;
   top: 0;
+  bottom: 50px;
 }
 
 .sidebar a {
