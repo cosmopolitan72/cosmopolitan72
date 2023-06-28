@@ -695,3 +695,7 @@ footer .copyright p {
   font-size: 50px; /* 원하는 크기로 변경 */
   margin-top: 20px;
 }
+
+.spacer {
+  height: 20px; /* 원하는 만큼 늘리거나 줄여서 아이콘 위치를 조절하세요 */
+}
