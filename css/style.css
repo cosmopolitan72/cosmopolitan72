@@ -689,5 +689,6 @@ footer .copyright p {
   margin-right: 20px;
   margin-top: 260px;
   font-size: 3em;
+  opacity: 0.5;
 }
 } 
