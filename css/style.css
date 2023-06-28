@@ -677,3 +677,12 @@ footer .copyright p {
     }
     
 }
+
+.-\32 1 {
+  width: 166px;
+  height: 171px;
+  margin: 22px 0;
+  padding: 52px 9px;
+  border: solid 1px #e98b98;
+  background-color: #fff;
+}
