@@ -681,7 +681,7 @@ footer .copyright p {
 /* 여기 수정 */
 .sidebar {
   position: sticky;
-  top: 0;
+  top: 20;
   bottom: 50px;
 }
 
@@ -693,6 +693,4 @@ footer .copyright p {
 
 .sidebar i {
   font-size: 50px; /* 원하는 크기로 변경 */
-  position: absolute;
-  bottom: 20px;
 }
