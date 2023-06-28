@@ -691,5 +691,6 @@ footer .copyright p {
 }
 
 .sidebar i {
-  font-size: 30px; /* 원하는 크기로 변경 */
+  font-size: 50px; /* 원하는 크기로 변경 */
+  margin-bottom: 10px;
 }
