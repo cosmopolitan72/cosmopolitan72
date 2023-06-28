@@ -693,4 +693,6 @@ footer .copyright p {
 
 .sidebar i {
   font-size: 50px; /* 원하는 크기로 변경 */
+  position: absolute;
+  bottom: 10px;
 }
