@@ -685,6 +685,6 @@ footer .copyright p {
 }
 
 .sidebar a {
-  float: left;
-  margin-right: 10px;
+  display: flex;
+  justify-content: center;
 }
