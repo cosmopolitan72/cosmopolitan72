@@ -689,4 +689,7 @@ footer .copyright p {
   margin-right: 20px;
   
 }
-} 
+
+.sidebar i {
+  font-size: 30px; /* 원하는 크기로 변경 */
+}
