@@ -684,7 +684,9 @@ footer .copyright p {
   top: 0;
 }
 
-.sidebar a {
-  float: left;
-  margin-right: 10px;
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    float: none;
+  }
 }
