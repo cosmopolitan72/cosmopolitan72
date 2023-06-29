@@ -681,9 +681,9 @@ footer .copyright p {
 /* 여기 수정 */
 
 .sidebar {
-position: sticky;
-top: 0;
-bottom: 80px;
+display: flex;
+flex-direction: column;
+position: fixed;
 } 
 
 .sidebar a {
