@@ -684,9 +684,6 @@ footer .copyright p {
   position: sticky;
   top: 0;
   bottom: 80px;
-  display: grid;
-  grid-auto-flow: row;
-  justify-items: end;
 }
 
 .sidebar a {
