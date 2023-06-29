@@ -680,19 +680,3 @@ footer .copyright p {
 
 /* 여기 수정 */
 
-.sidebar {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1;
-  width: 200px;
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.sidebar i {
-  font-size: 50px;
-  margin-top: 10px;
-}
-
