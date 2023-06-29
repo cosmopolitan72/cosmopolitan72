@@ -679,11 +679,4 @@ footer .copyright p {
 }
 
 /* 여기 수정 */
-.sidebar {
-  position: sticky;
-  top: 20px;
-  width: 200px;
-  background-color: #fff;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
+
