@@ -681,18 +681,19 @@ footer .copyright p {
 /* 여기 수정 */
 
 .sidebar {
-  position: sticky;
-  top: 0;
-  bottom: 80px;
-}
+position: sticky;
+top: 0;
+bottom: 80px;
+} 
 
 .sidebar a {
-  float: right;
-  margin-right: 20px;
-}
+float: right;
+margin-right: 20px;
+margin-top: 140px;
+} 
 
 .sidebar i {
-  font-size: 50px; /* 원하는 크기로 변경 */
-  opacity: 0.7;
-  color: #1e1e1e;
-}
+font-size: 50px; /* 원하는 크기로 변경 */
+opacity: 0.7;
+color: #1e1e1e;
+} 
