@@ -684,13 +684,11 @@ footer .copyright p {
 display: flex;
 flex-direction: column;
 position: fixed;
+right: 1.5%;
+top: 50%;
+transform: translateY(-50%);
 } 
 
-.sidebar a {
-float: right;
-margin-right: 20px;
-margin-top: 140px;
-} 
 
 .sidebar i {
 font-size: 50px; /* 원하는 크기로 변경 */
