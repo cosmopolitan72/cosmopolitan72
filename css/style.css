@@ -690,6 +690,9 @@ footer .copyright p {
   float: right;
   margin-right: 20px;
   margin-top: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   
 }
 
@@ -697,5 +700,6 @@ footer .copyright p {
   font-size: 50px; /* 원하는 크기로 변경 */
   opacity: 0.7;
   color: #1e1e1e;
+  vertical-align: middle;
 }
 
