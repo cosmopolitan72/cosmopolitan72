@@ -684,9 +684,6 @@ footer .copyright p {
   position: sticky;
   top: 0;
   bottom: 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
 }
 
 .sidebar a {
