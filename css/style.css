@@ -690,6 +690,9 @@ bottom: 80px;
 float: right;
 margin-right: 20px;
 margin-top: 140px;
+display: flex; /* 추가 */
+flex-direction: column; /* 추가 */
+align-items: flex-end; /* 추가 */
 } 
 
 .sidebar i {
