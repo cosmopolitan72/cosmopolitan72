@@ -1,16 +1,40 @@
-<div class="contact" id="contact">
-            <div class="violet-overlay">
-                <div class="container">
-                    <h2 class="text-center">Get in touch</h2>
-                    <div class="contact-form">
-                        <form>
-                            <input type="text" placeholder="Name">
-                            <input type="email" placeholder="Email">
-                            <input type="text" placeholder="Phone">
-                            <textarea placeholder="Message"></textarea>
-                            <input type="submit" value="SEND">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실험용</title>
+  <!-- 필요한 CSS 파일 및 외부 리소스를 여기에 추가 -->
+  <style>
+    /* 원하는 스타일 코드 추가 */
+  </style>
+</head>
+<body>
+  <header>
+    <h1>제목</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">메뉴 1</a></li>
+      <li><a href="#">메뉴 2</a></li>
+      <li><a href="#">메뉴 3</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <h2>섹션 제목</h2>
+      <p>더 자세한 내용은 여기에 적을 수 있습니다. 이 문장은 예시입니다.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>저작권 정보와 관련 사항을 적어주세요. 예) &copy; 2023. All rights reserved.</p>
+  </footer>
+
+  <!-- 필요한 JavaScript 파일 및 외부 리소스를 여기에 추가 -->
+  <script>
+    // 원하는 JavaScript 코드 추가
+  </script>
+</body>
+</html>
