@@ -694,4 +694,6 @@ transform: translateY(-50%);
 font-size: 50px; /* 원하는 크기로 변경 */
 opacity: 0.7;
 color: #1e1e1e;
+margin-top: 10px;
+margin-bottom: 10px;
 } 
