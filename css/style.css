@@ -698,20 +698,3 @@ color: #50b7ef;
 margin-top: 10px;
 margin-bottom: 10px; 
 } 
-
-input {
-  width: 100px;
-}
-
-select {
-  width: 100px;
-}
-
-input[type="button"] {
-  width: 100px;
-}
-
-div {
-  width: 200px;
-  height: 200px;
-}
