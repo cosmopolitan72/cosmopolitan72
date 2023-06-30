@@ -339,6 +339,41 @@
                 $('header').height(winH);  
                 
                 $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
+		    
+		let currentInput = "";
+    let currentOperator = null;
+
+    function appendNumber(number) {
+      currentInput += number;
+      updateDisplay();
+    }
+
+    function appendOperator(operator) {
+      if (currentOperator !== null) calculate();
+      currentOperator = operator;
+      currentInput += ` ${operator} `;
+      updateDisplay();
+    }
+
+    function clearDisplay() {
+      currentInput = "";
+      updateDisplay();
+    }
+
+    function updateDisplay() {
+      document.getElementById("display").value = currentInput;
+    }
+
+    function calculate() {
+      try {
+        const result = eval(currentInput);
+        currentInput = `${result}`;
+        currentOperator = null;
+        updateDisplay();
+      } catch (error) {
+        alert("잘못된 수식입니다.");
+      }
+    }
               
             })
         </script>
