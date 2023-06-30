@@ -7,12 +7,15 @@
 <body>
   <p>안녕하세요</p>
   <script>
-    password = prompt("비밀번호");
-    if(password == 0000) { 
-      document.write("안녕하세요");
-    } else { 
-      document.write("누구십니까")
-    }
+    var password = prompt("비밀번호");
+
+  if (password === null) {
+    document.write("인증이 취소되었습니다");
+  } else if (password == "0000") {
+    document.write("안녕하세요");
+  } else {
+    document.write("누구십니까");
+  }
   </script>
 </body>
 </html>
