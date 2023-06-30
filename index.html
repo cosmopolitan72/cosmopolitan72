@@ -18,22 +18,6 @@
 		    <i class="fas fa-calculator" onclick="showModal()"></i>
 	  </div>
 
-	    <div id="calculatorModal" class="modal">
-  <div class="modal-content">
-    <!-- 기존 계산기 HTML 코드 사용 -->
-    <div class="calculator">
-      <input type="text" id="display" readonly>
-      <div class="buttons">
-        <button onclick="clearDisplay()">C</button>
-        <!-- 숫자 및 연산자 버튼 추가 -->
-        <button onclick="appendNumber(1)">1</button>
-        <!-- 나머지 버튼들 추가 -->
-        <button onclick="calculate()">=</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 	     <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
             <div class="container">
                 <a class="navbar-brand" href="#"><img src="imgs/coss.png" alt="#" style="margin-left: -13px;" /></a>
@@ -340,40 +324,6 @@
                 
                 $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
 		    
-		let currentInput = "";
-    let currentOperator = null;
-
-    function appendNumber(number) {
-      currentInput += number;
-      updateDisplay();
-    }
-
-    function appendOperator(operator) {
-      if (currentOperator !== null) calculate();
-      currentOperator = operator;
-      currentInput += ` ${operator} `;
-      updateDisplay();
-    }
-
-    function clearDisplay() {
-      currentInput = "";
-      updateDisplay();
-    }
-
-    function updateDisplay() {
-      document.getElementById("display").value = currentInput;
-    }
-
-    function calculate() {
-      try {
-        const result = eval(currentInput);
-        currentInput = `${result}`;
-        currentOperator = null;
-        updateDisplay();
-      } catch (error) {
-        alert("잘못된 수식입니다.");
-      }
-    }
               
             })
         </script>
