@@ -15,8 +15,24 @@
     <body>
 	    <div class="sidebar">
 		    <a href="bottm.html" target="_blank"><i class="fas fa-compass"></i></a>
-		   <a href="https://sites.google.com/view/cosmopolitan72/home"><i class="fab fa-instagram"></i></a>
+		    <i class="fas fa-calculator" onclick="showModal()"></i>
 	  </div>
+
+	    <div id="calculatorModal" class="modal">
+  <div class="modal-content">
+    <!-- 기존 계산기 HTML 코드 사용 -->
+    <div class="calculator">
+      <input type="text" id="display" readonly>
+      <div class="buttons">
+        <button onclick="clearDisplay()">C</button>
+        <!-- 숫자 및 연산자 버튼 추가 -->
+        <button onclick="appendNumber(1)">1</button>
+        <!-- 나머지 버튼들 추가 -->
+        <button onclick="calculate()">=</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 	     <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
             <div class="container">
