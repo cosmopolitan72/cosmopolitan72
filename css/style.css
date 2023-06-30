@@ -687,7 +687,7 @@ position: fixed;
 right: 1.5%;
 top: 50%;
 transform: translateY(-50%);
-z-index: -6;
+z-index: 1002;
 } 
 
 
