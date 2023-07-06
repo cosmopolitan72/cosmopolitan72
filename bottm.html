@@ -36,7 +36,10 @@
       if (password === correctPassword) {
         document.getElementById("content").style.display = "block";
       } else {
-        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>인증이 취소되었습니다.</div>");
+        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>+
+                       "<p>인증이 취소되었습니다.</p>"+
+                       "<img src='thunder_icon.png' alt='thunder'/>"
+                       </div>");
       }
     </script>
   </body>
