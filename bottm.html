@@ -1,111 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<style>
-  body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #text-message {
-    margin-top: 20px;
-  }
-  
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    text-align: center;
-    position: relative;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  img {
-    max-width: 100%;
-    max-height: 100px;
-  }
-</style>
-</head>
-<body>
-<div id="content" style="display: none;">
-  <img src="thunder_icon" alt="Example imag" />
-  <div id="text-message">제한된 컨텐츠입니다.</div>
-</div>
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <img src="error_image.jpg" alt="Error image" />
-    <p>잘못된 비밀번호입니다.</p>
-  </div>
-</div>
-<script>
-  const correctPassword = "0000";
-  let password = prompt("비밀번호");
-  const modal = document.getElementById("myModal");
-  const span = document.getElementsByClassName("close")[0];
-  
-  function showModal() {
-    modal.style.display = "block";
-  }
-  
-  function hideModal() {
-    modal.style.display = "none";
-  }
-  
-  span.onclick = function() {
-    hideModal();
-  };
-  
-  window.onclick = function(event) {
-    if (event.target == modal) {
-      hideModal();
-    }
-  };
-  
-  while (password !== null && password !== correctPassword) {
-    showModal();
-    password = prompt("다시 시도하거나 취소를 눌러주세요.");
-  }
-  
-  if (password === correctPassword) {
-    document.getElementById("content").style.display = "block";
-  } else {
-    document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>인증이 취소되었습니다.</div>");
-  }
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      #text-message {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="content" style="display: none;">
+      <img src="example.jpg" alt="Example image" />
+      <div id="text-message">제한된 컨텐츠입니다.</div>
+    </div>
+    <script>
+      const correctPassword = "0000";
+      let password = prompt("비밀번호");
+
+      while (password !== null && password !== correctPassword) {
+        alert("잘못된 비밀번호입니다.");
+        password = prompt("다시 시도하거나 취소를 눌러주세요.");
+      }
+
+      if (password === correctPassword) {
+        document.getElementById("content").style.display = "block";
+      } else {
+        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>인증이 취소되었습니다.</div>");
+      }
+    </script>
+  </body>
 </html>
