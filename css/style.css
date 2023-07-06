@@ -708,7 +708,7 @@ cosImage {
       background-color: #ffffff;
       margin: 10% auto;
       padding: 20px;
-      border-radius: 50px; /* 이 값을 더 높여서 더 둥글게 만듭니다. */
+      border-radius: 90px; /* 이 값을 더 높여서 더 둥글게 만듭니다. */
       width: 30%;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
  }
