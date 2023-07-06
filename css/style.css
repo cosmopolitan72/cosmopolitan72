@@ -698,3 +698,8 @@ color: #50b7ef;
 margin-top: 10px;
 margin-bottom: 10px; 
 } 
+
+#cosImage {
+  width: 50%;
+  height: auto;
+}
