@@ -18,6 +18,33 @@
         width: 100%;
         height: auto;
       }
+
+      /* 사용자 정의 입력 대화 상자 스타일 */
+      #custom-prompt {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+
+      #custom-prompt div {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        border-radius: 5px;
+        width: 30%;
+      }
+
+      /* 입력 상자의 글자 크기 조절 */
+      #custom-prompt input {
+        font-size: 24px;
+        width: 100%;
+        box-sizing: border-box;
+      }
     </style>
   </head>
 
@@ -28,19 +55,34 @@
       <img id="cosImage" src="imgs/chat.png" alt="사진">
     </div>
 
+    <!-- 사용자 정의 입력 대화 상자 -->
+    <div id="custom-prompt">
+      <div>
+        <p>비밀번호 입력:</p>
+        <input type="password" id="password-input" placeholder="비밀번호">
+        <button id="submit-btn">확인</button>
+      </div>
+    </div>
+
     <script>
       const correctPassword = "0000";
-      let password = prompt("비밀번호");
+      const customPrompt = document.getElementById("custom-prompt");
+      const passwordInput = document.getElementById("password-input");
+      const submitBtn = document.getElementById("submit-btn");
+      
+      customPrompt.style.display = "block"; // 사용자 정의 입력 대화상자를 표시
 
-      while (password !== null && password !== correctPassword) {
-        password = prompt("잘못된 비밀번호입니다. 다시 시도하거나 취소를 눌러주세요.");
-      }
-
-      if (password === correctPassword) {
-        document.getElementById("content").style.display = "block";
-      } else {
-        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>인증이 취소되었습니다.</div>");
-      }
+      // 확인 버튼 클릭 시 처리
+      submitBtn.addEventListener("click", () => {
+        const password = passwordInput.value;
+        
+        if (password === correctPassword) {
+          document.getElementById("content").style.display = "block";
+          customPrompt.style.display = "none";
+        } else {
+          alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
+        }
+      });
     </script>
   </body>
 </html>
