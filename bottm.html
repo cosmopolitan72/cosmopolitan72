@@ -29,17 +29,13 @@
       let password = prompt("비밀번호");
 
       while (password !== null && password !== correctPassword) {
-        alert("잘못된 비밀번호입니다.");
-        password = prompt("다시 시도하거나 취소를 눌러주세요.");
+        password = prompt("잘못된 비밀번호입니다. 다시 시도하거나 취소를 눌러주세요.");
       }
 
       if (password === correctPassword) {
         document.getElementById("content").style.display = "block";
       } else {
-        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>+
-                       "<p>인증이 취소되었습니다.</p>"+
-                       "<img src='thunder_icon.png' alt='thunder'/>"
-                       </div>");
+        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>인증이 취소되었습니다.</div>");
       }
     </script>
   </body>
