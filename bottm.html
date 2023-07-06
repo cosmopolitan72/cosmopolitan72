@@ -20,7 +20,7 @@
 
   <body>
     <div id="content" style="display: none;">
-      <img src="thunder_icon.png" alt="Example image" />
+      <img src="example.jpg" alt="Example image" />
       <div id="text-message">제한된 컨텐츠입니다.</div>
     </div>
     <script>
@@ -28,7 +28,8 @@
       let password = prompt("비밀번호");
 
       while (password !== null && password !== correctPassword) {
-        password = prompt("잘못된 비밀번호입니다. 다시 시도하거나 취소를 눌러주세요.");
+        alert("잘못된 비밀번호입니다.");
+        password = prompt("다시 시도하거나 취소를 눌러주세요.");
       }
 
       if (password === correctPassword) {
