@@ -705,7 +705,7 @@ cosImage {
 }
 
 #custom-prompt div {
-      background-color: #ffffff;
+      background-color: ##21212;
       margin: 10% auto;
       padding: 20px;
       border-radius: 90px; /* 이 값을 더 높여서 더 둥글게 만듭니다. */
