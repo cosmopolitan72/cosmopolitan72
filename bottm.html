@@ -35,21 +35,21 @@
       }
 
       #custom-prompt div {
-        background-color: white;
+        background-color: #ffffff;
         margin: 10% auto;
         padding: 20px;
         border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         width: 30%;
+        box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
       }
 
-      /* 입력 상자의 글자 크기 조절 */
+      /* 입력 상자, 버튼 스타일 */
       #custom-prompt input {
         font-size: 24px;
         width: 100%;
         box-sizing: border-box;
       }
-      /* 버튼 스타일 추가 */
+
       #submit-btn, #cancel-btn {
         margin-top: 1rem;
         width: 100%;
@@ -98,7 +98,7 @@
       // 취소 버튼 클릭 시 처리
       cancelBtn.addEventListener("click", () => {
         customPrompt.style.display = "none";
-        alert("인증이 취소되었습니다.");
+        window.location.reload(); // 새로고침 처리하여 원래 화면으로 돌아가게 함
       });
 
       // 비밀번호 확인 함수
