@@ -12,6 +12,10 @@
       #content {
       display: none;
     }
+    
+    #content .error {
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -30,7 +34,7 @@
     if (password === correctPassword) {
       document.getElementById("content").style.display = "block";
     } else {
-      document.write("인증이 취소되었습니다.");
+      document.write("<div class=\"error\">인증이 취소되었습니다.</div>");
     }
   </script>
 </body>
