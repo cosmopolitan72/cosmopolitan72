@@ -25,9 +25,8 @@
     <div id="content" style="display:none;">
       <h1>제한된 컨텐츠입니다.</h1>
       <p>안녕하세요</p>
-      <img id="cosImage" src="imgs/like.png" alt="사진">
+      <img id="cosImage" src="imgs/chat.png" alt="사진">
     </div>
-    <img id="unauthorizedImage" src="imgs/chat.png" alt="인증 실패 이미지" style="display:none;">
 
     <script>
       const correctPassword = "0000";
@@ -40,7 +39,7 @@
       if (password === correctPassword) {
         document.getElementById("content").style.display = "block";
       } else {
-        document.getElementById("unauthorizedImage").style.display = "block";
+        document.write("<div style='position:absolute;top:50%;left:50%; transform:translate(-50%, -50%);'>인증이 취소되었습니다.</div>");
       }
     </script>
   </body>
