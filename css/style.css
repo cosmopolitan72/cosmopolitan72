@@ -715,7 +715,7 @@ cosImage {
  
 @media screen and (max-width: 600px) {
   #custom-prompt div {
-    width: 80vw;
+    width: 100vw;
   }
 
   #custom-prompt {
