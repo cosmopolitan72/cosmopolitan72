@@ -1,12 +1,15 @@
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="imgs/cos_bo_1.png" type="image/png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
     <title>cosmopolitan</title>
     <style>
       body {
+        background-color: #f0f0f0;
         height: 100vh;
         margin: 0;
         display: flex;
@@ -36,6 +39,7 @@
         margin: 10% auto;
         padding: 20px;
         border-radius: 5px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         width: 30%;
       }
 
@@ -45,12 +49,19 @@
         width: 100%;
         box-sizing: border-box;
       }
+      /* 버튼 스타일 추가 */
+      #submit-btn, #cancel-btn {
+        margin-top: 1rem;
+        width: 100%;
+        font-size: 18px;
+        padding: 0.5rem 0;
+      }
     </style>
   </head>
 
   <body>
     <div id="content" style="display:none;">
-      <h1>제한된 컨텐츠입니다.</h1>
+      <h1 class="text-center">제한된 컨텐츠입니다.</h1>
       <p>안녕하세요</p>
       <img id="cosImage" src="imgs/chat.png" alt="사진">
     </div>
@@ -59,30 +70,49 @@
     <div id="custom-prompt">
       <div>
         <p>비밀번호 입력:</p>
-        <input type="password" id="password-input" placeholder="비밀번호">
-        <button id="submit-btn">확인</button>
+        <input type="password" id="password-input" placeholder="비밀번호" class="form-control">
+        <button id="submit-btn" class="btn btn-primary">확인</button>
+        <button id="cancel-btn" class="btn btn-secondary">취소</button>
       </div>
     </div>
 
     <script>
-      const correctPassword = "0000";
+      const correctPassword = "0000";      
       const customPrompt = document.getElementById("custom-prompt");
       const passwordInput = document.getElementById("password-input");
       const submitBtn = document.getElementById("submit-btn");
+      const cancelBtn = document.getElementById("cancel-btn");
       
-      customPrompt.style.display = "block"; // 사용자 정의 입력 대화상자를 표시
+      customPrompt.style.display = "block";
 
       // 확인 버튼 클릭 시 처리
-      submitBtn.addEventListener("click", () => {
+      submitBtn.addEventListener("click", verifyPassword);
+
+      // Enter 키 눌렀을 때 처리
+      passwordInput.addEventListener("keyup", (e) => {
+        if (e.key === "Enter" || e.keyCode === 13) {
+          verifyPassword();
+        }
+      });
+
+      // 취소 버튼 클릭 시 처리
+      cancelBtn.addEventListener("click", () => {
+        customPrompt.style.display = "none";
+        alert("인증이 취소되었습니다.");
+      });
+
+      // 비밀번호 확인 함수
+      function verifyPassword() {
         const password = passwordInput.value;
-        
+
         if (password === correctPassword) {
           document.getElementById("content").style.display = "block";
           customPrompt.style.display = "none";
         } else {
           alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
         }
-      });
+      }
+
     </script>
   </body>
 </html>
