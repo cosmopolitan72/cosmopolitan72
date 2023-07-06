@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet">
   
   <title>cosmopolitan</title>
   <style>
@@ -14,7 +14,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'SF Pro Display', sans-serif;
     }
 
     #content img {
@@ -38,7 +38,7 @@
       background-color: #ffffff;
       margin: 10% auto;
       padding: 20px;
-      border-radius: 5px;
+      border-radius: 15px;
       width: 30%;
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
     }
@@ -49,39 +49,42 @@
       width: 100%;
       box-sizing: border-box;
       padding: 1rem;
-      border: 1px solid #ccc;
+      border: 1px solid #CCC;
       margin-bottom: 1rem;
+      border-radius: 15px;
+      font-family: 'SF Pro Display', sans-serif;
     }
 
     #submit-btn, #cancel-btn {
       font-size: 18px;
       padding: 0.5rem 0;
-      border-radius: 4px;
+      border-radius: 15px;
       border: none;
       width: 100%;
       transition: 0.3s;
+      font-family: 'SF Pro Display', sans-serif;
+      font-weight: 500;
     }
 
     #submit-btn {
-      background-color: #4285f4;
+      background-color: #007aff;
       color: #fff;
     }
 
     #cancel-btn {
-      color: #4285f4;
-      font-weight: 500;
+      color: #007aff;
       background-color: transparent;
     }
 
     /* 예술적인 디자인 효과 추가 */
     h1 {
-      font-family: 'Roboto', sans-serif;
-      font-weight: bold;
+      font-family: 'SF Pro Display', sans-serif;
+      font-weight: 600;
       color: #333;
     }
 
     p {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'SF Pro Display', sans-serif;
       font-weight: 400;
       color: #555;
     }
@@ -99,7 +102,7 @@
   <!-- 사용자 정의 입력 대화 상자 -->
   <div id="custom-prompt">
     <div>
-      <p>비밀번호 입력:</p>
+      <p style="font-weight:600;">비밀번호 입력:</p>
       <input type="password" id="password-input" placeholder="비밀번호" class="form-control">
       <button id="submit-btn" class="btn">확인</button>
       <button id="cancel-btn" class="btn">취소</button>
