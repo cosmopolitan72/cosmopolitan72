@@ -56,6 +56,34 @@
         font-size: 18px;
         padding: 0.5rem 0;
       }
+
+      /* 예술적인 디자인 효과 추가 */
+      h1 {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        color: #333;
+      }
+
+      p {
+        font-family: 'Arial', sans-serif;
+        font-weight: 400;
+        color: #555;
+      }
+
+      button {
+        font-family: 'Arial', sans-serif;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #555;
+      }
+
     </style>
   </head>
 
@@ -98,7 +126,7 @@
       // 취소 버튼 클릭 시 처리
       cancelBtn.addEventListener("click", () => {
         customPrompt.style.display = "none";
-        window.location.reload(); // 새로고침 처리하여 원래 화면으로 돌아가게 함
+        window.location.href = "https://cosmopolitan72.github.io/cosmopolitan72/"; // 원하는 페이지로 이동
       });
 
       // 비밀번호 확인 함수
