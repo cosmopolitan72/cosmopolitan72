@@ -1,24 +1,28 @@
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="imgs/cos bo 1.png" type="image/png">
-    
-    <title>cosmopolitan</title>
+    <title>Document</title>
     <style>
       body {
-        height: 100vh;
+        height: 100%;
         margin: 0;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+      }
+      #text-message {
+        margin-top: 20px;
       }
     </style>
   </head>
 
   <body>
-    <div id="content" style="display: none;">제한된 컨텐츠입니다.</div>
+    <div id="content" style="display: none;">
+      <img src="thunder_icon.png" alt="Example image" />
+      <div id="text-message">제한된 컨텐츠입니다.</div>
+    </div>
     <script>
       const correctPassword = "0000";
       let password = prompt("비밀번호");
