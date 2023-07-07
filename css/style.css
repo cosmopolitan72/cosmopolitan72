@@ -704,17 +704,20 @@ cosImage {
   height: auto;
 }
 
-#custom-prompt div {
-  background-color: #21212;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 70px;
-  width: 30%;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
-}
-
 @media screen and (max-width: 600px) {
   #custom-prompt div {
-    width: 90vw;
+    width: 80vw;
+  }
+
+  #custom-prompt {
+    font-size: 1rem;
+  }
+
+  #custom-prompt h2 {
+    font-size: 1rem;
+  }
+
+  #custom-prompt .input-fields {
+    font-size: 0.8rem;
   }
 }
