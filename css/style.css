@@ -699,13 +699,13 @@ margin-top: 10px;
 margin-bottom: 10px; 
 } 
 
-cosImage {
+.cosImage {
   width: 10%;
   height: auto;
 }
 
 @media screen and (max-width: 600px) {
-  cosImage {
+  .cosImage {
     width: 100%;
     height: auto;
   }
@@ -715,14 +715,14 @@ cosImage {
   }
 
   #custom-prompt {
-    font-size: 0.8rem;
+    font-size: 2.5vw; /* 'rem' 대신 뷰포트 너비에 맞게 글자 크기를 조절합니다. */
   }
 
   #custom-prompt h2 {
-    font-size: 0.8rem;
+    font-size: 2.5vw;
   }
 
   #custom-prompt .input-fields {
-    font-size: 0.6rem;
+    font-size: 1.5vw;
   }
 }
