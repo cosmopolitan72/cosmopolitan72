@@ -65,7 +65,7 @@
     transition: 0.3s;
     font-family: "SF Pro Display", sans-serif;
     font-weight: 500;
-    margin-top: 1rem;
+    margin-top: 3rem;
   }
 
   #submit-btn {
@@ -91,10 +91,15 @@
     color: #555;
   }
 
+  /* 반응형 미디어 쿼리 */
   @media screen and (max-width: 600px) {
     #custom-prompt div {
       width: 90%;
       margin: auto;
+    }
+    #submit-btn,
+    #cancel-btn {
+      margin-top: 5rem;
     }
   }
 
@@ -102,6 +107,10 @@
     #custom-prompt div {
       width: 40%;
       margin: auto;
+    }
+    #submit-btn,
+    #cancel-btn {
+      margin-top: 4rem;
     }
   }
 </style>
