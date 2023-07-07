@@ -705,19 +705,24 @@ cosImage {
 }
 
 @media screen and (max-width: 600px) {
+  cosImage {
+    width: 100%;
+    height: auto;
+  }
+
   #custom-prompt div {
-    width: 80vw;
+    width: 100%;
   }
 
   #custom-prompt {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   #custom-prompt h2 {
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   #custom-prompt .input-fields {
-    font-size: 0.8rem;
+    font-size: 0.6rem;
   }
 }
