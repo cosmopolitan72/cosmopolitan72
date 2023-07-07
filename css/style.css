@@ -712,21 +712,9 @@ cosImage {
   width: 30%;
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
 }
- 
+
 @media screen and (max-width: 600px) {
   #custom-prompt div {
-    width: 150vw;
-  }
-
-  #custom-prompt {
-    font-size: 1rem;
-  }
-
-  #custom-prompt h2 {
-    font-size: 1rem;
-  }
-
-  #custom-prompt .input-fields {
-    font-size: 0.8rem;
+    width: 90vw;
   }
 }
