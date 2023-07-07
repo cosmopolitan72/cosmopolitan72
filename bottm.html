@@ -35,10 +35,12 @@
   }
 
   #custom-prompt div {
-    background-color: #ffffff;
+ background-color: #ffffff;
     padding: 20px;
     border-radius: 50px;
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
+    margin: 10% auto;
+    width: 50%;
   }
 
   /* 입력 상자, 버튼 스타일 */
@@ -91,6 +93,13 @@
   @media screen and (max-width: 600px) {
     #custom-prompt div {
       width: 90%;
+      margin: auto;
+    }
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    #custom-prompt div {
+      width: 70%;
       margin: auto;
     }
   }
