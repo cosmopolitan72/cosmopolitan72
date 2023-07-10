@@ -1,12 +1,50 @@
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 데모</title>
+    <title>뤼튼 데모</title>
     <style>
         .hidden {
             display: none;
+        }
+
+        #content {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* 기본 버튼 스타일 개선 */
+        button {
+            background-color: #2c3e50;
+            font-size: 18px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 8px 2px;
+            transition-duration: 0.4s;
+            border-radius: 12px;
+            outline: none;
+            box-shadow: 0 9px #999;
+        }
+
+        /* 마우스 오버 시 버튼 스타일 변경 */
+        button:hover {
+            background-color: #34495e;
+            color: white;
+        }
+
+        /* 버튼 클릭 시 스타일 */
+        button:active {
+            background-color: #2c3e50;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
         }
     </style>
 </head>
