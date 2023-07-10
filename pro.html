@@ -1,29 +1,44 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>뤼튼 데모</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>뤼튼 데모</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-  <h1>내용 변경 데모</h1>
-  <div id="content">
-    <p>내용 1</p>
-  </div>
-  <button id="changeBtn">용 변경</button>
+    <h1>내용 전환 데모</h1>
+    <div id="content">
+        <div id="content1">내용 1</div>
+        <div id="content2" class="hidden">내용 2</div>
+        <div id="content3" class="hidden">내용 3</div>
+    </div>
+    <button id="btn1">내용 1</button>
+    <button id="btn2">내용 2</button>
+    <button id="btn3">내용 3</button>
+    <script>
+        const contents = document.querySelectorAll("#content > div");
+        const buttons = document.querySelectorAll("button");
 
-  <script src="script.js">
-     document.getElementByIdchangeBtn').addEventListener('click', function () {
-  const content = document.getElementById('content');
-  const currentText = content.innerText;
+        function showContent(index) {
+            for (let i = 0; i < contents.length; i++) {
+                if (i === index) {
+                    contents[i].classList.remove("hidden");
+                } else {
+                    contents[i].classList.add("hidden");
+                }
+            }
+        }
 
-  if (currentText.includes('내용 1')) {
-    content.innerHTML = '<p>내용 2</p>';
-  } else {
-    content.innerHTML = '<p>내용 1</p>';
-  }
-});
-  </script>
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].addEventListener("click", function () {
+                showContent(i);
+            });
+        }
+    </script>
 </body>
 </html>
-
