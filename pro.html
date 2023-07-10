@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>데모</title>
+    <title>뤼튼 데모</title>
     <style>
         .wrtn-hidden {
             display: none;
@@ -39,12 +39,17 @@
             color: black;
         }
 
+        .wrtn-buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
         .wrtn-content {
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: space-evenly;
-            margin-top: 30px;
         }
 
         .wrtn-content-item {
@@ -55,6 +60,11 @@
 </head>
 <body>
     <div class="wrtn-container">
+        <div class="wrtn-buttons">
+            <button class="wrtn-button" onclick="changeContent(1)">버튼 1</button>
+            <button class="wrtn-button" onclick="changeContent(2)">버튼 2</button>
+            <button class="wrtn-button" onclick="changeContent(3)">버튼 3</button>
+        </div>
         <div id="wrtn-content">
             <div class="wrtn-content-item" id="wrtn-content1">
                 <p>첫 번째 내용입니다.</p>
@@ -62,21 +72,21 @@
             <div class="wrtn-content-item wrtn-hidden" id="wrtn-content2">
                 <p>두 번째 내용입니다.</p>
             </div>
+            <div class="wrtn-content-item wrtn-hidden" id="wrtn-content3">
+                <p>세 번째 내용입니다.</p>
+            </div>
         </div>
-        <button class="wrtn-button" onclick="changeContent()">버튼</button>
     </div>
 
     <script>
-        function changeContent() {
-            var currentContent = document.querySelector('.wrtn-content-item:not(.wrtn-hidden)');
-            var nextContent = currentContent.nextElementSibling;
+        function changeContent(buttonNumber) {
+            var visibleContent = document.querySelector('.wrtn-content-item:not(.wrtn-hidden)');
+            var targetContent = document.querySelector('#wrtn-content' + buttonNumber);
 
-            if (!nextContent) {
-                nextContent = document.querySelector('.wrtn-content-item:first-child');
+            if (visibleContent !== targetContent) {
+                visibleContent.classList.add('wrtn-hidden');
+                targetContent.classList.remove('wrtn-hidden');
             }
-
-            currentContent.classList.add('wrtn-hidden');
-            nextContent.classList.remove('wrtn-hidden');
         }
     </script>
 </body>
