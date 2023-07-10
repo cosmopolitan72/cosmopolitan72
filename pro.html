@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>뤼튼 데모</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        .wrtn-hidden {
+            display: none;
+        }
+
+        .wrtn-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -16,15 +19,7 @@
             margin: 0;
         }
 
-        .content {
-            display: none;
-        }
-
-        .content.active {
-            display: block;
-        }
-
-        button {
+        .wrtn-button {
             background-color: #4CAF50;
             color: white;
             font-size: 16px;
@@ -39,32 +34,49 @@
             border-radius: 12px;
         }
 
-        button:hover {
+        .wrtn-button:hover {
             background-color: white;
             color: black;
+        }
+
+        .wrtn-content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: 30px;
+        }
+
+        .wrtn-content-item {
+            text-align: center;
+            font-size: 32px;
         }
     </style>
 </head>
 <body>
-    <div id="contentContainer">
-        <div class="content active">내용 1</div>
-        <div class="content">내용 2</div>
-        <div class="content">내용 3</div>
+    <div class="wrtn-container">
+        <div id="wrtn-content">
+            <div class="wrtn-content-item" id="wrtn-content1">
+                <p>첫 번째 내용입니다.</p>
+            </div>
+            <div class="wrtn-content-item wrtn-hidden" id="wrtn-content2">
+                <p>두 번째 내용입니다.</p>
+            </div>
+        </div>
+        <button class="wrtn-button" onclick="changeContent()">버튼</button>
     </div>
-    <button onclick="changeContent(0)">내용 1</button>
-    <button onclick="changeContent(1)">내용 2</button>
-    <button onclick="changeContent(2)">내용 3</button>
-    <script>
-        const contents = document.querySelectorAll(".content");
 
-        function changeContent(index) {
-            for (let i = 0; i < contents.length; i++) {
-                if (i === index) {
-                    contents[i].classList.add("active");
-                } else {
-                    contents[i].classList.remove("active");
-                }
+    <script>
+        function changeContent() {
+            var currentContent = document.querySelector('.wrtn-content-item:not(.wrtn-hidden)');
+            var nextContent = currentContent.nextElementSibling;
+
+            if (!nextContent) {
+                nextContent = document.querySelector('.wrtn-content-item:first-child');
             }
+
+            currentContent.classList.add('wrtn-hidden');
+            nextContent.classList.remove('wrtn-hidden');
         }
     </script>
 </body>
