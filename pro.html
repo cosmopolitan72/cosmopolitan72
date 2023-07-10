@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>뤼튼 데모</title>
+</head>
+<body>
+  <h1>내용 변경 데모</h1>
+  <div id="content">
+    <p>내용 1</p>
+  </div>
+  <button id="changeBtn">용 변경</button>
+
+  <script src="script.js">
+     document.getElementByIdchangeBtn').addEventListener('click', function () {
+  const content = document.getElementById('content');
+  const currentText = content.innerText;
+
+  if (currentText.includes('내용 1')) {
+    content.innerHTML = '<p>내용 2</p>';
+  } else {
+    content.innerHTML = '<p>내용 1</p>';
+  }
+});
+  </script>
+</body>
+</html>
 
