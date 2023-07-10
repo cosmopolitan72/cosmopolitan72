@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>데모</title>
+    <title>뤼튼 데모</title>
     <style>
-        .hidden {
-            display: none;
-        }
-
         body {
+            font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -19,20 +16,14 @@
             margin: 0;
         }
 
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+        .content {
+            display: none;
         }
 
-        .content-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+        .content.active {
+            display: block;
         }
 
-        /* 기본 버튼 스타일 */
         button {
             background-color: #4CAF50;
             color: white;
@@ -48,7 +39,6 @@
             border-radius: 12px;
         }
 
-        /* 마우스 오버 시 버튼 스타일 */
         button:hover {
             background-color: white;
             color: black;
@@ -56,37 +46,25 @@
     </style>
 </head>
 <body>
-    <div class="content-container">
-        <h1>내용 전환 데모</h1>
-        <div id="content">
-            <div id="content1">내용 1</div>
-            <div id="content2" class="hidden">내용 2</div>
-            <div id="content3" class="hidden">내용 3</div>
-        </div>
+    <div id="contentContainer">
+        <div class="content active">내용 1</div>
+        <div class="content">내용 2</div>
+        <div class="content">내용 3</div>
     </div>
-    <div class="button-container">
-        <button id="btn1">내용 1</button>
-        <button id="btn2">내용 2</button>
-        <button id="btn3">내용 3</button>
-    </div>
+    <button onclick="changeContent(0)">내용 1</button>
+    <button onclick="changeContent(1)">내용 2</button>
+    <button onclick="changeContent(2)">내용 3</button>
     <script>
-        const contents = document.querySelectorAll("#content > div");
-        const buttons = document.querySelectorAll("button");
+        const contents = document.querySelectorAll(".content");
 
-        function showContent(index) {
+        function changeContent(index) {
             for (let i = 0; i < contents.length; i++) {
                 if (i === index) {
-                    contents[i].classList.remove("hidden");
+                    contents[i].classList.add("active");
                 } else {
-                    contents[i].classList.add("hidden");
+                    contents[i].classList.remove("active");
                 }
             }
-        }
-
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].addEventListener("click", function () {
-                showContent(i);
-            });
         }
     </script>
 </body>
