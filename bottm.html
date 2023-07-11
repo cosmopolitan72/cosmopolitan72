@@ -1,66 +1,184 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page with Logo</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f0f0f0;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <title>cosmopolitan</title>
+<style>
+  body {
+    background-color: #000000;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "SF Pro Display", sans-serif;
+  }
+
+  #content img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* 사용자 정의 입력 대화 상자 스타일 */
+  #custom-prompt {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: (0, 0, 0, 0.85);
+    z-index: 10;
+  }
+
+  #custom-prompt div {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.075);
+    margin: 10% auto;
+    width: 30%;
+  }
+
+  /* 입력 상자, 버튼 스타일 */
+  #custom-prompt input {
+    font-size: 24px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+    border: 1px solid #CCC;
+    margin-bottom: 1rem;
+    border-radius: 50px;
+    font-family: "SF Pro Display", sans-serif;
+  }
+
+  #submit-btn,
+  #cancel-btn {
+    font-size: 18px;
+    padding: 0.5rem 0;
+    border-radius: 50px;
+    border: none;
+    width: 100%;
+    transition: 0.3s;
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  #submit-btn {
+    background-color: #007aff;
+    color: #fff;
+  }
+
+  #cancel-btn {
+    color: #007aff;
+    background-color: transparent;
+  }
+
+  /* 예술적인 디자인 효과 추가 */
+  h1 {
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 600;
+    color: #333;
+  }
+
+  p {
+    font-family: "SF Pro Display", sans-serif;
+    font-weight: 400;
+    color: #555;
+  }
+
+  /* 반형 미디어 쿼리 */
+  @media screen and (max-width: 600px) {
+    #custom-prompt div {
+      width: 90%;
+      margin: 30% auto;
+
     }
-    #custom-prompt {
-      width: 450px;
-      padding: 2rem;
-      border-radius: 10px;
-      background-color: white;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    #submit,
+    #cancel-btn {
+      margin-top: 0.5rem;
+
     }
-    input[type="password"] {
-      box-sizing: border-box;
-      width: 100%;
-      padding: 0.5rem;
-      border: 1px solid #cccccc;
-      font-size: 14px;
-      margin-bottom: 1em;
-    }
-    button[type="submit"] {
-      box-sizing: border-box;
-      width: 100%;
-      padding: 0.5rem;
-      background-color: #3366cc;
-      color: white;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      border: none;
-      cursor: pointer;
-      margin-bottom: 1em;
-      border-radius: 3px;
-    }
-    #logo-img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 50%;
-      display: block;
-      margin: 0 auto 2rem;
-    }
-  </style>
-</head>
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    #custom-prompt div {
+      width: 40 margin: 15% auto;
+
+      }
+    #submit-btn,
+    #cancel-btn {
+      margin-top: 0.5rem;
+
+      }
+  }
+  #logo-img {
+    </style>
+
+  /head>
+
 <body>
+  <div id="content" style="display:none;">
+    <h1 class="text-center">제한된 컨텐츠입니다.</h1>
+    <p>안녕하세요</p>
+    <img id="cosImage" src="imgs/chat.png" alt="사진">
+  </div>
+
+  <!-- 사용자 정의 입력 대화 상자 -->
   <div id="custom-prompt">
     <div>
-      <img src="logo_url_here" alt="Your Logo" id="logo-img" />
+      <img src="imgs/cos bo 1.png" alt="Your Logo" id="logo-img" />
       <p style="font-weight:600;">Enter your password:</p>
-      <input type="password" name="password">
-      <button type="submit">Login</button>
-    </div>
+      <input type="password" id="password-input" placeholder="Password" class="form-control">
+      <button id="submit-btn" class="btn">Submit</button>
+      <button id="cancel-btn" class="btn">Cancel</button>
+
+       </div>
   </div>
+
+  <script>
+    const correctPassword = "0000";      
+    const customPrompt = document.getElementById("custom-prompt");
+    const passwordInput = document.getElementById("password-input");
+    const submitBtn = document.getElementById("submit-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    customPrompt.style.display = "block";
+
+    // 확인 버튼 클릭 시 처리
+    submitBtn.addEventListener("click", verifyPassword);
+
+    // Enter 키 눌려졌을 때 처리
+    passwordInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter" || e.keyCode === 13) {
+        verifyPassword();
+      }
+    });
+
+    // 취소 버튼 클릭 시 처리
+    cancelBtn.addEventListener("click", () => {
+      customPrompt.style.display = "none";
+      alert("인증이 취소되었습니다.");
+      window.location.href = "https://cosmopolitan72.github.io/cosmopolitan72/"; // 원하는 페이지로 이동
+    });
+
+    // 비밀번호 확인 함수
+    function verifyPassword() {
+      const password = passwordInput.value;
+
+      if (password === correctPassword) {
+        document.getElementById("content").style.display = "block";
+        customPrompt.style.display = "none";
+      } else {
+        alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
+      }
+    }
+
+  </script>
 </body>
 </html>
