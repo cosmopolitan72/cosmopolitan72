@@ -9,6 +9,7 @@
             </span>{% endif %} on
             <time datetime="{{ page.date }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
         </p>
+        
         {% if page.tags.size > 0 %}
         <div class="post_tags">
             Tags: {% for tag in page.tags %}
