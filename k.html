@@ -1,314 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Timeline Example with FontAwesome and Madplay's Design</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-          crossorigin="anonymous">
-
-    <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
-          crossorigin="anonymous" />
-    
-
-    <!-- Custom CSS for Timeline -->
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-        }
-
-        .main-nav {
-            background-color: #4f4f4f;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 9999;
-            /* transition */
-            transition: all 0.5s ease-in-out;
-        }
-        .main-nav .navbar-brand{
-            color: #ffffff; 
-            /* move brand name to left side */
-            margin-left: 20px;
-        }
-        .main-nav .navbar-nav .nav-link{
-            color: #ffffff; 
-            margin-right: 20px;
-            transition: all 0.5s ease-in-out;
-        }
-        .main-nav .nav-link:hover{
-            color: #2db34e; 
-            transition: all 0.5s ease-in-out;
-        }
-
-        .timeline {
-            list-style-type: none;
-            position: relative;
-            padding: 20px 0 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .timeline:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background-color: #e9ecef;
-            left: 30px;
-            margin-left: -1.5px;
-        }
-        
-        .right-timeline:before{
-            left: auto;
-            right: 30px;
-            margin-left: -1.5px;
-        }
-
-        .timeline > li {
-            /* margin-bottom: 50px; */
-            position: relative;
-            min-height: 50px;
-        }
-
-        .timeline > li:before,
-        .timeline > li:after {
-            content: "";
-            display: table;
-        }
-
-        .timeline > li:after {
-            clear: both;
-        }
-
-        .timeline > li .timeline-badge {
-            border-radius: 50%;
-            color: #fff;
-            text-align: center;
-            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-            width: 45px;
-            height: 45px;
-            position: absolute;
-            top: 16px;
-            left: 70px;
-            z-index: 12;
-            font-size: 1.7em;
-            line-height: 43px;
-            background-color: #ffffff;
-        }
-
-        .timeline > li .timeline-badge i {
-            margin-top: 6px;
-            font-size: 1.7em;
-            color: #263238;
-        }
-
-        .timeline > li.timeline-inverted > .timeline-panel {
-            right: 60px;
-            left: inherit;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-        }
-
-        .timeline > li.timeline-inverted > .timeline-panel:before {
-            border-left-width: 0;
-            border-right-width: 15px;
-            left: -15px;
-            right: auto;
-        }
-
-        .timeline > li.timeline-inverted > .timeline-panel:after {
-            border-left-width: 0;
-            border-right-width: 14px;
-            left: -14px;
-            right: auto;
-        }
-
-        .timeline-badge.primary {
-            background-color: #2db34e !important;
-        }
-
-        .timeline-badge.success {
-            background-color: #007bff !important;
-        }
-
-        .timeline-badge.warning {
-            background-color: #f0ad4e !important;
-        }
-
-        .timeline-badge.danger {
-            background-color: #dc3545 !important;
-        }
-
-        .timeline-badge.info {
-            background-color: #8a6d3b !important;
-        }
-
-        .timeline-title {
-            margin-top: 0;
-            color: inherit;
-        }
-
-        .timeline-body > p,
-        .timeline-body > ul {
-            margin-bottom: 0;
-        }
-
-        .timeline-body > p + p {
-            margin-top: 5px;
-        }
-
-        /* media query */
-        @media only screen and (max-width: 990px){
-            .timeline:before{
-                left: 40px;
-            }
-
-            .timeline > li > .timeline-badge{
-                left: 20px;
-            }
-
-            .timeline > li > .timeline-panel{
-                width:calc(100% - 90px);
-                width:-moz-calc(100% - 90px);
-                width:-webkit-calc(100% - 90px);
-                left: 70px;
-            }
-            .right-timeline > li > .timeline-panel{
-                right: 70px;
-                left: inherit;
-            }
-            .timeline > li.timeline-inverted > .timeline-panel{
-                right: 70px;
-                border: 1px solid rgba(0, 0, 0, 0.2);
-                left: inherit;
-            }
-
-            .timeline > li.timeline-inverted > .timeline-panel:before{
-                border-left-width: 0;
-                border-right-width: 15px;
-                left: -15px;
-                right: auto;
-            }
-            .timeline > li.timeline-inverted > .timeline-panel:after{
-                border-left-width: 0;
-                border-right-width: 14px;
-                left: -14px;
-                right: auto;
-            }
-
-            .timeline-badge{
-                width: 30px;
-                height: 30px;
-                line-height: 27px;
-            }
-            .timeline-badge i{
-                font-size: 1.2em;
-                line-height: 26px;
-            }
-
-            .main-nav .navbar-nav .nav-link{
-                margin-right: 5px;
-            }
-            .main-nav .navbar-brand{
-                margin-left: 10px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timeline</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js"></script>
 </head>
+
 <body>
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg main-nav">
-    <div class="container">
-        <a class="navbar-brand" href="javascript:void(0)"><strong>WR</strong>TN</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#journal">Journal</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#connect">Connect</a>
-                </li>
-            </ul>
+  <div class="row justify-content-center">
+    <div class="col-md-9 offset-md-3 col-lg-6 offset-lg-3 page_wrap">
+      <div class="page_header">
+        <h1 class="page_header_title">Timeline</h1>
+        <hr>
+      </div>
+      <div class="timeline_introduce">현재까지 5개의 글을 작성했어요.</div>
+      <div id="timeline_box">
+        <!-- 동적으로 추가될 컨텐츠가 여기에 위치합니다. -->
+      </div>
+      <div class="timeline_box">
+        <div class="timeline_container right">
+          <div class="timeline_content">
+            <div class="timeline_title">GitHub 블로그로 이전</div>
+            <div class="timeline_date">2018. 01. 01.</div>
+          </div>
         </div>
+        <div class="timeline_container left">
+          <div class="timeline_content">
+            <div class="timeline_title">블로그 시작</div>
+            <div class="timeline_date">since 2014. 6. 18.</div>
+          </div>
+        </div>
+      </div>
     </div>
-</nav>
-
-<div class="container">
-    <ul class="timeline">
-        <li>
-            <div class="timeline-badge"><i class="fab fa-twitter"></i></div>
-            <div class="timeline-panel right-timeline">
-                <div class="timeline-heading">
-                    <h4 class="timeline-title violet_bg">Sample Journal #1</h4>
-                </div>
-                <div class="timeline-body">
-                    <p class="lead">#First Entry</p>
-                    <hr>
-                    <p>This is the first entry of the journal posting. Welcome everyone!</p>
-                </div>
-            </div>
-        </li>
-        <li class="timeline-inverted">
-            <div class="timeline-badge"><i class="fa fa-check"></i></div>
-            <div class="timeline-panel timeline-inverted bg-white">
-                <div class="timeline-heading">
-                    <h4 class="timeline-title success_bg">Sample Journal #2</h4>
-                </div>
-                <div class="timeline-body">
-                    <p class="lead">#Second Entry</p>
-                    <hr>
-                    <p>This is the second entry of the journal posting. Hope everyone will like it!</p>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="timeline-badge"><i class="fa fa-credit-card"></i></div>
-            <div class="timeline-panel right-timeline">
-                <div class="timeline-heading">
-                    <h4 class="timeline-title primary_bg">Sample Project #1</h4>
-                </div>
-                <div class="timeline-body">
-                    <p class="lead">#First Project</p>
-                    <hr>
-                    <p>This is the first project posting. Enjoy!</p>
-                </div>
-            </div>
-        </li>
-        <li class="timeline-inverted">
-            <div class="timeline-badge"><i class="fa fa-paperclip"></i></div>
-            <div class="timeline-panel timeline-inverted bg-white">
-                <div class="timeline-heading">
-                    <h4 class="timeline-title info_bg">Sample Project #2</h4>
-                </div>
-                <div class="timeline-body">
-                    <p class="lead">#Second Project</p>
-                    <hr>
-                    <p>This is the second project posting. Let's go for it!</p>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"
-        integrity="sha256-r56mFk2nJ6fJfIQV+x6ePE5r5XrxVz8N7qkPeTBqT2o=" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  </div>
 </body>
 </html>
