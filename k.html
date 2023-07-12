@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timeline Example with FontAwesome</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Add FontAwesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Add Custom CSS for Timeline -->
+    <style>
+        .timeline {
+            list-style-type: none;
+            position: relative;
+        }
+
+        .timeline::before {
+            background-color: #d6d6d6;
+            content: "";
+            height: 100%;
+            left: 50%;
+            position: absolute;
+            top: 0;
+            width: 4px;
+        }
+
+        .timeline li {
+            margin-bottom: 30px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline li::before,
+        .timeline li::after {
+            content: "";
+            display: table;
+        }
+
+        .timeline li::after {
+            clear: both;
+        }
+
+        .timeline li .timeline-panel {
+            background-color: #f5f5f5;
+            border: 1px solid #d6d6d6;
+            border-radius: 2px;
+            float: right;
+            padding: 20px;
+            position: relative;
+            width: 80%;
+        }
+
+        .timeline li .timeline-badge {
+            background-color: #ffffff;
+            border: 1px solid #d6d6d6;
+            border-radius: 50%;
+            font-size: 1.4em;
+            height: 50px;
+            left: 50%;
+            margin-left: -25px;
+            position: absolute;
+            text-align: center;
+            top: 16px;
+            width: 50px;
+            z-index: 100;
+        }
+
+        .timeline li.timeline-inverted .timeline-panel {
+            float: left;
+        }
+
+        .timeline li.timeline-inverted::before,
+        .timeline li.timeline-inverted::after {
+            content: "";
+            display: table;
+        }
+
+        .timeline li.timeline-inverted::after {
+            clear: both;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Timeline</h2>
+        <ul class="timeline">
+            <li>
+                <div class="timeline-badge"><i class="fas fa-check"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">First Post</h4>
+                        <p><small class="text-muted"><i class="fas fa-clock"></i> January 2021</small></p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>First post content will go here.</p>
+                    </div>
+                </div>
+            </li>
+            <li class="timeline-inverted">
+                <div class="timeline-badge warning"><i class="fas fa-credit-card"></i></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="timeline-title">Second Post</h4>
+                        <p><small class="text-muted"><i class="fas fa-clock"></i> February 2021</small></p>
+                    </div>
+                    <div class="timeline-body">
+                        <p>Second post content will go here.</p>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Add more timeline events as needed -->
+        </ul>
+    </div>
+
+    <!-- Add jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
