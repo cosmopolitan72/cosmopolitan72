@@ -69,7 +69,7 @@
 
 			    </pre>
 			    <h1 style="text-align: left; margin-left: 12px;"><span>Hello</span><br>Welcome to my website!</h1>
-                        <p style="text-align: left; margin-left: 15px;">I'm JYS, R.O.K</p>
+                        <p style="text-align: left; margin-left: 15px;" id="typewriteText">I'm JYS, R.O.K</p>
 			    <button><a href="https://sites.google.com/view/cosmopolitan72/home" target="_blank" rel="noopener noreferrer">Deepdiving</a></button>
                     </div>
                 </div>
@@ -329,6 +329,14 @@
                 $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
 
             })
+
+		$(document).ready(function () {
+            $("#typewriteText").typewrite({
+                actions: [
+                    {type: "I'm JYS, R.O.K"}
+                ]
+            });
+        });
         </script>
     </body>
 	</html>
