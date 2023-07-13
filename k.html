@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ㅡㅡㅡ</title>
+<title>웹사이트 타임라인</title>
 <style>
   body {
     font-family: "Noto Sans KR", sans-serif;
@@ -17,110 +17,80 @@
   }
   .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
+    height: 550px;
   }
-  .timeline::before {
+  .timeline::after {
     content: "";
     position: absolute;
-    width: 4px;
+    width: 6px;
     background-color: #ddd;
-    top: 0;
-    bottom: 0;
+    top: 25px;
+    height: 500px;
     left: 50%;
-    margin-left: -2px;
+    margin-left: -3px;
   }
-
-  .timeline-item {
+  .container {
+    padding: 10px;
     position: relative;
     width: 100%;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    text-align: center;
   }
-
-  .timeline-item .event {
+  .container span {
     position: absolute;
-    display: flex;
-    align-items: center;
-  }
-
-  .timeline-item .event .circle {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background-color: #ddd;
     border-radius: 50%;
     z-index: 2;
   }
-
-  .timeline-item .event .label {
-    background-color: #f3f3f3;
-    color: #333;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 14px;
-    border-radius: 5px;
+  .content-left {
+    position: absolute;
+    top: 25px;
+    right: 25%;
+    z-index: 1;
+    width: 200px;
   }
-
-  .timeline-item:nth-child(odd) .event {
-    left: 40%;
+  .content-right {
+    position: absolute;
+    top: 25px;
+    left: 25%;
+    z-index: 1;
+    width: 200px;
   }
-
-  .timeline-item:nth-child(odd) .circle {
-    margin-right: 10px;
-  }
-
-  .timeline-item:nth-child(even) .event {
-    left: 60%;
-  }
-
-  .timeline-item:nth-child(even) .circle {
-    margin-left: 10px;
-  }
-
 </style>
 </head>
 <body>
   <h1>웹사이트 타임라인</h1>
+  
   <div class="timeline">
-    <div class="timeline-item">
-      <div class="event">
-        <div class="circle"></div>
-        <div class="label">2022년 웹사이트 시작</div>
-      </div>
+    <div class="container">
+      <span data-date="2022년 웹사이트 시작" style="top: 0%;"></span>
+      <p class="content-left" style="top: 0%;">2022년 웹사이트 시작</p>
     </div>
-    <div class="timeline-item">
-      <div class="event">
-        <div class="circle"></div>
-        <div class="label">2023년 3월 첫 번째 메이저 업데이트</div>
-      </div>
+    <div class="container">
+      <span data-date="2023년 3월 첫 번째 메이저 업데이트" style="top: 20%;"></span>
+      <p class="content-right" style="top: 20%;">2023년 3월 첫 번째 메이저 업데이트</p>
     </div>
-    <div class="timeline-item">
-      <div class="event">
-        <div class="circle"></div>\
-        <div class="label">2023년 9월 신규 상품 발표</div>
-      </div>
+    <div class="container">
+      <span data-date="2023년 9월 신규 상품 발표" style="top: 40%;"></span>
+      <p class="content-left" style="top: 40%;">2023년 9월 신규 상품 발표</p>
     </div>
-    <div class="timeline-item">
-      <div class="event">
-        <div class="circle"></div>
-        <div class="label">2023년 12월 100만 이용자 돌파</div>
-      </div>
+    <div class="container">
+      <span data-date="2023년 12월 100만 이용자 돌파" style="top: 60%;"></span>
+      <p class="content-right" style="top: 60%;">2023년 12월 100만 이용자 돌파</p>
     </div>
-    <div class="timeline-item">
-      <div class="event">
-        <div class="circle"></div>
-        <div class="label">2024년 한국 웹 어워드 수상</div>
-      </div>
+    <div class="container">
+      <span data-date="2024년 한국 웹 어워드 수상" style="top: 80%;"></span>
+      <p class="content-left" style="top: 80%;">2024년 한국 웹 어워드 수상</p>
     </div>
-    <div class="timeline-item">
-      <div class="event">
-        <div class="circle"></div>
-        <div class="label">2024년 6월 협업 파트너 발표</div>
-      </div>
+    <div class="container">
+      <span data-date="2024년 6월 협업 파트너 발표" style="top: 100%;"></span>
+      <p class="content-right" style="top: 100%;">2024년 6월 협업 파트너 발표</p>
     </div>
   </div>
+
 </body>
 </html>
