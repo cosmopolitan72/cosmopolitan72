@@ -21,7 +21,7 @@
     margin: 0 auto;
     height: 550px;
   }
-  .timeline::after {
+  .timeline::before {
     content: "";
     position: absolute;
     width: 6px;
@@ -50,41 +50,47 @@
     position: absolute;
     z-index: 1;
     width: 200px;
+    text-align: right;
+    right: 50%;
   }
   .content-right {
     position: absolute;
     z-index: 1;
     width: 200px;
+    text-align: left;
+    left: 50%;
   }
 </style>
 </head>
 <body>
   <h1>웹사이트 타임라인</h1>
+  
   <div class="timeline">
-    <div class="container">
-      <span style="right: 200px;"></span>
-      <p class="content-left" style="top: 0%;">2022년 웹사이트 시작</p>
+    <div class="container" style="top: 0%;">
+      <span style="right: 50%;"></span>
+      <p class="content-left">2022년 웹사이트 시작</p>
     </div>
-    <div class="container">
-      <span></span>
-      <p class="content-right" style="top: 20%;">2023년 3월 첫 번째 메이저 업데이트</p>
+    <div class="container" style="top: 20%;">
+      <span style="left: 50%;"></span>
+      <p class="content-right">2023년 3월 첫 번째 메이저 업데이트</p>
     </div>
-    <div class="container">
-      <span style="right: 200px;"></span>
-      <p class="content-left" style="top: 40%;">2023년 9월 신규 상품 발표</p>
+    <div class="container" style="top: 40%;">
+      <span style="right: 50%;"></span>
+      <p class="content-left">2023년 9월 신규 상품 발표</p>
     </div>
-    <div class="container">
-      <span></span>
-      <p class="content-right" style="top: 60%;">2023년 12월 100만 이용자 돌파</p>
+    <div class="container" style="top: 60%;">
+      <span style="left: 50%;"></span>
+      <p class="content-right">2023년 12월 100만 이용자 돌파</p>
     </div>
-    <div class="container">
-      <span style="right: 200px;"></span>
-      <p class="content-left" style="top: 80%;">2024년 한국 웹 어워드 수상</p>
+    <div class="container" style="top: 80%;">
+      <span style="right: 50%;"></span>
+      <p class="content-left">2024년 한국 웹 어워드 수상</p>
     </div>
-    <div class="container">
-      <span></span>
-      <p class="content-right" style="top: 100%;">2024년 6월 협업 파트너 발표</p>
+    <div class="container" style="top: 100%;">
+      <span style="left: 50%;"></span>
+      <p class="content-right">2024년 6월 협업 파트너 발표</p>
     </div>
   </div>
+
 </body>
 </html>
