@@ -68,25 +68,29 @@
       margin-left: 35px;
       top: 30px;
     }
-    
-         .container {
+
+     .form-container {
       display: flex;
-      flex-direction: column; /* 수직 배치 */
-      align-items: center; /* 중앙 정렬 */
-    }
+      justify-content: center; /* 가로 방향 중앙 정렬 */
+      align-items: center; /* 세로 방향 중앙 정렬 */
+      height: 100vh; /*포트 높이에 맞춤 */
+    }    
+    
+
   </style>
   </head>
 <body>
-  <div class="form-container">
+   <div class="form-container">
   <form>
   <label for="disk_c">Disk usage C:</label>
   <meter id="disk_C" value="2" min="0"
     max="10">2 out of 10</meter><br>
+   </div>
 
   <label for="disk_d">Disk usage D:</label>
   <meter id="disk_d" value="0.6">60%</meter>
   </form>
-  </div>
+  
    <div class="main-container">
   <h1>웹사이트 타임라인</h1>
   
