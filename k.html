@@ -7,43 +7,107 @@
 <style>
   body {
     font-family: "Noto Sans KR", sans-serif;
+    margin: 0;
+    padding: 0;
   }
-  .timeline-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .timeline-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-  .timeline-content {
-    padding: 15px;
-    background-color: #f3f3f3;
-    border-radius: 10px;
-    width: 50%;
+  h1 {
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .timeline::after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    background-color: #ddd;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }
+  .container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+  }
+  .container::after {
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: #ddd;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .left {
+    float: left;
+    left: 0;
+  }
+  .right {
+    float:right;
+    right: 0;
+  }
+  .left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 15px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid #ddd;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #ddd transparent transparent;
+  }
+  .right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 15px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid #ddd;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #ddd;
+  }
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
   }
 </style>
 </head>
 <body>
   <h1>웹사이트 타임라인</h1>
   
-  <div class="timeline-container">
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2022년 웹사이트 시작</h3>
-      </div>
+  <div class="timeline">
+    <div class="container left clearfix">
+      <h3>2022년 웹사이트 시작</h3>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2023년 3월 첫 번째 메이저 업데이트</h3>
-      </div>
+    <div class="container right clearfix">
+      <h3>2023년 3월 첫 번째 메이저 업데이트</h3>
     </div>
-    <div class="timeline-item">
-      <div class="timeline-content">
-        <h3>2023
+    <div class="container left clearfix">
+      <h3>2023년 9월 신규 상품 발표</h3>
+    </div>
+    <div class="container right clearfix">
+      <h3>2023년 12월 100만 이용자 돌파</h3>
+    </div>
+    <div class="container left clearfix">
+      <h3>2024년 한국 웹 어워드 수상</h3>
+    </div>
+    <div class="container right clearfix">
+      <h3>2024년 6월 협업 파트너 발표</h3>
+    </div>
+  </div>
+
+</body>
+</html>
