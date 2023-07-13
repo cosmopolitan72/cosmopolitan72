@@ -17,97 +17,110 @@
   }
   .timeline {
     position: relative;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
   }
-  .timeline::after {
+  .timeline::before {
     content: "";
     position: absolute;
-    width: 6px;
+    width: 4px;
     background-color: #ddd;
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -3px;
+    margin-left: -2px;
   }
-  .container {
-    padding: 10px 40px;
+
+  .timeline-item {
     position: relative;
-    background-color: inherit;
-    width: 50%;
+    width: 100%;
+    padding-top: 25px;
+    padding-bottom: 25px;
   }
-  .container::after {
-    content: "";
+
+  .timeline-item .event {
     position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
+    display: flex;
+    align-items: center;
+  }
+
+  .timeline-item .event .circle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
     background-color: #ddd;
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
   }
-  .left {
-    float: left;
-    left: 0;
+
+  .timeline-item .event .label {
+    background-color: #f3f3f3;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    border-radius: 5px;
   }
-  .right {
-    float:right;
-    right: 0;
+
+  .timeline-item:nth-child(odd) .event {
+    left: 40%;
   }
-  .left::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 15px;
-    width: 0;
-    z-index: 1;
-    right: 30px;
-    border: medium solid #ddd;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #ddd transparent transparent;
+
+  .timeline-item:nth-child(odd) .circle {
+    margin-right: 10px;
   }
-  .right::before {
-    content: " ";
-    height: 0;
-    position: absolute;
-    top: 15px;
-    width: 0;
-    z-index: 1;
-    left: 30px;
-    border: medium solid #ddd;
-    border-width: 10px 0 10px 10px;
-    border-color: transparent transparent transparent #ddd;
+
+  .timeline-item:nth-child(even) .event {
+    left: 60%;
   }
-  .clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
+
+  .timeline-item:nth-child(even) .circle {
+    margin-left: 10px;
   }
+
 </style>
 </head>
 <body>
   <h1>웹사이트 타임라인</h1>
-  
   <div class="timeline">
-    <div class="container left clearfix">
-      <h3>2022년 웹사이트 시작</h3>
+    <div class="timeline-item">
+      <div class="event">
+        <div class="circle"></div>
+        <div class="label">2022년 웹사이트 시작</div>
+      </div>
     </div>
-    <div class="container right clearfix">
-      <h3>2023년 3월 첫 번째 메이저 업데이트</h3>
+    <div class="timeline-item">
+      <div class="event">
+        <div class="circle"></div>
+        <div class="label">2023년 3월 첫 번째 메이저 업데이트</div>
+      </div>
     </div>
-    <div class="container left clearfix">
-      <h3>2023년 9월 신규 상품 발표</h3>
+    <div class="timeline-item">
+      <div class="event">
+        <div class="circle"></div>\
+        <div class="label">2023년 9월 신규 상품 발표</div>
+      </div>
     </div>
-    <div class="container right clearfix">
-      <h3>2023년 12월 100만 이용자 돌파</h3>
+    <div class="timeline-item">
+      <div class="event">
+        <div class="circle"></div>
+        <div class="label">2023년 12월 100만 이용자 돌파</div>
+      </div>
     </div>
-    <div class="container left clearfix">
-      <h3>2024년 한국 웹 어워드 수상</h3>
+    <div class="timeline-item">
+      <div class="event">
+        <div class="circle"></div>
+        <div class="label">2024년 한국 웹 어워드 수상</div>
+      </div>
     </div>
-    <div class="container right clearfix">
-      <h3>2024년 6월 협업 파트너 발표</h3>
+    <div class="timeline-item">
+      <div class="event">
+        <div class="circle"></div>
+        <div class="label">2024년 6월 협업 파트너 발표</div>
+      </div>
     </div>
   </div>
-
 </body>
 </html>
