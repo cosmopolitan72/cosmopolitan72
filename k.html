@@ -69,9 +69,10 @@
       top: 30px;
     }
     
-      .form-container {
+         .main-container {
       display: flex;
-      justify-content: center;
+      flex-direction: column; /* 수직 배치 */
+      align-items: center; /* 중앙 정렬 */
     }
   </style>
   </head>
@@ -85,7 +86,8 @@
   <label for="disk_d">Disk usage D:</label>
   <meter id="disk_d" value="0.6">60%</meter>
   </form>
-  
+  </div>
+   <div class="main-container">
   <h1>웹사이트 타임라인</h1>
   
   <div class="timeline">
