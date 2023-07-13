@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>웹사이트 타임라인</title>
-<style>
-  body {
-    font-family: "Noto Sans KR", sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  h1 {
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 40px;
-  }
-  .timeline {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-    height: 550px;
-  }
-  .timeline::before {
-    content: "";
-    position: absolute;
-    width: 6px;
-    background-color: #ddd;
-    top: 25px;
-    height: 500px;
-    left: 50%;
-    margin-left: -3px;
-  }
-  .container {
-    padding: 10px;
-    position: relative;
-    width: 100%;
-    text-align: center;
-  }
-  .container span {
-    position: absolute;
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background-color: #ddd;
-    border-radius: 50%;
-    z-index: 2;
-    left: 50%;
-    margin-left: -12.5px;
-  }
-  .content-left {
-    position: absolute;
-    z-index: 1;
-    width: 200px;
-    text-align: right;
-    right: 50%;
-    margin-right: 35px;
-  }
-  .content-right {
-    position: absolute;
-    z-index: 1;
-    width: 200px;
-    text-align: left;
-    left: 50%;
-    margin-left: 35px;
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>웹사이트 타임라인</title>
+  <style>
+    body {
+      font-family: "Noto Sans KR", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      height: 550px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      width: 6px;
+      background-color: #ddd;
+      top: 25px;
+      height: 500px;
+      left: 50%;
+      margin-left: -3px;
+    }
+    .container {
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      text-align: center;
+    }
+    .container span {
+      position: absolute;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background-color: #ddd;
+      border-radius: 50%;
+      z-index: 2;
+      left: 50%;
+      margin-left: -12.5px;
+    }
+    .content-left {
+      position: absolute;
+      z-index: 1;
+      width: 200px;
+      text-align: right;
+      right: 50%;
+      margin-right: 35px;
+    }
+    .content-right {
+      position: absolute;
+      z-index: 1;
+      width: 200px;
+      text-align: left;
+      left: 50%;
+      margin-left: 35px;
+    }
+  </style>
+  <script src="https://unpkg.com/lunr/lunr.js"></script>
 </head>
 <body>
   <h1>웹사이트 타임라인</h1>
   
+  <input type="text" id="search" placeholder="검색어 입력">
+  <div id="results"></div>
+
   <div class="timeline">
     <div class="container" style="top: 0%;">
       <span></span>
@@ -95,6 +99,61 @@
       <p class="content-right">2024년 6월 협업 파트너 발표</p>
     </div>
   </div>
+
+  <script>
+    const data = [
+      {
+        id: 1,
+        content: '2022년 웹사이트 시작'
+      },
+      {
+        id: 2,
+        content: '2023년 3월 첫 번째 메이저 업데이트'
+      },
+      {
+        id: 3,
+        content: '2023년 9월 신규 상품 발표'
+      },
+      {
+        id: 4,
+        content: '2023년 12월 100만 이용자 돌파'
+      },
+      {
+        id: 5,
+        content: '2024년 한국 웹 어워드 수상'
+      },
+      {
+        id: 6,
+        content: '2024년 6월 협업 파트너 발표'
+      },
+    ];
+
+    const idx = lunr(function () {
+      this.ref('id');
+      this.field('content');
+
+      data.forEach(function (doc) {
+        this.add(doc);
+      }, this);
+    });
+
+    document.getElementById('search').addEventListener('input', (event) => {
+      const searchPhrase = event.target.value;
+      const resultsElement = document.getElementById('results');
+      resultsElement.innerHTML = '';
+
+      if (searchPhrase.length > 1) {
+        const searchResults = idx.search(searchPhrase);
+
+        searchResults.forEach((result) => {
+          const resultDiv = document.createElement('div');
+          const matchedData = data.find((elem) => elem.id == result.ref);
+          resultDiv.innerHTML = `<p>${matchedData.content}</p>`;
+          resultsElement.appendChild(resultDiv);
+        });
+      }
+    });
+  </script>
 
 </body>
 </html>
