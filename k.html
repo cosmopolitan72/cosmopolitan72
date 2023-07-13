@@ -1,36 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Timeline</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>웹사이트 타임라인</title>
+<style>
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+  }
+  .timeline-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  .timeline-content {
+    padding: 15px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+  }
+</style>
 </head>
-
 <body>
-  <div class="timeline">
-    <div class="timeline-container">
-      <div class="timeline-item">
-        <div class="timeline-icon"></div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">GitHub 블로그로 이전</h2>
-          <p>넘기는 내용</p>
-          <span class="timeline-date">2018. 01. 01.</span>
-        </div>
+  <h1>웹사이트 타임라인</h1>
+  
+  <div class="timeline-container">
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2022년 웹사이트 시작</h3>
       </div>
-      
-      <div class="timeline-item">
-        <div class="timeline-icon"></div>
-        <div class="timeline-content">
-          <h2 class="timeline-title">블로그 시작</h2>
-          <p>내용</p>
-          <span class="timeline-date">since 2014. 6. 18.</span>
-        </div>
-      </div>
-
     </div>
-  </div>
-</body>
-</html>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2023년 3월 첫 번째 메이저 업데이트</h3>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-content">
+        <h3>2023
