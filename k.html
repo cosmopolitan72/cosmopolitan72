@@ -87,6 +87,37 @@
   </style>
 </head>
 <body>
+
+  <div class="form-container">
+  <form>
+    <label>
+      Disk usage C:
+      <div class="progress-container">
+        <svg width="120" height="120" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
+          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="282.744">
+            <animate attributeName="stroke-dashoffset" from="376.992" to="282.744" dur="1s" fill="freeze"></animate>
+          </circle>
+          <text x="70" y="70" class="progress-value">20%</text>
+          <text x="70" y="85" class="center-text">C 드라이브</text>
+        </svg>
+      </div>
+    </label>
+    <label>
+      Disk usage D:
+      <div class="progress-container">
+        <svg width="120" height="120" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
+          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="188.496">
+            <animate attributeName="stroke-dashoffset" from="376.992" to="188.496" dur="1s" fill="freeze"></animate>
+          </circle>
+          <text x="70" y="70" class="progress-value">60%</text>
+          <text x="70" y="85" class="center-text">D 드라이브</text>
+        </svg>
+      </div>
+    </label>
+  </form>
+</div>
   <div class="main-container">
     <h1>웹사이트 타임라인</h1>
 
