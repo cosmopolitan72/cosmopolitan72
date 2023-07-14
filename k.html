@@ -84,6 +84,52 @@
       }
     }
 
+        .form-container {
+      display: flex;
+      justify-content: center; /* 가로 방향 중앙 정렬 */
+      align-items: center; /* 세로 방향 중앙 정렬 */
+      margin-top: 50px; /*포트 높이에 맞춤 */
+      margin-bottom: 30px;
+    }
+    label {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .progress-container {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+    .progress {
+      stroke-linecap: round;
+      transform-origin: 50% 50%;
+      transform: rotate(-90deg);
+    }
+    .progress-value {
+      font-size: 24px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #4CAF50;
+    }
+    .center-text {
+      font-size: 12px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #000;
+    }
+    @keyframes fill {
+      0% {
+        stroke-dashoffset: 314.16;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
