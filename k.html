@@ -6,28 +6,77 @@
   <link rel="icon" href="imgs/cos bo 1.png" type="image/png">
   <title>cosmopolitan</title>
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      font-family: "Noto Sans KR", sans-serif;
+      margin: 0;
+      padding: 0;
       background-color: #f0f0f0;
     }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: white;
-      padding: 2em;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
+    .timeline {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      height: 600px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      width: 6px;
+      background-color: #ddd;
+      top: 25px;
+      height: 620px;
+      left: 50%;
+      margin-left: -3px;
+    }
+    .container {
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      text-align: center;
+    }
+    .container span {
+      position: absolute;
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      background-color: #ddd;
+      border-radius: 50%;
+      z-index: 2;
+      left: 50%;
+      margin-left: -22.5px;
+    }
+    .content-left {
+      position: absolute;
+      z-index: 1;
+      width: 200px;
+      text-align: right;
+      right: 50%;
+      margin-right: 35px;
+      top: 30px;
+    }
+    .content-right {
+      position: absolute;
+      z-index: 1;
+      width: 200px;
+      text-align: left;
+      left: 50%;
+      margin-left: 35px;
+      top: 30px;
     }
 
+    .form-container {
+      display: flex;
+      justify-content: center; /* 가로 방향 중앙 정렬 */
+      align-items: center; /* 세로 방향 중앙 정렬 */
+      margin-top: 50px; /*포트 높이에 맞춤 */
+      margin-bottom: 30px;
+    }
+    
     label {
       font-size: 18px;
       font-weight: 500;
@@ -42,28 +91,50 @@
   </style>
 </head>
 <body>
+
+<div class="form-container">
   <form>
     <label for="disk_c">Disk usage C:</label>
-    <meter id="disk_C" value="0" min="0" max="10"></meter>
+    <meter id="disk_C" value="0" min="0" max="10"></meter><br>
     <label for="disk_d">Disk usage D:</label>
     <meter id="disk_d" value="0" min="0" max="100"></meter>
   </form>
+</div>
 
-  <script>
-    function increaseMeterValue(meter, target) {
-      if (meter.value < target) {
-        meter.value += 0.1;
-        setTimeout(() => increaseMeterValue(meter, target), 50);
-      }
+<div class="main-container">
+  <h1>웹사이트 타임라인</h1>
+
+  <div class="timeline">
+    <div class="container" style="top: 0%;">
+      <span></span>
+      <p class="content-left">2022년 웹사이트 시작</p>
+    </div>
+    <div class="container" style="top: 20%;">
+      <span></span>
+      <p class="content-right">2023년 3월 첫 번째 메이저 업데이트</p>
+    </div>
+    <div class="container" style="top: 40%;">
+      <span></span>
+      ... (중략) ...
+    </div>
+  </div>
+</div>
+
+<script>
+  function increaseMeterValue(meter, target) {
+    if (meter.value < target) {
+      meter.value += 0.1;
+      setTimeout(() => increaseMeterValue(meter, target), 50);
     }
+  }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const diskCMeter = document.getElementById('disk_C');
-      const diskDMeter = document.getElementById('disk_d');
+  document.addEventListener('DOMContentLoaded', () => {
+    const diskCMeter = document.getElementById('disk_C');
+    const diskDMeter = document.getElementById('disk_d');
 
-      increaseMeterValue(diskCMeter, 2); // Disk C 2까지 천천히 증가
-      increaseMeterValue(diskDMeter, 60); // Disk D 60까지 천천히 증가
-    });
-  </script>
+    increaseMeterValue(diskCMeter, 2); // Disk C 2까지 천천히 증가
+    increaseMeterValue(diskDMeter, 60); // Disk D 60까지 천천히 증가
+  });
+</script>
 </body>
 </html>
