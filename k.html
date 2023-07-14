@@ -56,117 +56,37 @@
       margin-left: -22.5px;
     }
     .content-left {
-  position: absolute;
-  z-index: 1;
-  width: 50%;
-  text-align: right;
-  right: 50%;
-  top: 30px;
-}
-
-.content-right {
-  position: absolute;
-  z-index: 1;
-  width: 50%;
-  text-align: left;
-  left: 50%;
-  top: 30px;
-}
-
-@media screen and (max-width: 768px) {
-  .content-left,
-  .content-right {
-    width: 100%;
-    left: 0;
-    right: 0;
-  }
-
-  .content-left {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-}
-
-        .form-container {
-      display: flex;
-      justify-content: center; /* 가로 방향 중앙 정렬 */
-      align-items: center; /* 세로 방향 중앙 정렬 */
-      margin-top: 50px; /*포트 높이에 맞춤 */
-      margin-bottom: 30px;
+      position: absolute;
+      z-index: 1;
+      width: 200px;
+      text-align: right;
+      right: 50%;
+      margin-right: 35px;
+      top: 30px;
     }
-    label {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .content-right {
+      position: absolute;
+      z-index: 1;
+      width: 200px;
+      text-align: left;
+      left: 50%;
+      margin-left: 35px;
+      top: 30px;
     }
-    .progress-container {
-      position: relative;
-      width: 120px;
-      height: 120px;
+    .content-left,
+    .content-right {
+      word-wrap: break-word;
     }
-    .progress {
-      stroke-linecap: round;
-      transform-origin: 50% 50%;
-      transform: rotate(-90deg);
-    }
-    .progress-value {
-      font-size: 24px;
-      text-anchor: middle;
-      dominant-baseline: middle;
-      fill: #4CAF50;
-    }
-    .center-text {
-      font-size: 12px;
-      text-anchor: middle;
-      dominant-baseline: middle;
-      fill: #000;
-    }
-    @keyframes fill {
-      0% {
-        stroke-dashoffset: 314.16;
-      }
-      100% {
-        stroke-dashoffset: 0;
+    @media screen and (max-width: 768px) {
+      .content-left,
+      .content-right {
+        width: calc(50% - 35px);
       }
     }
 
   </style>
 </head>
 <body>
-
-  <div class="form-container">
-  <form>
-    <label>
-      Disk usage C:
-      <div class="progress-container">
-        <svg width="120" height="120" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="282.744">
-            <animate attributeName="stroke-dashoffset" from="376.992" to="282.744" dur="1s" fill="freeze"></animate>
-          </circle>
-          <text x="70" y="70" class="progress-value">20%</text>
-          <text x="70" y="85" class="center-text">C 드라이브</text>
-        </svg>
-      </div>
-    </label>
-    <label>
-      Disk usage D:
-      <div class="progress-container">
-        <svg width="120" height="120" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="188.496">
-            <animate attributeName="stroke-dashoffset" from="376.992" to="188.496" dur="1s" fill="freeze"></animate>
-          </circle>
-          <text x="70" y="70" class="progress-value">60%</text>
-          <text x="70" y="85" class="center-text">D 드라이브</text>
-        </svg>
-      </div>
-    </label>
-  </form>
-</div>
   <div class="main-container">
     <h1>웹사이트 타임라인</h1>
 
