@@ -68,14 +68,24 @@
       margin-left: 35px;
       top: 30px;
     }
-     .form-container {
-  display: flex;
-  justify-content: center; /* 가로 방향 중앙 정렬 */
-  align-items: center; /* 세로 방향 중앙 정렬 */
-  margin-top: 50px; /*포트 높이에 맞춤 */
-  margin-bottom: 30px;
-  flex: 6;
-}    
+     form {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form label {
+      display: inline-block; /* 인라인 블록 형태로 영역 설정 */
+      width: 200px; /* 가로 넓이 설정 */
+      text-align: left; /* 텍스트 왼쪽 정렬 */
+      font-weight: bold; /* 글씨체를 굵게 */
+      font-size: 18px; /* 글씨 크기 변경 */
+      color: #ffffff; /* 글씨 색상 설정 - 흰색 */
+      background-color: #333333; /* 배경 색상 설정 - 어두운 회색 */
+      padding: 8px 12px; /* 상하좌우 패딩 설정 */
+      border-radius: 6px; /* 모서리 라운드 처리 */
+      transform: skewX(-10deg); /* 왜곡 처리로 스타일리쉬한 느낌 주기 */
+    }
   </style>
   </head>
 <body>
