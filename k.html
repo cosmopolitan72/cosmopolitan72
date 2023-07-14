@@ -85,8 +85,8 @@
     }
     .progress-container {
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
     }
     .progress {
       stroke-linecap: round;
@@ -94,7 +94,7 @@
       transform: rotate(-90deg);
     }
     .progress-value {
-      font-size: 16px;
+      font-size: 24px;
       text-anchor: middle;
       dominant-baseline: middle;
       fill: #4CAF50;
@@ -105,31 +105,43 @@
       dominant-baseline: middle;
       fill: #000;
     }
+    @keyframes fill {
+      0% {
+        stroke-dashoffset: 314.16;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
 <div class="form-container">
   <form>
-    <label for="disk_c">
+    <label>
       Disk usage C:
       <div class="progress-container">
-        <svg width="80" height="80" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="314.16" stroke-dashoffset="209.44"></circle>
-          <text x="60" y="60" class="progress-value">20%</text>
-          <text x="60" y="75" class="center-text">C드라이브</text>
+        <svg width="120" height="120" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
+          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="282.744">
+            <animate attributeName="stroke-dashoffset" from="376.992" to="282.744" dur="1s" fill="freeze"></animate>
+          </circle>
+          <text x="70" y="70" class="progress-value">20%</text>
+          <text x="70" y="85" class="center-text">C 드라이브</text>
         </svg>
       </div>
     </label>
-    <label for="disk_d">
+    <label>
       Disk usage D:
       <div class="progress-container">
-        <svg width="80" height="80" viewBox="0 0 120 120">
-          <circle cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="314.16" stroke-dashoffset="125.66"></circle>
-          <text x="60" y="60" class="progress-value">60%</text>
-          <text x="60" y="75" class="center-text">D드라이브</text>
+        <svg width="120" height="120" viewBox="0 0 140 140">
+          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
+          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="188.496">
+            <animate attributeName="stroke-dashoffset" from="376.992" to="188.496" dur="1s" fill="freeze"></animate>
+          </circle>
+          <text x="70" y="70" class="progress-value">60%</text>
+          <text x="70" y="85" class="center-text">D 드라이브</text>
         </svg>
       </div>
     </label>
