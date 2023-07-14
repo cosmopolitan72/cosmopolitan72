@@ -68,7 +68,6 @@
       margin-left: 35px;
       top: 30px;
     }
-
     .form-container {
       display: flex;
       justify-content: center; /* 가로 방향 중앙 정렬 */
@@ -76,17 +75,35 @@
       margin-top: 50px; /*포트 높이에 맞춤 */
       margin-bottom: 30px;
     }
-    
     label {
       font-size: 18px;
       font-weight: 500;
       margin-bottom: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-
-    meter {
-      width: 100%;
-      height: 30px;
-      margin-bottom: 1em;
+    .progress-container {
+      position: relative;
+      width: 80px;
+      height: 80px;
+    }
+    .progress {
+      stroke-linecap: round;
+      transform-origin: 50% 50%;
+      transform: rotate(-90deg);
+    }
+    .progress-value {
+      font-size: 16px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #4CAF50;
+    }
+    .center-text {
+      font-size: 12px;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      fill: #000;
     }
   </style>
 </head>
@@ -94,10 +111,28 @@
 
 <div class="form-container">
   <form>
-    <label for="disk_c">Disk usage C:</label>
-    <meter id="disk_C" value="0" min="0" max="10"></meter><br>
-    <label for="disk_d">Disk usage D:</label>
-    <meter id="disk_d" value="0" min="0" max="100"></meter>
+    <label for="disk_c">
+      Disk usage C:
+      <div class="progress-container">
+        <svg width="80" height="80" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
+          <circle class="progress" cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="314.16" stroke-dashoffset="209.44"></circle>
+          <text x="60" y="60" class="progress-value">20%</text>
+          <text x="60" y="75" class="center-text">C드라이브</text>
+        </svg>
+      </div>
+    </label>
+    <label for="disk_d">
+      Disk usage D:
+      <div class="progress-container">
+        <svg width="80" height="80" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
+          <circle class="progress" cx="60" cy="60" r="50" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="314.16" stroke-dashoffset="125.66"></circle>
+          <text x="60" y="60" class="progress-value">60%</text>
+          <text x="60" y="75" class="center-text">D드라이브</text>
+        </svg>
+      </div>
+    </label>
   </form>
 </div>
 
