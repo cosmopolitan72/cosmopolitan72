@@ -73,146 +73,49 @@
       margin-left: 35px;
       top: 30px;
     }
-    .form-container {
-      display: flex;
-      justify-content: center; /* 가로 방향 중앙 정렬 */
-      align-items: center; /* 세로 방향 중앙 정렬 */
-      margin-top: 50px; /*포트 높이에 맞춤 */
-      margin-bottom: 30px;
+    .content-left,
+    .content-right {
+      word-wrap: break-word;
     }
-    label {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .progress-container {
-      position: relative;
-      width: 120px;
-      height: 120px;
-    }
-    .progress {
-      stroke-linecap: round;
-      transform-origin: 50% 50%;
-      transform: rotate(-90deg);
-    }
-    .progress-value {
-      font-size: 24px;
-      text-anchor: middle;
-      dominant-baseline: middle;
-      fill: #4CAF50;
-    }
-    .center-text {
-      font-size: 12px;
-      text-anchor: middle;
-      dominant-baseline: middle;
-      fill: #000;
-    }
-    @keyframes fill {
-      0% {
-        stroke-dashoffset: 314.16;
-      }
-      100% {
-        stroke-dashoffset: 0;
+    @media screen and (max-width: 768px) {
+      .content-left,
+      .content-right {
+        width: calc(50% - 35px);
       }
     }
+
   </style>
 </head>
 <body>
+  <div class="main-container">
+    <h1>웹사이트 타임라인</h1>
 
-<div class="form-container">
-  <form>
-    <label>
-      Disk usage C:
-      <div class="progress-container">
-        <svg width="120" height="120" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="282.744">
-            <animate attributeName="stroke-dashoffset" from="376.992" to="282.744" dur="1s" fill="freeze"></animate>
-          </circle>
-          <text x="70" y="70" class="progress-value">20%</text>
-          <text x="70" y="85" class="center-text">C 드라이브</text>
-        </svg>
+    <div class="timeline">
+      <div class="container" style="top: 0%;">
+        <span></span>
+        <p class="content-left">2022년 웹사이트 시작</p>
       </div>
-    </label>
-    <label>
-      Disk usage D:
-      <div class="progress-container">
-        <svg width="120" height="120" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="188.496">
-            <animate attributeName="stroke-dashoffset" from="376.992" to="188.496" dur="1s" fill="freeze"></animate>
-          </circle>
-          <text x="70" y="70" class="progress-value">60%</text>
-          <text x="70" y="85" class="center-text">D 드라이브</text>
-        </svg>
+      <div class="container" style="top: 20%;">
+        <span></span>
+        <p class="content-right">2023년 3월 첫 번째</p>
       </div>
-    </label>
-     <label>
-      Disk usage E:
-      <div class="progress-container">
-        <svg width="120" height="120" viewBox="0 0 140 140">
-          <circle cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#ddd"></circle>
-          <circle class="progress" cx="70" cy="70" r="60" fill="transparent" stroke-width="10" stroke="#4CAF50" stroke-dasharray="376.992" stroke-dashoffset="188.496">
-            <animate attributeName="stroke-dashoffset" from="376.992" to="188.496" dur="1s" fill="freeze"></animate>
-          </circle>
-          <text x="70" y="70" class="progress-value">60%</text>
-          <text x="70" y="85" class="center-text">D 드라이브</text>
-        </svg>
+      <div class="container" style="top: 40%;">
+        <span></span>
+        <p class="content-left">2023년 9월 신규 </p>
       </div>
-    </label>
-  </form>
-</div>
-<div class="main-container">
-  <h1>웹사이트 타임라인</h1>
-
-   <div class="main-container">
-  <h1>웹사이트 타임라인</h1>
-
-  <div class="timeline">
-    <div class="container" style="top: 0%;">
-      <span></span>
-      <p class="content-left">2022년 웹사이트 시작</p>
-    </div>
-    <div class="container" style="top: 20%;">
-      <span></span>
-      <p class="content-right">2023년 3월 첫 번째</p>
-    </div>
-    <div class="container" style="top: 40%;">
-      <span></span>
-      <p class="content-left">2023년 9월 신규 </p>
-    </div>
-    <div class="container" style="top: 60%;">
-      <span></span>
-      <p class="content-right">2023년 12월 100AKS</p>
-    </div>
-    <div class="container" style="top: 80%;">
-      <span></span>
-      <p class="content-left">2024년 한국 웹 어워드 수상</p>
-    </div>
-    <div class="container" style="top: 100%;">
-      <span></span>
-      <p class="content-right">2024년 6월 협업 파트너 </p>
+      <div class="container" style="top: 60%;">
+        <span></span>
+        <p class="content-right">2023년 12월 100AKS</p>
+      </div>
+      <div class="container" style="top: 80%;">
+        <span></span>
+        <p class="content-left">2024년 한국 웹 어워드 수상</p>
+      </div>
+      <div class="container" style="top: 100%;">
+        <span></span>
+        <p class="content-right">2024년 6월 협업 파트너 </p>
+      </div>
     </div>
   </div>
-
-<script>
-  function increaseMeterValue(meter, target) {
-    if (meter.value < target) {
-      meter.value += 0.1;
-      setTimeout(() => increaseMeterValue(meter, target), 50);
-    }
-  }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const diskCMeter = document.getElementById('disk_C');
-    const diskDMeter = document.getElementById('disk_d');
-
-    increaseMeterValue(diskCMeter, 2); // Disk C 2까지 천천히 증가
-    increaseMeterValue(diskDMeter, 60); // Disk D 60까지 천천히 증가
-  });
-</script>
 </body>
 </html>
