@@ -68,16 +68,18 @@
       margin-left: 35px;
       top: 30px;
     }
-     .form-container {
-  display: flex;
-  justify-content: center; /* 가로 방향 중앙 정렬 */
-  align-items: center; /* 세로 방향 중앙 정렬 */
-  margin-top: 50px; /*포트 높이에 맞춤 */
-  margin-bottom: 30px;
-}  
-    .form-container label {
-   flex-basis: 200%;
-}
+    
+    form {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    form label {
+      display: inline-block; /* 인라인 블록 형태로 영역 설정 */
+      width: 200px; /* 가로 넓이 설정 */
+      text-align: left; /* 텍스트 왼쪽 정렬 */
+    }
   </style>
   </head>
 <body>
