@@ -709,3 +709,34 @@ margin-bottom: 10px;
   max-width: 200px; /* 로고 크기 변경 */
   margin: 0 auto 1rem;
 }
+
+:root {
+  --primary-bg-color: #fff;
+  --primary-text-color: #000;
+}
+
+[data-theme="dark"] {
+  --primary-bg-color: #000;
+  --primary-text-color: #fff;
+}
+
+body {
+  background-color: var(--primary-bg-color);
+  color: var(--primary-text-color);
+  transition: all 0.5s ease;
+}
+
+.nav {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  margin-right: 5px;
+}
+
+.nav-link {
+  color: var(--primary-text-color);
+  text-decoration: none;
+  cursor: pointer;
+}
