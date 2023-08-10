@@ -1,10 +1,6 @@
 [
   {
-    "page": "secret_page1.html",
-    "password": "11111"
-  },
-  {
-    "page": "secret_page2.html",
-    "password": "password2"
+    "password": "example-password",
+    "page": "secret_page1.html"
   }
 ]
