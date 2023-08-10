@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,10 +13,6 @@
     justify-content: center;
     height: 100vh;
     margin: 0;
-  }
-  
-  #content {
-    display: none;
   }
 
   .modal {
@@ -69,11 +66,6 @@
 </style>
 </head>
 <body>
-  <div id="content">
-    <h1 class="text-center">제한된 컨텐츠입니다.</h1>
-    <p>안녕하세요</p>
-  </div>
-
   <div id="myModal" class="modal">
     <div class="modal-content">
       <p>비밀번호를 입력하세요:</p>
@@ -84,20 +76,36 @@
   </div>
 
   <script>
-    const correctPassword = "0000";
+    const pagesWithPasswords = ["page1.html", "page2.html"];
+
     const modal = document.getElementById("myModal");
     const passwordInput = document.getElementById("password");
     const submitBtn = document.getElementById("submitBtn");
     const errorMsg = document.getElementById("errorMsg");
 
+    function checkPassword(password) {
+      for (const page of pagesWithPasswords) {
+        return fetch(page)
+          .then(response => response.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const meta = doc.querySelector('head meta[name="password"]');
+            if (meta && meta.content === password) {
+              window.location.href = page;
+              return true;
+            }
+          });
+      }
+    }
+
     modal.style.display = "block";
 
-    submitBtn.onclick = () => {
+    submitBtn.onclick = async () => {
       const enteredPassword = passwordInput.value;
-      if (enteredPassword === correctPassword) {
-        modal.style.display = "none";
-        document.getElementById("content").style.display = "block";
-      } else {
+      const valid = await checkPassword(enteredPassword);
+
+      if (!valid) {
         errorMsg.style.display = "block";
       }
     };
