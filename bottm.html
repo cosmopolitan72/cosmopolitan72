@@ -188,39 +188,60 @@
   // 이전에 작성한 코드
   // ...
 
-  // 여기에 새로 추가할 코드 시작
-  window.onload = function () {
-    var checkStatus;
-    // 크롬과 사파리를 위한 체크
-    var element = new Image();
+  function handleDevToolsOpen() {
+    document.body.innerHTML =
+        "<h1>개발자 도구를 사용할 수 없습니다.</h1>";
+}
 
-    element.__defineGetter__('id', function () {
-      checkStatus = 'on';
-    });
+(function () {
+    var devtools = {
+        isOpen: false,
+        orientation: undefined
+    };
+
+    var threshold = 160;
+
+    var emitEvent = function (isOpen, orientation) {
+        window.dispatchEvent(
+            new CustomEvent("devtoolschange", {
+                detail: {
+                    isOpen: isOpen,
+                    orientation: orientation
+                }
+            })
+        );
+    };
 
     setInterval(function () {
-      checkStatus = 'off';
-      console.log(element);
-      console.clear();
-      if (checkStatus === 'on') {
-        handleDevToolsOpen();
-      }
-    }, 1000);
+        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        var orientation = widthThreshold ? "vertical" : "horizontal";
 
-    // Firefox를 위한 체크
-    if (typeof window.ondevicemotion !== 'undefined') {
-      window.ondevicemotion = function (e) {
-        if (!e.accelerationIncludingGravity) {
-          handleDevToolsOpen();
+        if (
+            !(heightThreshold && widthThreshold) &&
+            ((window.Firebug &&
+                window.Firebug.chrome &&
+                window.Firebug.chrome.isInitialized) ||
+                widthThreshold ||
+                heightThreshold)
+        ) {
+            if (!devtools.isOpen || devtools.orientation !== orientation) {
+                emitEvent(true, orientation);
+            }
+
+            devtools.isOpen = true;
+            devtools.orientation = orientation;
+            handleDevToolsOpen();
+        } else {
+            if (devtools.isOpen) {
+                emitEvent(false, undefined);
+            }
+
+            devtools.isOpen = false;
+            devtools.orientation = undefined;
         }
-      };
-    }
-  };
-
-  function handleDevToolsOpen() {
-    alert('개발자 도구를 사용할 수 없습니다.');
-  }
-  // 여기에 새로 추가할 코드 끝
+    }, 1000);
+})();
 </script>
 </body>
 </html>
