@@ -24,27 +24,27 @@
     </div>
 
     <script>
-        const pagesWithPasswords = ["page1.html", "page2.html"]; // 여기에 비밀번호가 존재하는 페이지를 목록으로 추가합니다.
+        const pages = ["k.html"]; // 여기에 비밀번호가 설정된 페이지 파일명을 추가합니다.
+
         const passwordModal = document.getElementById("passwordModal");
         const passwordInput = document.getElementById("passwordInput");
         const submitBtn = document.getElementById("submitBtn");
         const errorMsg = document.getElementById("errorMsg");
 
         async function checkPassword(password) {
-            let valid = false;
-            for (const page of pagesWithPasswords) {
+            for (const page of pages) {
                 const response = await fetch(page);
                 const html = await response.text();
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, "text/html");
-                const meta = doc.querySelector('head meta[name="password"]');
+                const meta = doc.querySelector('head meta[name="psw"]');
+
                 if (meta && meta.content === password) {
-                     window.location.href = page;
-                     valid = true;
-                     break;
+                    window.location.href = page;
+                    return true;
                 }
             }
-            return valid;
+            return false;
         }
 
         passwordInput.addEventListener("keyup", function(event) {
@@ -64,6 +64,7 @@
                 errorMsg.style.display = "block";
             } else {
                 errorMsg.style.display = "none";
+                passwordModal.style.display = "none";
             }
         };
     </script>
