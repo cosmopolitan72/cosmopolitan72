@@ -16,16 +16,15 @@
     </style>
 </head>
 <body>
-    
     <div id="passwordModal">
         <label for="passwordInput">비밀번호를 입력해 주세요:</label>
         <input type="password" id="passwordInput">
         <button id="submitBtn">확인</button>
-        <p id="errorMsg">비밀번호가 일치하지 않습니다.</p>
+        <p id="errorMsg">비밀번호가 일치하는 페이지가 없습니다.</p>
     </div>
 
     <script>
-        const pages = ["k.html, page2.html, page3.html, page4.html"]; // 여기에 비밀번호가 설정된 페이지 파일명을 추가합니다.
+        const pages = ["k.html", "page1.html"]; // 여기에 비밀번호가 설정된 페이지 파일명을 추가합니다.
 
         const passwordModal = document.getElementById("passwordModal");
         const passwordInput = document.getElementById("passwordInput");
@@ -34,15 +33,22 @@
 
         async function checkPassword(password) {
             for (const page of pages) {
-                const response = await fetch(page);
-                const html = await response.text();
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(html, "text/html");
-                const meta = doc.querySelector('head meta[name="psw"]');
+                try {
+                    const response = await fetch(page);
+                    if (!response.ok) {
+                        continue;
+                    }
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, "text/html");
+                    const meta = doc.querySelector('head meta[name="psw"]');
 
-                if (meta && meta.content === password) {
-                    window.location.href = page;
-                    return true;
+                    if (meta && meta.content === password) {
+                        window.location.href = page;
+                        return true;
+                    }
+                } catch (err) {
+                    console.error(err);
                 }
             }
             return false;
