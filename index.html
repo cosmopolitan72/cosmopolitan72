@@ -9,6 +9,24 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fontawesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+	    <style>
+  body.light-mode {
+    color: #333;
+    background-color: #fff;
+  }
+
+  body.dark-mode {
+    color: #eee;
+    background-color: #333;
+  }
+
+  .toggle-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+</style>
     </head>
     <body>
 	    <div class="sidebar">
@@ -50,6 +68,7 @@
                         <li class="nav-item">
                            <a class="nav-link" href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a>
                         </li>
+			    <button id="theme-toggler" class="toggle-button">Toggle Theme</button>
                     </ul>
                 </div>
             </div>
