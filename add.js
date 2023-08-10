@@ -1,4 +1,3 @@
-<script>
 document.addEventListener("DOMContentLoaded", function () {
   const toggleThemeButton = document.getElementById("theme-toggler");
   const body = document.body;
@@ -17,4 +16,3 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("theme", theme);
   }
 });
-</script>
