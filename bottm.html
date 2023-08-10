@@ -186,5 +186,43 @@
     }
 
   </script>
+  <script>
+  // 이전에 작성한 코드
+  // ...
+
+  // 여기에 새로 추가할 코드 시작
+  window.onload = function () {
+    var checkStatus;
+    // 크롬과 사파리를 위한 체크
+    var element = new Image();
+
+    element.__defineGetter__('id', function () {
+      checkStatus = 'on';
+    });
+
+    setInterval(function () {
+      checkStatus = 'off';
+      console.log(element);
+      console.clear();
+      if (checkStatus === 'on') {
+        handleDevToolsOpen();
+      }
+    }, 1000);
+
+    // Firefox를 위한 체크
+    if (typeof window.ondevicemotion !== 'undefined') {
+      window.ondevicemotion = function (e) {
+        if (!e.accelerationIncludingGravity) {
+          handleDevToolsOpen();
+        }
+      };
+    }
+  };
+
+  function handleDevToolsOpen() {
+    alert('개발자 도구를 사용할 수 없습니다.');
+  }
+  // 여기에 새로 추가할 코드 끝
+</script>
 </body>
 </html>
