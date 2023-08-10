@@ -1,0 +1,10 @@
+[
+  {
+    "page": "secret_page1.html",
+    "password": "password1"
+  },
+  {
+    "page": "secret_page2.html",
+    "password": "password2"
+  }
+]
