@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function () {
   
   applyTheme(currentTheme);
 
-  toggleThemeButton.addEventListener("click", function () {
+  toggleThemeButton.addEventListener("click", function (event) {
+    event.preventDefault(); // 추가한 코드입니다. 기본 동작을 막아줍니다.
     currentTheme = currentTheme === "light-mode" ? "dark-mode" : "light-mode";
     applyTheme(currentTheme);
   });
