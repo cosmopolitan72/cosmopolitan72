@@ -150,24 +150,68 @@
   </div>
 
   <script>
-    const saltRounds = 10;
-    const correctPassword = "0000";      
-    const customPrompt = document.getElementById("custom-prompt");
-    const passwordInput = document.getElementById("password-input");
-    const submitBtn = document.getElementById("submit-btn");
-    const cancelBtn = document.getElementById("cancel-btn");
+  const customPrompt = document.getElementById("custom-prompt");
+const passwordInput = document.getElementById("password-input");
+const submitBtn = document.getElementById("submit-btn");
+const cancelBtn = document.getElementById("cancel-btn");
 
-    customPrompt.style.display = "block";
+const pages = ["example-page.html", "page1.html"]; // 여기에 비밀번호가 설정된 페이지 파일명을 추가합니다.
 
-    // 확인 버튼 클릭 시 처리
-    submitBtn.addEventListener("click", verifyPassword);
+customPrompt.style.display = "block";
 
-    // Enter 키 눌려졌을 때 처리
-    passwordInput.addEventListener("keyup", (e) => {
-      if (e.key === "Enter" || e.keyCode === 13) {
-        verifyPassword();
-      }
-    });
+passwordInput.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        submitBtn.click();
+    }
+});
+
+submitBtn.onclick = async () => {
+    const enteredPassword = passwordInput.value;
+    const valid = await checkPassword(enteredPassword);
+
+    if (!valid) {
+        alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
+    } else {
+        customPrompt.style.display = "none";
+    }
+};
+
+cancelBtn.onclick = () => {
+    customPrompt.style.display = "none";
+    alert("인증이 취소되었습니다.");
+    window.location.href = "https://cosmopolitan72.github.io/cosmopolitan72/"; // 원하는 페이지로 이동
+};
+
+async function checkPassword(password) {
+    let redirectTo = null;
+    for (const page of pages) {
+        try {
+            const response = await fetch(page);
+            if (!response.ok) {
+                continue;
+            }
+            const html = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, "text/html");
+            const meta = doc.querySelector('head meta[name="psw"]');
+
+            if (meta && meta.content === password) {
+                redirectTo = page;
+                break;
+            }
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    if (redirectTo) {
+        window.location.href = redirectTo;
+        return true;
+    } else {
+        return false;
+    }
+}
 
     // 취소 버튼 클릭 시 처리
     cancelBtn.addEventListener("click", () => {
@@ -175,16 +219,4 @@
       alert("인증이 취소되었습니다.");
       window.location.href = "https://cosmopolitan72.github.io/cosmopolitan72/"; // 원하는 페이지로 이동
     });
-
-    // 비밀번호 확인 함수
-    function verifyPassword() {
-      const password = passwordInput.value;
-
-      if (password === correctPassword) {
-        document.getElementById("content").style.display = "block";
-        customPrompt.style.display = "none";
-      } else {
-        alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
-      }
-    }
 </script>
