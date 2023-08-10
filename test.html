@@ -1,114 +1,71 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Cosmopolitan</title>
-        <style>
-            body {
-                font-family: "SF Pro Display", sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh;
-                margin: 0;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 검증 페이지</title>
+    <style>
+        #passwordModal {
+            display: none;
+        }
+        #errorMsg {
+            display: none;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="passwordModal">
+        <label for="passwordInput">비밀번호를 입력해 주세요:</label>
+        <input type="password" id="passwordInput">
+        <button id="submitBtn">확인</button>
+        <p id="errorMsg">비밀번호가 일치하지 않습니다.</p>
+    </div>
 
-            .modal {
-                display: none;
-                position: fixed;
-                z-index: 1;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: auto;
-                background-color: rgba(0, 0, 0, 0.4);
-            }
+    <script>
+        const pagesWithPasswords = ["page1.html", "page2.html"]; // 여기에 비밀번호가 존재하는 페이지를 목록으로 추가합니다.
+        const passwordModal = document.getElementById("passwordModal");
+        const passwordInput = document.getElementById("passwordInput");
+        const submitBtn = document.getElementById("submitBtn");
+        const errorMsg = document.getElementById("errorMsg");
 
-            .modal-content {
-                background-color: #f1f1f1;
-                margin: 15% auto;
-                padding: 20px;
-                border: 1px solid #888;
-                width: 30%;
-            }
-
-            input[type="password"] {
-                width: 100%;
-                padding: 12px 20px;
-                margin: 8px 0;
-                display: inline-block;
-                border: 1px solid #ccc;
-                box-sizing: border-box;
-            }
-
-            button {
-                background-color: #4caf50;
-                color: white;
-                padding: 14px 20px;
-                margin: 8px 0;
-                border: none;
-                cursor: pointer;
-                width: 100%;
-            }
-
-            button:hover {
-                opacity: 0.8;
-            }
-
-            .error-message {
-                color: red;
-                display: none;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <p>비밀번호를 입력하세요:</p>
-                <input type="password" id="password" placeholder="비밀번호" required />
-                <button id="submitBtn">확인</button>
-                <p class="error-message" id="errorMsg">잘못된 비밀번호입니다.</p>
-            </div>
-        </div>
-
-        <script>
-            const pagesWithPasswords = ["k.html", "page2.html"];
-
-            const modal = document.getElementById("myModal");
-            const passwordInput = document.getElementById("password");
-            const submitBtn = document.getElementById("submitBtn");
-            const errorMsg = document.getElementById("errorMsg");
-
-            async function checkPassword(password) {
-                let valid = false;
-                for (const page of pagesWithPasswords) {
-                    const response = await fetch(page);
-                    const html = await response.text();
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, "text/html");
-                    const meta = doc.querySelector('head meta[name="password"]');
-                    if (meta && meta.content === password) {
-                         window.location.href = page;
-                         valid = true;
-                         break;
-                    }
+        async function checkPassword(password) {
+            let valid = false;
+            for (const page of pagesWithPasswords) {
+                const response = await fetch(page);
+                const html = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+                const meta = doc.querySelector('head meta[name="password"]');
+                if (meta && meta.content === password) {
+                     window.location.href = page;
+                     valid = true;
+                     break;
                 }
-                return valid;
             }
+            return valid;
+        }
 
-            modal.style.display = "block";
+        passwordInput.addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                submitBtn.click();
+            }
+        });
 
-            submitBtn.onclick = async () => {
-                const enteredPassword = passwordInput.value;
-                const valid = await checkPassword(enteredPassword);
+        passwordModal.style.display = "block";
+        
+        submitBtn.onclick = async () => {
+            const enteredPassword = passwordInput.value;
+            const valid = await checkPassword(enteredPassword);
 
-                if (!valid) {
-                    errorMsg.style.display = "block";
-                }
-            };
-        </script>
-    </body>
+            if (!valid) {
+                errorMsg.style.display = "block";
+            } else {
+                errorMsg.style.display = "none";
+            }
+        };
+    </script>
+</body>
 </html>
