@@ -150,12 +150,12 @@
   </div>
 
   <script>
-  const customPrompt = document.getElementById("custom-prompt");
+ const customPrompt = document.getElementById("custom-prompt");
 const passwordInput = document.getElementById("password-input");
 const submitBtn = document.getElementById("submit-btn");
 const cancelBtn = document.getElementById("cancel-btn");
 
-const pages = ["k.html", "page1.html, page2.html, page3.html"]; 
+const pages = ["example-page.html"]; 
 
 customPrompt.style.display = "block";
 
@@ -180,29 +180,32 @@ submitBtn.onclick = async () => {
 cancelBtn.onclick = () => {
     customPrompt.style.display = "none";
     alert("인증이 취소되었습니다.");
-    window.location.href = "https://cosmopolitan72.github.io/cosmopolitan72/"; // 원하는 페이지로 이동
+    window.location.href = "https://cosmopolitan72.github.io/cosmopolitan72/"; 
 };
 
 async function checkPassword(password) {
     let redirectTo = null;
-    for (const page of pages) {
-        try {
-            const response = await fetch(page);
-            if (!response.ok) {
-                continue;
-            }
-            const html = await response.text();
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(html, "text/html");
-            const meta = doc.querySelector('head meta[name="psw"]');
-
-            if (meta && meta.content === password) {
-                redirectTo = page;
-                break;
-            }
-        } catch (err) {
-            console.error(err);
+    try {
+        const response = await fetch("example-page.html");
+        if (!response.ok) {
+            throw new Error("예제 페이지를 불러올 수 없습니다.");
         }
+        const html = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
+        const meta = doc.querySelector('head meta[name="psw"]');
+
+        if (meta && meta.content === password) {
+            const nextPage = doc.querySelector('head meta[name="next-page"]');
+
+            if (nextPage) {
+                redirectTo = nextPage.content;
+            } else {
+                redirectTo = "example-page.html";
+            }
+        }
+    } catch (err) {
+        console.error(err);
     }
 
     if (redirectTo) {
@@ -212,4 +215,5 @@ async function checkPassword(password) {
         return false;
     }
 }
+
 </script>
