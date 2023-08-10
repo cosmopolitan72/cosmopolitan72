@@ -59,6 +59,8 @@
             font-weight: 500;
             margin-top: 0.5rem;
         }
+        <button id="cancelBtn" class="btn" style="background-color: #f44336; color: #fff; margin-top: 0.5rem;">취소</button>
+       
         #errorMsg {
             display: none;
             color: red;
@@ -138,6 +140,14 @@
                 passwordModal.style.display = "none";
             }
         };
+
+        const cancelBtn = document.getElementById("cancelBtn");
+
+// 기존 submitBtn.onclick 밑에 아래 코드를 추가하세요.
+cancelBtn.onclick = () => {
+    passwordInput.value = "";
+    errorMsg.style.display = "none";
+};
     </script>
 </body>
 </html>
