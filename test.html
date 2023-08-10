@@ -1,12 +1,87 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <script>
-      prompt("비밀번호");
-    </script>
-  </body>
-  </head>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>cosmopolitan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    #content {
+      display: none;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <h1>제한된 컨텐츠입니다.</h1>
+    <p>안녕하세요</p>
+  </div>
+
+  <div class="modal" id="passwordModal">
+    <div class="modal-content">
+      <span class="close" id="modalClose">&times;</span>
+      <h2>비밀번호 입력</h2>
+      <p>비밀번호를 입력하세요:</p>
+      <input type="password" id="passwordInput" placeholder="비밀번호">
+      <button id="submitBtn">확인</button>
+    </div>
+  </div>
+
+  <script>
+    const correctPassword = "0000";
+    
+    document.getElementById("passwordModal").style.display = "block";
+
+    const submitBtn = document.getElementById("submitBtn");
+    submitBtn.addEventListener("click", verifyPassword);
+
+    function verifyPassword() {
+      const passwordInput = document.getElementById("passwordInput");
+      if (passwordInput.value === correctPassword) {
+        document.getElementById("content").style.display = "block";
+        document.getElementById("passwordModal").style.display = "none";
+      } else {
+        alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
+        passwordInput.value = "";
+      }
+    }
+
+    const modalClose = document.getElementById("modalClose");
+    modalClose.addEventListener("click", function() {
+      document.getElementById("passwordModal").style.display = "none";
+    });
+  </script>
+</body>
 </html>
