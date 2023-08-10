@@ -48,13 +48,14 @@
     const correctPassword = "0000";
 
     function promptPassword() {
-      const password = prompt("비밀번호를 입력하세요:");
-
-      if (password === correctPassword) {
-        document.getElementById("content").style.display = "block";
-      } else {
-        alert("잘못된 비밀번호입니다.");
-        promptPassword();
+      let password = "";
+      while (password !== correctPassword) {
+        password = prompt("비밀번호를 입력하세요:");
+        if (password === correctPassword) {
+            document.getElementById("content").style.display = "block";
+        } else {
+            alert("잘못된 비밀번호입니다.");
+        }
       }
     }
 
