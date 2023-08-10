@@ -166,6 +166,7 @@ passwordInput.addEventListener("keyup", function(event) {
     }
 });
 
+    
 submitBtn.onclick = async () => {
     const enteredPassword = passwordInput.value;
     const valid = await checkPassword(enteredPassword);
