@@ -184,64 +184,6 @@
         alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
       }
     }
-
-  // 이전에 작성한 코드
-  // ...
-
-  function handleDevToolsOpen() {
-    document.body.innerHTML =
-        "<h1>개발자 도구를 사용할 수 없습니다.</h1>";
-}
-
-(function () {
-    var devtools = {
-        isOpen: false,
-        orientation: undefined
-    };
-
-    var threshold = 160;
-
-    var emitEvent = function (isOpen, orientation) {
-        window.dispatchEvent(
-            new CustomEvent("devtoolschange", {
-                detail: {
-                    isOpen: isOpen,
-                    orientation: orientation
-                }
-            })
-        );
-    };
-
-    setInterval(function () {
-        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
-        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
-        var orientation = widthThreshold ? "vertical" : "horizontal";
-
-        if (
-            !(heightThreshold && widthThreshold) &&
-            ((window.Firebug &&
-                window.Firebug.chrome &&
-                window.Firebug.chrome.isInitialized) ||
-                widthThreshold ||
-                heightThreshold)
-        ) {
-            if (!devtools.isOpen || devtools.orientation !== orientation) {
-                emitEvent(true, orientation);
-            }
-
-            devtools.isOpen = true;
-            devtools.orientation = orientation;
-            handleDevToolsOpen();
-        } else {
-            if (devtools.isOpen) {
-                emitEvent(false, undefined);
-            }
-
-            devtools.isOpen = false;
-            devtools.orientation = undefined;
-        }
-    }, 1000);
-})();
 </script>
 </body>
 </html>
