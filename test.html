@@ -189,9 +189,10 @@
     cancelBtn.onclick = () => {
       customPrompt.style.display = "none";
       alert("인증이 취소되었습니다.");
-     window.location.replace("index.html"); 
-    };
-
+          location.reload();
+  // 특정 페이지로 이동
+  window.location.href = "index.html";
+};
     // 페이지 및 비밀번호 찾기
     async function getPageWithPassword(password) {
       const response = await fetch("ae.json");
