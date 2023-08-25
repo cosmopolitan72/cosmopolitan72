@@ -164,43 +164,35 @@
       }
     });
 
-    // 버튼 클릭 처리
-    // 버튼 클릭 시 비밀번호 체크 함수를 실행
- submitBtn.onclick = async () => {
-  const enteredPassword = passwordInput.value;
+   // 버튼 클릭 처리
+   // 버튼 클릭 시 비밀번호 체크 함수를 실행
+   submitBtn.onclick = async () => {
+     const enteredPassword = passwordInput.value;
 
-  try {
-    const response = await fetch("au.json");
-    const passwordList = await response.json();
+     try {
+       const response = await fetch("ae.json");
+       const passwordList = await response.json();
 
-    const pageInfo = passwordList.find((item) => item.password === enteredPassword);
+       const pageInfo = passwordList.find((item) => item.password === enteredPassword);
 
-    if (pageInfo) {
-      customPrompt.style.display = "none";
-      window.location.href = pageInfo.page; // 페이지 이동
-    } else {
-      alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
-    }
-  } catch (error) {
-    console.error("비밀번호 파일을 불러오는 데 실패했습니다:", error);
-  }
-};
+       if (pageInfo) {
+         customPrompt.style.display = "none";
+         window.location.href ="https://sites.google.com/view/cosmopolitan72/home"; // 페이지 이동
+       } else {
+         alert("잘못된 비밀번호입니다. 다시 시도해 주세요.");
+       }
+     } catch (error) {
+       console.error("비밀번호 파일을 불러오는 데 실패했습니다:", error);
+     }
+   };
 
-    cancelBtn.onclick = () => {
-      customPrompt.style.display = "none";
-      alert("인증이 취소되었습니다.");
+   cancelBtn.onclick = () => {
+     customPrompt.style.display = "none";
+     alert("인증이 취소되었습니다.");
           location.reload();
   // 특정 페이지로 이동
-  window.location.href =  "index.html";
+  window.location.href ="index.html";
 };
-    // 페이지 및 비밀번호 찾기
-    async function getPageWithPassword(password) {
-      const response = await fetch("au.json");
-      const passwords = await response.json();
-      const pageInfo = passwords.find((item) => item.password === password);
-
-      return pageInfo; // 페이지 정보 반환
-    }
-  </script>
+</script>
 </body>
 </html>
