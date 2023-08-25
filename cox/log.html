@@ -171,6 +171,8 @@
 
      try {
        const response = await fetch("au.json");
+       if (!response.ok) throw new Error('Network response was not ok'); // 추가된 부분
+
        const passwordList = await response.json();
 
        const pageInfo = passwordList.find((item) => item.password === enteredPassword);
