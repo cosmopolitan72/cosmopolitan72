@@ -170,7 +170,7 @@
      const enteredPassword = passwordInput.value;
 
      try {
-       const response = await fetch("ae.json");
+       const response = await fetch("au.json");
        const passwordList = await response.json();
 
        const pageInfo = passwordList.find((item) => item.password === enteredPassword);
