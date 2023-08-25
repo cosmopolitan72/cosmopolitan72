@@ -170,7 +170,7 @@
   const enteredPassword = passwordInput.value;
 
   try {
-    const response = await fetch("ae.json");
+    const response = await fetch("au.json");
     const passwordList = await response.json();
 
     const pageInfo = passwordList.find((item) => item.password === enteredPassword);
@@ -195,7 +195,7 @@
 };
     // 페이지 및 비밀번호 찾기
     async function getPageWithPassword(password) {
-      const response = await fetch("ae.json");
+      const response = await fetch("au.json");
       const passwords = await response.json();
       const pageInfo = passwords.find((item) => item.password === password);
 
