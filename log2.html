@@ -11,6 +11,12 @@
             margin: 0;
             background-color: #f8f9fa;
         }
+        #patternContainer {
+            display: flex;
+            flex-wrap: wrap;
+            width: 210px;
+            margin-bottom: 20px;
+        }
         .dot {
             height: 50px;
             width: 50px;
@@ -24,12 +30,6 @@
         }
         .selected {
             background-color: #4caf50;
-        }
-        #patternContainer {
-            display: flex;
-            flex-wrap: wrap;
-            width: 210px;
-            margin-bottom: 20px;
         }
         button {
             font-family: Arial, sans-serif;
@@ -48,10 +48,12 @@
     </style>
 </head>
 <body>
-    <div id="patternContainer">
-        <!-- 여기에 점들이 들어갑니다 -->
+    <div>
+        <div id="patternContainer">
+            <!-- 여기에 점들이 들어갑니다 -->
+        </div>
+        <button onclick="submitPattern()">Submit Pattern</button>
     </div>
-    <button onclick="submitPattern()">Submit Pattern</button>
     <script>
         var selectedPattern = [];
         var correctPattern = [1, 2, 3]; // 예시로 설정한 올바른 패턴
