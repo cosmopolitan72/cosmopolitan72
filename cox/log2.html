@@ -14,8 +14,10 @@
         #patternContainer {
             display: flex;
             flex-wrap: wrap;
-            width: 360px;
+            width: 90%; /* 상대적인 크기로 변경 */
+            max-width: 360px; /* 최대 크기 설정 */
             margin-bottom: 20px;
+            justify-content: space-around; /* 점들 간의 간격을 동일하게 유지 */
         }
         .dot {
             height: 50px;
@@ -45,23 +47,13 @@
         button:hover {
             background-color: #0056b3;
         }
-
-        /* 반응형 웹 디자인을 위한 미디어 쿼리 시작 */
-        @media screen and (max-width: 600px) {
-            #patternContainer {
-                width: 90%;
-            }
+        @media screen and (max-width: 600px) { /* 화면 크기가 600px 이하일 때 적용되는 스타일 */
             .dot {
-                height: 60px; /* 점의 크기를 더 크게 설정 */
-                width: 60px;  /* 점의 크기를 더 크게 설정 */
-                margin: 10px;
-            }
-            button {
-                font-size: 18px; /* 버튼의 글자 크기를 더 크게 설정 */
-                padding: 15px 30px; /* 버튼의 패딩을 더 크게 설정 */
+                height: 30px; /* 점의 크기를 줄임 */
+                width: 30px;
+                margin: 5px; /* 점 주변의 공간을 줄임 */
             }
         }
-        /* 반응형 웹 디자인을 위한 미디어 쿼리 끝 */
     </style>
 </head>
 <body>
