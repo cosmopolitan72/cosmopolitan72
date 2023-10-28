@@ -3,6 +3,10 @@
 <head>
     <title>Pattern Authentication</title>
     <style>
+        button {
+            display: block;
+            margin: 15px 0;
+        }
         .dot {
             height: 50px;
             width: 50px;
@@ -10,9 +14,6 @@
             border-radius: 50%;
             display: inline-block;
             margin: 10px;
-        }
-        .dot:hover {
-            background-color: #717171;
         }
         .selected {
             background-color: #4CAF50;
@@ -23,46 +24,37 @@
     <div id="patternContainer">
         <!-- 여기에 점들이 들어갑니다 -->
     </div>
-    <button onclick="setPattern()">Set Pattern</button>
     <button onclick="submitPattern()">Submit Pattern</button>
     <script>
         var selectedPattern = [];
-        var correctPattern = []; 
+        var correctPattern = [1, 2, 3]; // 예시로 설정한 올바른 패턴
 
-        for(var i=1; i<=9; i++){
-            var dot = document.createElement("span");
+        for (var i=1; i<=7; i++) {
+            var dot = document.createElement("div");
             dot.className = "dot";
             dot.id = i;
-            dot.onclick = function(e){
-                e.target.className += " selected";
+            dot.addEventListener('click', function(e){
+                e.target.className = "dot selected";
                 selectedPattern.push(parseInt(e.target.id));
-            }
+            });
             document.getElementById("patternContainer").appendChild(dot);
-            if(i%3 === 0){
-                var br = document.createElement("br");
-                document.getElementById("patternContainer").appendChild(br);
+            if (i % 3 === 0) {
+                document.getElementById("patternContainer").appendChild(
+                    document.createElement("br")
+                );
             }
         }
 
-        function setPattern(){
-            correctPattern = Array.from(selectedPattern);
-            selectedPattern = [];
-            var dots = document.getElementsByClassName("dot");
-            for (var i=0; i < dots.length; i++) {
-                dots[i].className = "dot";
-            }
-            alert("Pattern has been set. You can now try to unlock.");
-        }
-
-        function submitPattern(){
-            if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
+        function submitPattern() {
+            if (JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)) {
                 alert("Pattern is correct.");
             } else {
                 alert("Pattern is incorrect.");
             }
+            // 패턴 초기화
             selectedPattern = [];
             var dots = document.getElementsByClassName("dot");
-            for (var i=0; i < dots.length; i++) {
+            for (var i=0; i<dots.length; i++) {
                 dots[i].className = "dot";
             }
         }
