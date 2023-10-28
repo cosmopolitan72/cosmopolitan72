@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pattern Authentication</title>
+    <style>
+        button {
+            display: block;
+            margin: 15px 0;
+        }
+        .dot {
+            height: 50px;
+            width: 50px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+        }
+        .selected {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div id="patternContainer">
+        <!-- 여기에 점들이 들어갑니다 -->
+    </div>
+    <button onclick="submitPattern()">Submit Pattern</button>
+    <script>
+        var selectedPattern = [];
+        var correctPattern = [1, 2, 3]; // 예시로 설정한 올바른 패턴
 
+        for (var i=1; i<=7; i++) {
+            var dot = document.createElement("div");
+            dot.className = "dot";
+            dot.id = i;
+            dot.addEventListener('click', function(e){
+                e.target.className = "dot selected";
+                selectedPattern.push(parseInt(e.target.id));
+            });
+            document.getElementById("patternContainer").appendChild(dot);
+            if (i % 3 === 0) {
+                document.getElementById("patternContainer").appendChild(
+                    document.createElement("br")
+                );
+            }
+        }
+
+        function submitPattern() {
+            if (JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)) {
+                alert("Pattern is correct.");
+            } else {
+                alert("Pattern is incorrect.");
+            }
+            // 패턴 초기화
+            selectedPattern = [];
+            var dots = document.getElementsByClassName("dot");
+            for (var i=0; i<dots.length; i++) {
+                dots[i].className = "dot";
+            }
+        }
+    </script>
+</body>
+</html>
