@@ -14,14 +14,12 @@
         #patternContainer {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* 가운데 정렬 */
-            width: 80%; /* 반응형에서의 너비 조정 */
-            max-width: 360px; /* 최대 너비 제한 */
+            width: 360px;
             margin-bottom: 20px;
         }
         .dot {
-            height: 70px; /* 패턴 점 크기 조정 */
-            width: 70px; /* 패턴 점 크기 조정 */
+            height: 50px;
+            width: 50px;
             background-color: #ffffff; /* 점의 색상을 흰색으로 변경 */
             border-radius: 50%;
             display: inline-block;
@@ -51,16 +49,16 @@
         /* 반응형 웹 디자인을 위한 미디어 쿼리 시작 */
         @media screen and (max-width: 600px) {
             #patternContainer {
-                width: 90%; /* 반응형에서의 너비 조정 */
+                width: 90%;
             }
             .dot {
-                height: 40px; /* 패턴 점 크기 조정 */
-                width: 40px; /* 패턴 점 크기 조정 */
-                margin: 5px;
+                height: 60px; /* 점의 크기를 더 크게 설정 */
+                width: 60px;  /* 점의 크기를 더 크게 설정 */
+                margin: 10px;
             }
             button {
-                font-size: 14px; /* 버튼 글자 크기 조정 */
-                padding: 8px 16px; /* 버튼 패딩 조정 */
+                font-size: 18px; /* 버튼의 글자 크기를 더 크게 설정 */
+                padding: 15px 30px; /* 버튼의 패딩을 더 크게 설정 */
             }
         }
         /* 반응형 웹 디자인을 위한 미디어 쿼리 끝 */
@@ -74,16 +72,13 @@
         <button onclick="submitPattern()">Submit Pattern</button>
     </div>
     <script>
-        var selectedPattern = [];
+      var selectedPattern = [];
 var correctPattern;
-
-fetch('pattern.json')
-    .then(response => aue.json())
-    .then(data => correctPattern = data.correctPattern);
 
 fetch('pattern.json')
     .then(response => response.json())
     .then(data => correctPattern = data.correctPattern);
+
 
         for(var i=1; i<=36; i++){ // 36개의 점을 생성
             var dot = document.createElement("div");
