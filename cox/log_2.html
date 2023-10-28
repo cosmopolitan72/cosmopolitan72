@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +45,7 @@
         }
 
         function setPattern(){
-            correctPattern = [...selectedPattern];
+            correctPattern = Array.from(selectedPattern);
             selectedPattern = [];
             var dots = document.getElementsByClassName("dot");
             for (var i=0; i < dots.length; i++) {
