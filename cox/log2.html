@@ -72,7 +72,8 @@
         <button onclick="submitPattern()">Submit Pattern</button>
     </div>
     <script>
-        var correctPattern;
+           var selectedPattern = [];
+var correctPattern;
 
 fetch('pattern.json')
     .then(response => aue.json())
