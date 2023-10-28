@@ -78,6 +78,10 @@
 var correctPattern;
 
 fetch('pattern.json')
+    .then(response => aue.json())
+    .then(data => correctPattern = data.correctPattern);
+
+fetch('pattern.json')
     .then(response => response.json())
     .then(data => correctPattern = data.correctPattern);
 
