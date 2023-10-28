@@ -1,1 +1,72 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pattern Authentication</title>
+    <style>
+        .dot {
+            height: 50px;
+            width: 50px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+        }
+        .dot:hover {
+            background-color: #717171;
+        }
+        .selected {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+    <div id="patternContainer">
+        <!-- 여기에 점들이 들어갑니다 -->
+    </div>
+    <button onclick="setPattern()">Set Pattern</button>
+    <button onclick="submitPattern()">Submit Pattern</button>
+    <script>
+        var selectedPattern = [];
+        var correctPattern = []; 
+
+        for(var i=1; i<=9; i++){
+            var dot = document.createElement("span");
+            dot.className = "dot";
+            dot.id = i;
+            dot.onclick = function(e){
+                e.target.className += " selected";
+                selectedPattern.push(parseInt(e.target.id));
+            }
+            document.getElementById("patternContainer").appendChild(dot);
+            if(i%3 === 0){
+                var br = document.createElement("br");
+                document.getElementById("patternContainer").appendChild(br);
+            }
+        }
+
+        function setPattern(){
+            correctPattern = [...selectedPattern];
+            selectedPattern = [];
+            var dots = document.getElementsByClassName("dot");
+            for (var i=0; i < dots.length; i++) {
+                dots[i].className = "dot";
+            }
+            alert("Pattern has been set. You can now try to unlock.");
+        }
+
+        function submitPattern(){
+            if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
+                alert("Pattern is correct.");
+            } else {
+                alert("Pattern is incorrect.");
+            }
+            selectedPattern = [];
+            var dots = document.getElementsByClassName("dot");
+            for (var i=0; i < dots.length; i++) {
+                dots[i].className = "dot";
+            }
+        }
+    </script>
+</body>
+</html>
