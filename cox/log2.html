@@ -76,7 +76,7 @@
 var correctPattern;
 
 fetch('pattern.json')
-    .then(response => aue.json())
+    .then(response => pattern.json())
     .then(data => correctPattern = data.correctPattern);
 
         for(var i=1; i<=25; i++){ // 36개의 점을 생성
