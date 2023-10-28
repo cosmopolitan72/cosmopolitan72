@@ -71,6 +71,7 @@
 
         function submitPattern(){
             if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
+                alert("인증이 확인되었습니다."); // 인증 확인 메시지
                 window.location.href = "https://sites.google.com/view/cosmopolitan72/blog/branch/asset?authuser=0"; // 패턴이 맞을 경우 이동할 페이지 url
             } else {
                 alert("Pattern is incorrect.");
