@@ -3,10 +3,6 @@
 <head>
     <title>Pattern Authentication</title>
     <style>
-        button {
-            display: block;
-            margin: 15px 0;
-        }
         .dot {
             height: 50px;
             width: 50px;
@@ -14,6 +10,9 @@
             border-radius: 50%;
             display: inline-block;
             margin: 10px;
+        }
+        .dot:hover {
+            background-color: #717171;
         }
         .selected {
             background-color: #4CAF50;
@@ -29,25 +28,21 @@
         var selectedPattern = [];
         var correctPattern = [1, 2, 3]; // 예시로 설정한 올바른 패턴
 
-        for (var i=1; i<=7; i++) {
+        for(var i=1; i<=7; i++){
             var dot = document.createElement("div");
             dot.className = "dot";
             dot.id = i;
-            dot.addEventListener('click', function(e){
-                e.target.className = "dot selected";
+            dot.onclick = function(e){
+                e.target.className += " selected";
                 selectedPattern.push(parseInt(e.target.id));
-            });
-            document.getElementById("patternContainer").appendChild(dot);
-            if (i % 3 === 0) {
-                document.getElementById("patternContainer").appendChild(
-                    document.createElement("br")
-                );
             }
+            document.getElementById("patternContainer").appendChild(dot);
         }
 
-        function submitPattern() {
-            if (JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)) {
+        function submitPattern(){
+            if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
                 alert("Pattern is correct.");
+                window.location.href = "log2.html"; // 인증 성공 후 이동할 페이지 url
             } else {
                 alert("Pattern is incorrect.");
             }
