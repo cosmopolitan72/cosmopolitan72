@@ -64,22 +64,17 @@
     </style>
 </head>
 <body>
-    <div id="patternContainer"></div>
-    <button onclick="submitPattern()">Submit</button>
-
+    <div>
+        <div id="patternContainer">
+            <!-- 여기에 점들이 들어갑니다 -->
+        </div>
+        <button onclick="submitPattern()">Submit Pattern</button>
+    </div>
     <script>
         var selectedPattern = [];
-        var correctPattern;
-        var redirectUrl;
+        var correctPattern = [1, 3, 5]; // 1 -> 3 -> 5 순으로 선택하면 인증 통과
 
-        fetch('https://raw.githubusercontent.com/cosmopolitan72/cosmopolitan72/main/cox/pattern.json')
-            .then(response => response.json())
-            .then(data => {
-                correctPattern = data.pattern;
-                redirectUrl = data.redirectUrl;
-            });
-
-        for(var i=1; i<=36; i++){ 
+        for(var i=1; i<=36; i++){ // 36개의 점을 생성
             var dot = document.createElement("div");
             dot.className = "dot";
             dot.id = i;
@@ -91,12 +86,13 @@
         }
 
         function submitPattern(){
-            if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
-                alert("인증이 확인되었습니다.");
-                window.location.href = redirectUrl;
+            if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
+                alert("인증이 확인되었습니다."); // 인증 확인 메시지
+                window.location.href = "https://sites.google.com/view/cosmopolitan72/blog/branch/asset?authuser=0"; // 패턴이 맞을 경우 이동할 페이지 url
             } else {
-                alert("비밀번호가 틀렸습니다.");
+                alert("Pattern is incorrect.");
             }
+            // 패턴 초기화
             selectedPattern = [];
             var dots = document.getElementsByClassName("dot");
             for (var i=0; i<dots.length; i++) {
