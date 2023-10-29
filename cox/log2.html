@@ -6,7 +6,7 @@
     var selectedPattern = [];
     var correctPattern;
 
-    fetch('https://yourgithubusername.github.io/cox/pattern.json')
+    fetch('https://github.com/cosmopolitan72/cosmopolitan72/blob/main/cox/pattern.json')
         .then(response => response.json())
         .then(data => {
             correctPattern = data.pattern;
@@ -26,7 +26,7 @@
     function submitPattern(){
         if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
             alert("인증이 확인되었습니다.");
-            window.location.href = "https://yourgithubusername.github.io/cox/log.html";
+            window.location.href = "https://sites.google.com/view/cosmopolitan72/home";
         } else {
             alert("Pattern is incorrect.");
         }
