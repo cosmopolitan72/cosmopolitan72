@@ -69,41 +69,43 @@
             <!-- 여기에 점들이 들어갑니다 -->
         </div>
         <button onclick="submitPattern()">Submit Pattern</button>
-    </div>
-  <script>
+    </div><script>
     var selectedPattern = [];
+    var correctPattern;
+    var redirectUrl;
 
-    fetch('https://github.com/cosmopolitan72/cosmopolitan72/blob/main/cox/pattern.json')
+    fetch('https://yourgithubusername.github.io/cox/pattern.json')
         .then(response => response.json())
         .then(data => {
-            var correctPattern = data.pattern;
-            var redirectUrl = data.redirectUrl;
-            
-            for(var i=1; i<=36; i++){ 
-                var dot = document.createElement("div");
-                dot.className = "dot";
-                dot.id = i;
-                dot.onclick = function(e){
-                    e.target.className += " selected";
-                    selectedPattern.push(parseInt(e.target.id));
-                }
-                document.getElementById("patternContainer").appendChild(dot);
-            }
-
-            function submitPattern(){
-                if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
-                    alert("인증이 확인되었습니다.");
-                    window.location.href = redirectUrl;
-                } else {
-                    alert("Pattern is incorrect.");
-                }
-                selectedPattern = [];
-                var dots = document.getElementsByClassName("dot");
-                for (var i=0; i<dots.length; i++) {
-                    dots[i].className = "dot";
-                }
-            }
+            correctPattern = data.pattern;
+            redirectUrl = data.redirectUrl;
         });
+
+    for(var i=1; i<=36; i++){ 
+        var dot = document.createElement("div");
+        dot.className = "dot";
+        dot.id = i;
+        dot.onclick = function(e){
+            e.target.className += " selected";
+            selectedPattern.push(parseInt(e.target.id));
+        }
+        document.getElementById("patternContainer").appendChild(dot);
+    }
+
+    function submitPattern(){
+        if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
+            alert("인증이 확인되었습니다.");
+            window.location.href = redirectUrl;
+        } else {
+            alert("Pattern is incorrect.");
+        }
+        selectedPattern = [];
+        var dots = document.getElementsByClassName("dot");
+        for (var i=0; i<dots.length; i++) {
+            dots[i].className = "dot";
+        }
+    }
 </script>
+
 </body>
 </html>
