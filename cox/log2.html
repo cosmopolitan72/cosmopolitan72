@@ -2,40 +2,103 @@
 <html>
 <head>
     <title>Pattern Authentication</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000000; /* 배경색을 검은색으로 변경 */
+        }
+        #patternContainer {
+            display: flex;
+            flex-wrap: wrap;
+            width: 90%; /* 상대적인 크기로 변경 */
+            max-width: 360px; /* 최대 크기 설정 */
+            margin-bottom: 20px;
+            justify-content: space-around; /* 점들 간의 간격을 동일하게 유지 */
+        }
+        .dot {
+            height: 50px;
+            width: 50px;
+            background-color: #ffffff; /* 점의 색상을 흰색으로 변경 */
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px;
+        }
+        .dot:hover {
+            background-color: #717171;
+        }
+        .selected {
+            background-color: #4caf50;
+        }
+        button {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            padding: 10px 20px;
+            color: #ffffff; /* 버튼의 글자 색상을 흰색으로 변경 */
+            background-color: #007bff; /* 버튼의 배경색을 파란색으로 변경 */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media screen and (max-width: 600px) { /* 화면 크기가 600px 이하일 때 적용되는 스타일 */
+            .dot {
+                height: 70px; /* 점의 크기를 크게 함 */
+                width: 70px;
+                margin: 20px; /* 점 주변의 공간을 늘림 */
+            }
+            button {
+                font-size: 20px; /* 버튼의 글자 크기를 늘림 */
+                padding: 15px 30px; /* 버튼의 패딩을 늘림 */
+            }
+            #patternContainer {
+                margin-bottom: 40px; /* 패턴 컨테이너 주변의 공간을 늘림 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="patternContainer">
+            <!-- 여기에 점들이 들어갑니다 -->
+        </div>
+        <button onclick="submitPattern()">Submit Pattern</button>
+    </div>
     <script>
-    var selectedPattern = [];
-    var correctPattern;
+        var selectedPattern = [];
+        var correctPattern = [1, 3, 5]; // 1 -> 3 -> 5 순으로 선택하면 인증 통과
 
-    fetch('https://github.com/cosmopolitan72/cosmopolitan72/blob/main/cox/pattern.json')
-        .then(response => response.json())
-        .then(data => {
-            correctPattern = data.pattern;
-        });
+        for(var i=1; i<=36; i++){ // 36개의 점을 생성
+            var dot = document.createElement("div");
+            dot.className = "dot";
+            dot.id = i;
+            dot.onclick = function(e){
+                e.target.className += " selected";
+                selectedPattern.push(parseInt(e.target.id));
+            }
+            document.getElementById("patternContainer").appendChild(dot);
+        }
 
-    for(var i=1; i<=20; i++){ 
-        var dot = document.createElement("div");
-        dot.className = "dot";
-        dot.id = i;
-        dot.onclick = function(e){
-            e.target.className += " selected";
-            selectedPattern.push(parseInt(e.target.id));
+        function submitPattern(){
+            if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
+                alert("인증이 확인되었습니다."); // 인증 확인 메시지
+                window.location.href = "https://sites.google.com/view/cosmopolitan72/blog/branch/asset?authuser=0"; // 패턴이 맞을 경우 이동할 페이지 url
+            } else {
+                alert("Pattern is incorrect.");
+            }
+            // 패턴 초기화
+            selectedPattern = [];
+            var dots = document.getElementsByClassName("dot");
+            for (var i=0; i<dots.length; i++) {
+                dots[i].className = "dot";
+            }
         }
-        document.getElementById("patternContainer").appendChild(dot);
-    }
-
-    function submitPattern(){
-        if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
-            alert("인증이 확인되었습니다.");
-            window.location.href = "https://sites.google.com/view/cosmopolitan72/home";
-        } else {
-            alert("Pattern is incorrect.");
-        }
-        selectedPattern = [];
-        var dots = document.getElementsByClassName("dot");
-        for (var i=0; i<dots.length; i++) {
-            dots[i].className = "dot";
-        }
-    }
-</script>
+    </script>
 </body>
 </html>
