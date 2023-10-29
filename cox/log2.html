@@ -71,9 +71,13 @@
         <button onclick="submitPattern()">Submit Pattern</button>
     </div>
     <script>
-        var selectedPattern = [];
-        var correctPattern = [1, 3, 5]; // 1 -> 3 -> 5 순으로 선택하면 인증 통과
+      var selectedPattern = [];
+    var correctPattern;
 
+    fetch('https://yourgithubusername.github.io/pattern.json')
+        .then(response => response.json())
+        .then(data => correctPattern = data.pattern);
+        
         for(var i=1; i<=36; i++){ // 36개의 점을 생성
             var dot = document.createElement("div");
             dot.className = "dot";
