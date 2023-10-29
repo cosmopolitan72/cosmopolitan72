@@ -64,49 +64,45 @@
     </style>
 </head>
 <body>
-    <div>
-        <div id="patternContainer">
-            <!-- 여기에 점들이 들어갑니다 -->
-        </div>
-        <button onclick="submitPattern()">Submit Pattern</button>
-    </div>
+    <div id="patternContainer"></div>
+    <button onclick="submitPattern()">Submit</button>
+
     <script>
-    var selectedPattern = [];
-    var correctPattern;
-    var redirectUrl;
+        var selectedPattern = [];
+        var correctPattern;
+        var redirectUrl;
 
-   fetch('https://raw.githubusercontent.com/cosmopolitan72/cosmopolitan72/main/cox/pattern.json')
-        .then(response => response.json())
-        .then(data => {
-            correctPattern = data.pattern;
-            redirectUrl = data.redirectUrl;
-        });
+        fetch('https://raw.githubusercontent.com/cosmopolitan72/cosmopolitan72/main/cox/pattern.json')
+            .then(response => response.json())
+            .then(data => {
+                correctPattern = data.pattern;
+                redirectUrl = data.redirectUrl;
+            });
 
-    for(var i=1; i<=36; i++){ 
-        var dot = document.createElement("div");
-        dot.className = "dot";
-        dot.id = i;
-        dot.onclick = function(e){
-            e.target.className += " selected";
-            selectedPattern.push(parseInt(e.target.id));
+        for(var i=1; i<=36; i++){ 
+            var dot = document.createElement("div");
+            dot.className = "dot";
+            dot.id = i;
+            dot.onclick = function(e){
+                e.target.className += " selected";
+                selectedPattern.push(parseInt(e.target.id));
+            }
+            document.getElementById("patternContainer").appendChild(dot);
         }
-        document.getElementById("patternContainer").appendChild(dot);
-    }
 
-    function submitPattern(){
-        if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
-            alert("인증이 확인되었습니다.");
-            window.location.href = redirectUrl;
-        } else {
-            alert("Pattern is incorrect.");
+        function submitPattern(){
+            if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
+                alert("인증이 확인되었습니다.");
+                window.location.href = redirectUrl;
+            } else {
+                alert("비밀번호가 틀렸습니다.");
+            }
+            selectedPattern = [];
+            var dots = document.getElementsByClassName("dot");
+            for (var i=0; i<dots.length; i++) {
+                dots[i].className = "dot";
+            }
         }
-        selectedPattern = [];
-        var dots = document.getElementsByClassName("dot");
-        for (var i=0; i<dots.length; i++) {
-            dots[i].className = "dot";
-        }
-    }
-</script>
-
+    </script>
 </body>
 </html>
