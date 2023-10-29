@@ -70,35 +70,40 @@
         </div>
         <button onclick="submitPattern()">Submit Pattern</button>
     </div>
-    <script>
-        var selectedPattern = [];
-        var correctPattern = [1, 3, 5]; // 1 -> 3 -> 5 순으로 선택하면 인증 통과
+  <script>
+    var selectedPattern = [];
 
-        for(var i=1; i<=36; i++){ // 36개의 점을 생성
-            var dot = document.createElement("div");
-            dot.className = "dot";
-            dot.id = i;
-            dot.onclick = function(e){
-                e.target.className += " selected";
-                selectedPattern.push(parseInt(e.target.id));
+    fetch('https://yourgithubusername.github.io/cox/pattern.json')
+        .then(response => response.json())
+        .then(data => {
+            var correctPattern = data.pattern;
+            var redirectUrl = data.redirectUrl;
+            
+            for(var i=1; i<=36; i++){ 
+                var dot = document.createElement("div");
+                dot.className = "dot";
+                dot.id = i;
+                dot.onclick = function(e){
+                    e.target.className += " selected";
+                    selectedPattern.push(parseInt(e.target.id));
+                }
+                document.getElementById("patternContainer").appendChild(dot);
             }
-            document.getElementById("patternContainer").appendChild(dot);
-        }
 
-        function submitPattern(){
-            if(JSON.stringify(selectedPattern)===JSON.stringify(correctPattern)){
-                alert("인증이 확인되었습니다."); // 인증 확인 메시지
-                window.location.href = "https://sites.google.com/view/cosmopolitan72/blog/branch/asset?authuser=0"; // 패턴이 맞을 경우 이동할 페이지 url
-            } else {
-                alert("Pattern is incorrect.");
+            function submitPattern(){
+                if(JSON.stringify(selectedPattern) === JSON.stringify(correctPattern)){
+                    alert("인증이 확인되었습니다.");
+                    window.location.href = redirectUrl;
+                } else {
+                    alert("Pattern is incorrect.");
+                }
+                selectedPattern = [];
+                var dots = document.getElementsByClassName("dot");
+                for (var i=0; i<dots.length; i++) {
+                    dots[i].className = "dot";
+                }
             }
-            // 패턴 초기화
-            selectedPattern = [];
-            var dots = document.getElementsByClassName("dot");
-            for (var i=0; i<dots.length; i++) {
-                dots[i].className = "dot";
-            }
-        }
-    </script>
+        });
+</script>
 </body>
 </html>
