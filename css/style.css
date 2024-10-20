@@ -709,3 +709,21 @@ margin-bottom: 10px;
   max-width: 200px; /* 로고 크기 변경 */
   margin: 0 auto 1rem;
 }
+
+.follower {
+    position: absolute;
+    width: 30px; /* 원의 크기 */
+    height: 30px; /* 원의 크기 */
+    border-radius: 50%; /* 원형 */
+    pointer-events: none; /* 마우스 이벤트 차단 */
+    transition: transform 0.1s ease; /* 부드러운 이동 */
+}
+.follower:nth-child(1) {
+    background: #fde909; /* 노란색 */
+}
+.follower:nth-child(2) {
+    background: #523706; /* 갈색 */
+}
+.follower:nth-child(3) {
+    background: #191818; /* 검정색 */
+}
