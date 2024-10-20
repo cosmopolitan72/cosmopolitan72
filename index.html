@@ -314,20 +314,25 @@
           <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script>
-            $(function () {
+    $(function () {
+        'use strict';
 
-                'use strict';
+        var winH = $(window).height();
+        $('header').height(winH);  
+        $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
 
-                var winH = $(window).height();
+        // 마우스 움직임에 따라 원 따라가기
+        const followers = document.querySelectorAll('.follower');
 
-                $('header').height(winH);  
-
-                $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
-
-            })
-
-	
-
-        </script>
+        $(document).mousemove(function(event) {
+            followers.each(function(index) {
+                const offsetX = (index - 1) * 20; // 각 원의 X축 오프셋
+                $(this).css({
+                    transform: `translate(${event.clientX + offsetX}px, ${event.clientY}px)`
+                });
+            });
+        });
+    });
+</script>
     </body>
 	</html>
