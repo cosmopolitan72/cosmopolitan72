@@ -2,8 +2,9 @@
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=cosmopolitan72&show_icons=true&theme=graywhite" alt="GitHub Stats" style="margin-right: 20px;" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cosmopolitan72&theme=graywhite&hide_border=false&include_all_commits=false&count_private=false&layout=compact" alt="Top Langs" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=cosmopolitan72&theme=graywhite&hide_border=false&include_all_commits=false&count_private=false&layout=compact" alt="Top Langs" style="position: relative; top: -10px;" />
 </p>
+
 
 
 
