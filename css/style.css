@@ -710,4 +710,12 @@ margin-bottom: 10px;
   margin: 0 auto 1rem;
 }
 
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  height: 700px; /* ← 여유 공간 확보 */
+  margin-bottom: 100px; /* ← footer처럼 하단 여백 확보 */
+}
+
 
