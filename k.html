@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>cosmopolitan</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>cosmopolitan 타임라인</title>
   <style>
     html {
       overflow-x: hidden;
     }
-
     body {
       font-family: "Noto Sans KR", sans-serif;
       margin: 0;
       padding: 0;
-      max-width: 100vw;
-      box-sizing: border-box;
       background-color: #f0f0f0;
     }
 
     h1 {
       text-align: center;
-      margin-top: 20px;
-      margin-bottom: 40px;
+      margin-top: 40px;
+      margin-bottom: 60px;
+    }
+
+    .main-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .timeline {
       position: relative;
       max-width: 700px;
-      margin: 0 auto;
-      height: 850px;
+      height: 900px;
       padding-bottom: 80px;
     }
 
@@ -39,14 +41,14 @@
       width: 6px;
       background-color: #ddd;
       top: 25px;
-      height: 820px;
+      height: 870px;
       left: 50%;
-      margin-left: -3px;
+      margin-left: -3px; /* 중앙 정렬 */
     }
 
     .container {
       padding: 10px;
-      position: absolute;
+      position: relative;
       width: 100%;
       text-align: center;
     }
@@ -60,7 +62,7 @@
       border-radius: 50%;
       z-index: 2;
       left: 50%;
-      margin-left: -12.5px;
+      margin-left: -12.5px; /* 중앙 정렬 */
     }
 
     .content-left {
@@ -83,28 +85,20 @@
       top: 30px;
     }
 
-    .form-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 50px;
-      margin-bottom: 30px;
+    .content-left, .content-right {
+      word-wrap: break-word;
     }
 
-    label {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 1em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    @media screen and (max-width: 768px) {
+      .content-left, .content-right {
+        width: calc(50% - 35px);
+      }
     }
   </style>
 </head>
 <body>
   <div class="main-container">
     <h1>웹사이트 타임라인</h1>
-
     <div class="timeline">
       <div class="container" style="top: 0%;">
         <span></span>
@@ -128,9 +122,9 @@
       </div>
       <div class="container" style="top: 100%;">
         <span></span>
-        <p class="content-left">2025년 7월 CCTV 관제센터 종사자 교육 수료</p>
+        <p class="content-right">2025년 7월 CCTV 관제센터 종사자 교육 수료</p>
       </div>
-      <div class="container" style="top: 123%;">
+      <div class="container" style="top: 120%;">
         <span></span>
         <p class="content-left">2025년 7월 [개인정보 보호법] 주요 법 개정사항 교육 수료</p>
       </div>
