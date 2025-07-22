@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cosmopolitan</title>
   <style>
-      
     html {
       overflow-x: hidden;
     }
@@ -27,8 +26,8 @@
       position: relative;
       max-width: 700px;
       margin: 0 auto;
-      height: 700px; /* 높이 늘림 */
-      padding-bottom: 80px; /* 하단 여백 추가 */
+      height: 700px; /* 늘려서 막대가 끝까지 도달하게 */
+      padding-bottom: 80px;
     }
     .timeline::before {
       content: "";
@@ -36,7 +35,7 @@
       width: 6px;
       background-color: #ddd;
       top: 25px;
-      height: 670px;
+      height: 670px; /* 끝까지 내려오게 */
       left: 50%;
       margin-left: -3px;
     }
@@ -55,7 +54,7 @@
       border-radius: 50%;
       z-index: 2;
       left: 50%;
-      margin-left: -22.5px;
+      margin-left: -12.5px;
     }
     .content-left {
       position: absolute;
@@ -86,11 +85,11 @@
       }
     }
 
-      .form-container {
+    .form-container {
       display: flex;
-      justify-content: center; /* 가로 방향 중앙 정렬 */
-      align-items: center; /* 세로 방향 중앙 정렬 */
-      margin-top: 50px; /*포트 높이에 맞춤 */
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
       margin-bottom: 30px;
     }
     label {
@@ -162,7 +161,7 @@
       </div>
     </label>
   </form>
-</div>
+
   <div class="main-container">
     <h1>웹사이트 타임라인</h1>
 
@@ -177,24 +176,23 @@
       </div>
       <div class="container" style="top: 40%;">
         <span></span>
-        <p class="content-left">2024년 10월 영상정보관리사 취득 </p>
+        <p class="content-left">2024년 10월 영상정보관리사 취득</p>
       </div>
       <div class="container" style="top: 60%;">
         <span></span>
         <p class="content-right">KISA-2025 가명정보 전문인력 양성교육 기본과정 수료</p>
       </div>
-     <div class="container" style="top: 80%;">
-      <span></span>
-      <p class="content-left">KISA-가명정보 전문인력 양성 가명정보 활용 기획과정 수료</p> <!-- ← content-left로 변경 -->
-    </div>
-     <div class="container" style="top: 100%;">
-      <span></span>
-      <p class="content-left">CCTV 관제센터 종사자 교육</p> <!-- ← content-left로 변경 -->
-    </div>
-  <div style="height: 100px;"></div>
-     
+      <div class="container" style="top: 80%;">
+        <span></span>
+        <p class="content-left">KISA-가명정보 전문인력 양성 기획과정 수료</p>
+      </div>
+      <div class="container" style="top: 100%;">
+        <span></span>
+        <p class="content-left">CCTV 관제센터 종사자 교육</p>
+      </div>
     </div>
   </div>
 
+  <div style="height: 120px;"></div>
 </body>
 </html>
