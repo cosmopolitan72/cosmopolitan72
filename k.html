@@ -36,15 +36,16 @@
     }
 
     .timeline::before {
-      content: "";
-      position: absolute;
-      width: 6px;
-      background-color: #ddd;
-      top: 25px;
-      height: 870px;
-      left: 50%;
-      margin-left: -3px; /* 중앙 정렬 */
-    }
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: #ddd;
+  top: 25px;
+  height: 870px;
+  left: calc(50% - 3px);  /* ✅ 중앙보다 3px 왼쪽으로 이동 */
+  margin-left: 0;         /* ✅ margin-left 제거 */
+}
+
 
     .container {
       padding: 10px;
