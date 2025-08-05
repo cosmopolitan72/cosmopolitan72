@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>cosmopolitan 타임라인</title>
+  <link rel="icon" href="imgs/cos bo 1.png" type="image/png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
   <style>
     html {
       overflow-x: hidden;
@@ -16,9 +22,19 @@
       background-color: #f0f0f0;
     }
 
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 24px;
+      color: #333;
+      text-decoration: none;
+      z-index: 1000;
+    }
+
     h1 {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 100px;
       margin-bottom: 60px;
     }
 
@@ -31,21 +47,20 @@
     .timeline {
       position: relative;
       max-width: 700px;
-      height: 900px;
+      height: 1000px;
       padding-bottom: 80px;
     }
 
     .timeline::before {
-  content: "";
-  position: absolute;
-  width: 6px;
-  background-color: #ddd;
-  top: 25px;
-  height: 870px;
-  left: calc(50% - 3px);  /* ✅ 중앙보다 3px 왼쪽으로 이동 */
-  margin-left: 0;         /* ✅ margin-left 제거 */
-}
-
+      content: "";
+      position: absolute;
+      width: 6px;
+      background-color: #ddd;
+      top: 25px;
+      height: 970px;
+      left: calc(50% - 3px);
+      margin-left: 0;
+    }
 
     .container {
       padding: 10px;
@@ -63,7 +78,7 @@
       border-radius: 50%;
       z-index: 2;
       left: 50%;
-      margin-left: -12.5px; /* 중앙 정렬 */
+      margin-left: -12.5px;
     }
 
     .content-left {
@@ -98,38 +113,65 @@
   </style>
 </head>
 <body>
+
+  <!-- 사이드바 -->
+  <div class="sidebar">
+    <a href="https://github.com/cosmopolitan72" target="_blank"><i class="fas fa-compass"></i></a>
+    <a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="k.html" target="_blank"><i class="fas fa-chart-bar "></i></a>
+  </div>
+
+  <!-- 뒤로가기 버튼 -->
+  <a href="index.html" class="back-button" title="뒤로가기">←</a>
+
+  <!-- 네비게이션 바 -->
+  <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+    <div class="container">
+      <a class="navbar-brand" href="#"><img src="imgs/coss.png" alt="#" style="margin-left: -13px;" /></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+        style="background-color: rgba(56, 55, 55, 0.51);">
+        <span class="fas fa-caret-down" style="color:white; font-size: 21px;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="show-menu">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#service">History</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#agency">Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact us">Contact us</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank"><i class="far fa-address-card"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://sites.google.com/view/cosmopolitan72/home" target="_blank"><i class="fas fa-globe"></i></a></li>
+          <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 타임라인 -->
   <div class="main-container">
     <h1>웹사이트 타임라인</h1>
     <div class="timeline">
-      <div class="container" style="top: 0%;">
-        <span></span>
-        <p class="content-left">2023년 웹사이트 시작</p>
-      </div>
-      <div class="container" style="top: 20%;">
-        <span></span>
-        <p class="content-right">2024년 8월 네트워크관리사 2급 취득</p>
-      </div>
-      <div class="container" style="top: 40%;">
-        <span></span>
-        <p class="content-left">2024년 10월 영상정보관리사 취득</p>
-      </div>
-      <div class="container" style="top: 60%;">
-        <span></span>
-        <p class="content-right">KISA-2025 가명정보 전문인력 양성교육 기본과정 수료</p>
-      </div>
-      <div class="container" style="top: 80%;">
-        <span></span>
-        <p class="content-left">KISA-가명정보 전문인력 양성 가명정보 활용 기획과정 수료</p>
-      </div>
-      <div class="container" style="top: 100%;">
-        <span></span>
-        <p class="content-right">2025년 7월 CCTV 관제센터 종사자 교육 수료</p>
-      </div>
-      <div class="container" style="top: 120%;">
-        <span></span>
-        <p class="content-left">2025년 7월 [개인정보 보호법] 주요 법 개정사항 교육 수료</p>
-      </div>
+      <div class="container" style="top: 0%;"><span></span><p class="content-left">2023년 웹사이트 시작</p></div>
+      <div class="container" style="top: 20%;"><span></span><p class="content-right">2024년 8월 네트워크관리사 2급 취득</p></div>
+      <div class="container" style="top: 40%;"><span></span><p class="content-left">2024년 10월 영상정보관리사 취득</p></div>
+      <div class="container" style="top: 60%;"><span></span><p class="content-right">KISA-2025 가명정보 전문인력 양성교육 기본과정 수료</p></div>
+      <div class="container" style="top: 80%;"><span></span><p class="content-left">KISA-가명정보 전문인력 양성 기획과정 수료</p></div>
+      <div class="container" style="top: 100%;"><span></span><p class="content-right">2025년 7월 CCTV 관제센터 종사자 교육 수료</p></div>
+      <div class="container" style="top: 120%;"><span></span><p class="content-left">2025년 7월 개인정보 보호법 개정 교육 수료</p></div>
     </div>
   </div>
+
+  <!-- 하단 푸터 -->
+  <footer class="text-center mt-5">
+    <div class="container">
+      <p>Copyright 2025 © <a href="https://sites.google.com/view/cosmopolitan72/home">cosmopolitan72</a></p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
