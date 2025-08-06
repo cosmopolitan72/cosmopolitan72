@@ -69,6 +69,8 @@ h1 {
   background-color: transparent;
   color: #fff;
   word-wrap: break-word;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .content-left {
@@ -85,33 +87,36 @@ h1 {
   margin-left: 55%;
 }
 
+/* 반응형 처리 */
 @media screen and (max-width: 768px) {
-  .content-left,
-  .content-right {
-    width: 80%;
-    float: none;
-    margin: 20px auto;
-    text-align: center;
-  }
-
   .timeline::before {
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   .timeline-item span {
-    left: 20px;
-    transform: translateX(0);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .content-left,
+  .content-right {
+    float: none;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
   }
 }
 
+/* 홈으로 이동 화살표 버튼 */
 .home-arrow {
   position: fixed;
   top: 20px;
   left: 20px;
-  font-size: 24px;
+  font-size: 32px;
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 10px;
+  padding: 15px;
   border-radius: 50%;
   text-decoration: none;
   z-index: 999;
