@@ -104,6 +104,25 @@ h1 {
   }
 }
 
+.home-arrow {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 50%;
+  text-decoration: none;
+  z-index: 999;
+  transition: background-color 0.3s;
+}
+
+.home-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
 /* 따라다니는 원 (마우스 트래커) */
 .follower {
   position: fixed;
