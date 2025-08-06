@@ -91,26 +91,18 @@ h1 {
     width: 80%;
     float: none;
     margin: 20px auto;
+    /* 텍스트 정렬을 왼쪽으로 통일 */
+    text-align: left; 
   }
 
-  .timeline::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline-item span {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  /* 좌우 텍스트 위치 유지 */
-  .timeline-item:nth-child(odd) .content-left {
+  /* 좌우 텍스트 위치 유지하는 코드는 삭제 */
+  /* .timeline-item:nth-child(odd) .content-left {
     text-align: right;
   }
 
   .timeline-item:nth-child(even) .content-right {
     text-align: left;
-  }
+  } */
 }
 
 .home-arrow {
