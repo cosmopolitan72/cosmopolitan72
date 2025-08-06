@@ -3,96 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cosmopolitan 타임라인</title>
 
-  <!-- ✅ 기존 스타일 연결 -->
+  <!-- 파비콘 및 외부 스타일 -->
   <link rel="icon" href="imgs/cos bo 1.png" type="image/png">
   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/style.css"> <!-- 너가 관리하는 CSS -->
+  <link rel="stylesheet" href="css/k-timeline.css"> <!-- 여기에 핵심 스타일 -->
   <link rel="stylesheet" href="css/fontawesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Noto+Sans+KR" rel="stylesheet">
-
-  <style>
-    /* 타임라인 본문 폰트 및 배경 설정 */
-    body {
-      font-family: "Noto Sans KR", sans-serif;
-      background-color: #f0f0f0;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 80px;
-      margin-bottom: 60px;
-    }
-
-    .main-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .container {
-      padding: 10px;
-      position: relative;
-      width: 100%;
-      text-align: center;
-    }
-
-    .container span {
-      position: absolute;
-      display: inline-block;
-      width: 25px;
-      height: 25px;
-      background-color: #ddd;
-      border-radius: 50%;
-      z-index: 2;
-      left: 50%;
-      margin-left: -12.5px;
-    }
-
-    .content-left {
-      position: absolute;
-      z-index: 1;
-      width: 200px;
-      text-align: right;
-      right: 50%;
-      margin-right: 35px;
-      top: 30px;
-      word-wrap: break-word;
-    }
-
-    .content-right {
-      position: absolute;
-      z-index: 1;
-      width: 200px;
-      text-align: left;
-      left: 50%;
-      margin-left: 35px;
-      top: 30px;
-      word-wrap: break-word;
-    }
-
-    @media screen and (max-width: 768px) {
-      .content-left, .content-right {
-        width: calc(50% - 35px);
-      }
-    }
-  </style>
 </head>
 <body>
 
-  <!-- ✅ 사이드바 -->
+  <!-- 사이드바 -->
   <div class="sidebar">
     <a href="https://github.com/cosmopolitan72" target="_blank"><i class="fas fa-compass"></i></a>
     <a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="k.html"><i class="fas fa-chart-bar "></i></a>
   </div>
 
-  <!-- ✅ 상단 네비게이션 -->
+  <!-- 상단 네비게이션 -->
   <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
     <div class="container">
-      <a class="navbar-brand" href="#"><img src="imgs/coss.png" alt="#" style="margin-left: -13px;" /></a>
+      <a class="navbar-brand" href="#"><img src="imgs/coss.png" alt="로고" style="margin-left: -13px;" /></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
         style="background-color: rgba(56, 55, 55, 0.51);">
@@ -113,93 +46,89 @@
     </div>
   </nav>
 
-  <!-- ✅ 타임라인 본문 -->
+  <!-- 타임라인 섹션 -->
   <div class="main-container">
     <h1>웹사이트 타임라인</h1>
     <div class="timeline">
-      <div class="container">
+      <div class="timeline-item">
         <span></span>
         <p class="content-left">2023년 웹사이트 시작</p>
       </div>
-      <div class="container";">
+      <div class="timeline-item">
         <span></span>
         <p class="content-right">2024년 8월 네트워크관리사 2급 취득</p>
       </div>
-      <div class="container"">
+      <div class="timeline-item">
         <span></span>
         <p class="content-left">2024년 10월 영상정보관리사 취득</p>
       </div>
-      <div class="container"">
+      <div class="timeline-item">
         <span></span>
         <p class="content-right">KISA-2025 가명정보 전문인력 양성교육 기본과정 수료</p>
       </div>
-      <div class="container"">
+      <div class="timeline-item">
         <span></span>
-        <p class="content-left">KISA-가명정보 전문인력 양성 가명정보 활용 기획과정 수료</p>
+        <p class="content-left">KISA-가명정보 전문인력 양성 기획과정 수료</p>
       </div>
-      <div class="container"">
+      <div class="timeline-item">
         <span></span>
         <p class="content-right">2025년 7월 CCTV 관제센터 종사자 교육 수료</p>
       </div>
-      <div class="container"">
+      <div class="timeline-item">
         <span></span>
-        <p class="content-left">2025년 7월 [개인정보 보호법] 주요 법 개정사항 교육 수료</p>
+        <p class="content-left">2025년 7월 개인정보 보호법 주요 개정사항 교육 수료</p>
       </div>
     </div>
   </div>
 
-  <!-- ✅ 푸터 -->
+  <!-- 푸터 -->
   <footer>
-            <div class="container">
-                <ul>
-                    <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank"><i class="far fa-address-card"></i></a></li>
-                    <li><a href="https://sites.google.com/view/cosmopolitan72/home?authuser=0" target="_blank"><i class="fas fa-globe"></i></a></li>
-                    <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
-                </ul>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-uppercase">Contact us</h4>
-                            <p class="EMAIL">
-                                sjy00000000927@likelion.org<br>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-uppercase">additional links</h4>
-                              <ul>
-                                <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank">About us</a></li>
-                             <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/365?authuser=0" target="_blank">News</a></li>
-                                <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank">Contact us</a></li> <br>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item date">
-                            <h4 class="text-uppercase">resent posts</h4>
-				<p><a href="#">06/20/2023</a></p>
-                            <p><a href="#">06/02/2023</a></p>
-                            <p><a href="#">05/31/2023</a></p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-uppercase">newsletter</h4>
-				<p class="NEWS">
-					Coming soon
-				</p>
-                        </div>
-                    </div>
-			<!-- 여기 밑에 div 이동 -->
-			  </div>
-	    </div>
-            <div class="copyright text-center">
-                <p>Copyright 2023  Design by <a href="https://sites.google.com/view/cosmopolitan72/home"> cosmopolitan72 </a></p>
-            </div>
-	    </footer>
-  <!-- ✅ 스크립트 -->
+    <div class="container">
+      <ul>
+        <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank"><i class="far fa-address-card"></i></a></li>
+        <li><a href="https://sites.google.com/view/cosmopolitan72/home?authuser=0" target="_blank"><i class="fas fa-globe"></i></a></li>
+        <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
+      </ul>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item">
+            <h4 class="text-uppercase">Contact us</h4>
+            <p class="EMAIL">sjy00000000927@likelion.org</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item">
+            <h4 class="text-uppercase">additional links</h4>
+            <ul>
+              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank">About us</a></li>
+              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/365?authuser=0" target="_blank">News</a></li>
+              <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item date">
+            <h4 class="text-uppercase">recent posts</h4>
+            <p><a href="#">06/20/2023</a></p>
+            <p><a href="#">06/02/2023</a></p>
+            <p><a href="#">05/31/2023</a></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item">
+            <h4 class="text-uppercase">newsletter</h4>
+            <p class="NEWS">Coming soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright text-center">
+      <p>Copyright 2023 Design by <a href="https://sites.google.com/view/cosmopolitan72/home">cosmopolitan72</a></p>
+    </div>
+  </footer>
+
+  <!-- 스크립트 -->
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
