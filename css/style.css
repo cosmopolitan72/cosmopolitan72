@@ -707,6 +707,7 @@ body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  max-height: 100%; /* footer 겹침 방지 */
 }
 
 .container span {
@@ -753,6 +754,7 @@ body {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.3); /* 밝은 그림자 */
   transition: transform 0.06s ease-out; /* 더 부드러운 추적감 */
 }
+
 
 
 
