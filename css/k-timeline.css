@@ -122,18 +122,22 @@ h1 {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-
-/* 따라다니는 원 (마우스 트래커) */
-.follower {
+<style>
+.home-arrow {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
   border-radius: 50%;
-  background-color: rgba(200, 200, 200, 0.6);
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out;
+  text-decoration: none;
+  z-index: 999;
+  transition: background-color 0.3s;
 }
+
+.home-arrow:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+</style>
