@@ -85,20 +85,12 @@ h1 {
   margin-left: 55%;
 }
 
-/* ✅ 모바일에서도 좌우 정렬 유지 */
 @media screen and (max-width: 768px) {
-  .content-left {
-    float: left;
-    margin: 0 10% 0 0;
-    width: 80%;
-    text-align: right;
-  }
-
+  .content-left,
   .content-right {
-    float: right;
-    margin: 0 0 0 10%;
     width: 80%;
-    text-align: left;
+    float: none;
+    margin: 20px auto;
   }
 
   .timeline::before {
@@ -110,24 +102,31 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
   }
+
+  /* 좌우 텍스트 위치 유지 */
+  .timeline-item:nth-child(odd) .content-left {
+    text-align: right;
+  }
+
+  .timeline-item:nth-child(even) .content-right {
+    text-align: left;
+  }
 }
 
-/* 홈으로 가는 화살표 버튼 스타일 */
 .home-arrow {
   position: fixed;
   top: 20px;
   left: 20px;
-  font-size: 32px;
+  font-size: 28px;
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 14px;
-  border-radius: 50px; /* ✅ 더 둥글게 */
+  border-radius: 50px;
   text-decoration: none;
   z-index: 999;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s;
 }
 
 .home-arrow:hover {
   background-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
 }
