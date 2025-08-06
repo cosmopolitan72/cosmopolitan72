@@ -711,20 +711,6 @@ margin-bottom: 10px;
 }
 
 
-/* 따라다니는 원 중간에 넣으니 k.html까지 적용되네 */
-.follower {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-  transition: transform 0.06s ease-out;
-}
-
-
 
 
 
