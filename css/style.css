@@ -738,17 +738,22 @@ body {
   }
 }
 
+.timeline {
+  margin-bottom: 150px; /* footer 안 겹치게 */
+}
+
 .follower {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgba(120, 120, 120, 0.25); /* 회색 & 반투명 */
+   background-color: rgba(255, 255, 255, 0.15);
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   pointer-events: none;
-  box-shadow: 0 0 10px rgba(100, 100, 100, 0.3);
-  transition: transform 0.08s ease-out;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.3); /* 밝은 그림자 */
+  transition: transform 0.06s ease-out; /* 더 부드러운 추적감 */
 }
+
 
 
 
