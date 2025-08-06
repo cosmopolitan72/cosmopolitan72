@@ -307,20 +307,18 @@
         var winH = $(window).height();
         $('header').height(winH);  
         $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
-        
-        const followers = $('.follower');
+
+        const follower = $('.follower');
 
         $(document).mousemove(function(event) {
-            followers.each(function(index) {
-                const offsetX = (index - 1) * 20;
-                $(this).css({
-                    transform: `translate(${event.clientX + offsetX}px, ${event.clientY}px)`
-                });
+            follower.css({
+                transform: `translate(${event.clientX}px, ${event.clientY}px)`
             });
         });
     });
 </script>
     </body>
 	</html>
+
 
 
