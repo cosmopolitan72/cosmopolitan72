@@ -69,8 +69,6 @@ h1 {
   background-color: transparent;
   color: #fff;
   word-wrap: break-word;
-  font-size: 1.1rem;
-  line-height: 1.5;
 }
 
 .content-left {
@@ -87,8 +85,22 @@ h1 {
   margin-left: 55%;
 }
 
-/* 반응형 처리 */
+/* ✅ 모바일에서도 좌우 정렬 유지 */
 @media screen and (max-width: 768px) {
+  .content-left {
+    float: left;
+    margin: 0 10% 0 0;
+    width: 80%;
+    text-align: right;
+  }
+
+  .content-right {
+    float: right;
+    margin: 0 0 0 10%;
+    width: 80%;
+    text-align: left;
+  }
+
   .timeline::before {
     left: 50%;
     transform: translateX(-50%);
@@ -98,17 +110,9 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
   }
-
-  .content-left,
-  .content-right {
-    float: none;
-    width: 90%;
-    margin: 20px auto;
-    text-align: center;
-  }
 }
 
-/* 홈으로 이동 화살표 버튼 */
+/* 홈으로 가는 화살표 버튼 스타일 */
 .home-arrow {
   position: fixed;
   top: 20px;
@@ -116,13 +120,14 @@ h1 {
   font-size: 32px;
   color: white;
   background-color: rgba(255, 255, 255, 0.1);
-  padding: 15px;
-  border-radius: 50%;
+  padding: 14px;
+  border-radius: 50px; /* ✅ 더 둥글게 */
   text-decoration: none;
   z-index: 999;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .home-arrow:hover {
   background-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
 }
