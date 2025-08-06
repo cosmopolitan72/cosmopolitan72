@@ -710,18 +710,6 @@ margin-bottom: 10px;
   margin: 0 auto 1rem;
 }
 
-.follower {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2); /* 밝은 회색 */
-  position: fixed;
-  z-index: 9999;
-  pointer-events: none;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-  transition: transform 0.06s ease-out;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -849,6 +837,7 @@ h1 {
 footer {
   margin-top: 100px;
 }
+
 
 
 
