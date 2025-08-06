@@ -710,13 +710,13 @@ margin-bottom: 10px;
   margin: 0 auto 1rem;
 }
 
+/* ✅ k.html 전용 타임라인 CSS */
 body {
   margin: 0;
   padding: 0;
   background-color: #000;
   color: #fff;
   font-family: "Noto Sans KR", sans-serif;
-  font-size: 1.1rem;
 }
 
 h1 {
@@ -726,25 +726,21 @@ h1 {
   color: #fff;
 }
 
-.main-container {
+.k-main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
 }
 
-/* 타임라인 */
-.timeline {
+.k-timeline {
   position: relative;
   max-width: 700px;
   margin: 0 auto;
-  padding: 60px 0 120px; /* 푸터 공간 확보 */
-  display: flex;
-  flex-direction: column;
-  gap: 80px; /* 각 이벤트 사이의 간격 */
+  padding: 60px 0;
 }
 
-.timeline::before {
+.k-timeline::before {
   content: "";
   position: absolute;
   width: 4px;
@@ -753,15 +749,15 @@ h1 {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 0;
 }
 
-.container {
+.k-container {
   position: relative;
   width: 100%;
+  padding: 60px 0; /* 넉넉한 여백 */
 }
 
-.container span {
+.k-container span {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -773,8 +769,8 @@ h1 {
   z-index: 2;
 }
 
-.content-left,
-.content-right {
+.k-content-left,
+.k-content-right {
   position: relative;
   width: 45%;
   padding: 10px 20px;
@@ -783,42 +779,45 @@ h1 {
   word-wrap: break-word;
 }
 
-.content-left {
+.k-content-left {
   text-align: right;
   float: left;
   clear: both;
   margin-right: 55%;
 }
 
-.content-right {
+.k-content-right {
   text-align: left;
   float: right;
   clear: both;
   margin-left: 55%;
 }
 
-@media screen and (max-width: 768px) {
-  .timeline {
-    gap: 50px;
-  }
+/* ✅ 푸터 정상 위치 보장 */
+footer {
+  margin-top: 100px;
+}
 
-  .content-left,
-  .content-right {
+/* ✅ 반응형 */
+@media screen and (max-width: 768px) {
+  .k-content-left,
+  .k-content-right {
     width: 80%;
     float: none;
-    margin: 0 auto;
+    margin: 20px auto;
     text-align: center;
   }
 
-  .timeline::before {
+  .k-timeline::before {
     left: 20px;
   }
 
-  .container span {
+  .k-container span {
     left: 20px;
     transform: translateX(0);
   }
 }
+
 
 /* 따라다니는 원 중간에 넣으니 k.html까지 적용되네 */
 .follower {
@@ -833,10 +832,8 @@ h1 {
   transition: transform 0.06s ease-out;
 }
 
-/* 푸터 여백 확보 */
-footer {
-  margin-top: 100px;
-}
+
+
 
 
 
