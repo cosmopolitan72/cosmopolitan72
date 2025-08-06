@@ -710,114 +710,6 @@ margin-bottom: 10px;
   margin: 0 auto 1rem;
 }
 
-/* ✅ k.html 전용 타임라인 CSS */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-  color: #fff;
-  font-family: "Noto Sans KR", sans-serif;
-}
-
-h1 {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 60px;
-  color: #fff;
-}
-
-.k-main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-}
-
-.k-timeline {
-  position: relative;
-  max-width: 700px;
-  margin: 0 auto;
-  padding: 60px 0;
-}
-
-.k-timeline::before {
-  content: "";
-  position: absolute;
-  width: 4px;
-  background-color: #fff;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.k-container {
-  position: relative;
-  width: 100%;
-  padding: 60px 0; /* 넉넉한 여백 */
-}
-
-.k-container span {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border-radius: 50%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.k-content-left,
-.k-content-right {
-  position: relative;
-  width: 45%;
-  padding: 10px 20px;
-  background-color: transparent;
-  color: #fff;
-  word-wrap: break-word;
-}
-
-.k-content-left {
-  text-align: right;
-  float: left;
-  clear: both;
-  margin-right: 55%;
-}
-
-.k-content-right {
-  text-align: left;
-  float: right;
-  clear: both;
-  margin-left: 55%;
-}
-
-/* ✅ 푸터 정상 위치 보장 */
-footer {
-  margin-top: 100px;
-}
-
-/* ✅ 반응형 */
-@media screen and (max-width: 768px) {
-  .k-content-left,
-  .k-content-right {
-    width: 80%;
-    float: none;
-    margin: 20px auto;
-    text-align: center;
-  }
-
-  .k-timeline::before {
-    left: 20px;
-  }
-
-  .k-container span {
-    left: 20px;
-    transform: translateX(0);
-  }
-}
-
 
 /* 따라다니는 원 중간에 넣으니 k.html까지 적용되네 */
 .follower {
@@ -831,6 +723,7 @@ footer {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
   transition: transform 0.06s ease-out;
 }
+
 
 
 
