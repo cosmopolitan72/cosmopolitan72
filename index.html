@@ -16,7 +16,10 @@
 		    <a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a>
 		     <a href="k.html" target="_blank"><i class="fas fa-chart-bar "></i></a>
 	  </div>
-       <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+	 <div class="follower" style="width:20px;height:20px;border-radius:50%;background:red;position:fixed;z-index:999;"></div>
+         <div class="follower" style="width:20px;height:20px;border-radius:50%;background:blue;position:fixed;z-index:999;"></div>
+         <div class="follower" style="width:20px;height:20px;border-radius:50%;background:green;position:fixed;z-index:999;"></div>
+         <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
             <div class="container">
                 <a class="navbar-brand" href="#"><img src="imgs/coss.png" alt="#" style="margin-left: -13px;" /></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgba(56, 55, 55, 0.51);">
@@ -296,19 +299,19 @@
             </div>
 	    </footer>
           <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script>
+<script src="js/bootstrap.min.js"></script>
+<script>
     $(function () {
         'use strict';
         var winH = $(window).height();
         $('header').height(winH);  
         $('header .container > div').css('top', (winH / 2) - ( $('header .container > div').height() / 2));
-        // 마우스 움직임에 따라 원 따라가기
-        const followers = document.querySelectorAll('.follower');
+        
+        const followers = $('.follower');
 
         $(document).mousemove(function(event) {
             followers.each(function(index) {
-                const offsetX = (index - 1) * 20; // 각 원의 X축 오프셋
+                const offsetX = (index - 1) * 20;
                 $(this).css({
                     transform: `translate(${event.clientX + offsetX}px, ${event.clientY}px)`
                 });
@@ -318,3 +321,4 @@
 </script>
     </body>
 	</html>
+
