@@ -1,145 +1,152 @@
-/* ========== k-timeline.css ========== */
-
-/* 페이지 공통 */
-:root{
-  --line-w: 4px;
-  --line-col: #fff;
-  --dot: 18px;
-  --gap-y: 48px;
-  --mid-col-web: 40px;  /* 데스크톱 중앙선 영역폭 */
-  --mid-col-mo: 24px;   /* 모바일 중앙선(왼쪽) 영역폭 */
-}
-
-#timeline-page {
-  background: #000;
+/* k.html 전용 (다른 페이지에 영향 안 가도록 모두 .k-timeline 범위로 한정) */
+.k-timeline {
+  background-color: #000;
   color: #fff;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: "Noto Sans KR", "Open Sans", "Roboto", sans-serif;
   overflow-x: hidden;
 }
 
-/* 이 페이지에서만 네비를 고정/반투명으로 */
-#timeline-page nav.navbar{
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  background: rgba(0,0,0,.6);
-  backdrop-filter: blur(6px);
-  z-index: 1000;
-}
-
-/* 타임라인 섹션 — 네비 높이만큼 여백 줘서 겹침 방지 */
-#timeline-section{
-  padding-top: 140px;   /* 필요시 100~140px 사이로 조정 */
+/* 네비와 겹치지 않게 타임라인 섹션 아래로 내리기 */
+.k-timeline #timeline-section {
+  padding-top: 160px;   /* 필요하면 140~200px 사이로 조절 */
   padding-bottom: 100px;
+  background-color: #000;
+  position: relative;
+  z-index: 1;
 }
 
-/* 제목 */
-#timeline-section .page-title{
+/* 타이틀 */
+.k-timeline .page-title {
   text-align: center;
-  margin: 0 16px 28px;
+  margin: 0 0 50px;
+  color: #fff;
+  font-weight: 700;
 }
 
-/* 본문 컨테이너 */
-#timeline-section .main-container{
-  max-width: 980px;
+/* 타임라인 래퍼 너비 제한 */
+.k-timeline .container.narrow {
+  max-width: 820px;
   margin: 0 auto;
-  padding: 0 16px;
 }
 
-/* ===== 타임라인 (데스크톱 기준) ===== */
-.timeline{
+/* 타임라인 수직 라인 */
+.k-timeline .timeline {
   position: relative;
-  display: grid;
-  row-gap: var(--gap-y);
-  /* 중앙선 전체 길이 */
+  padding: 10px 0 10px;
+  min-height: 200px;
 }
-.timeline::before{
-  content:"";
+
+.k-timeline .timeline::before {
+  content: "";
   position: absolute;
-  top: 0; bottom: 0;
+  top: 0;
+  bottom: 0;
   left: 50%;
+  width: 4px;
+  background: #fff;   /* 선명 */
   transform: translateX(-50%);
-  width: var(--line-w);
-  background: var(--line-col);
-  z-index: 0;
+  z-index: 1;
 }
 
-/* 각 아이템은 3열 그리드: 왼쪽 콘텐츠 | 중앙선 | 오른쪽 콘텐츠 */
-.timeline-item{
-  display: grid;
-  grid-template-columns: 1fr var(--mid-col-web) 1fr;
-  column-gap: 24px;
-  align-items: center;
+/* 개별 아이템 */
+.k-timeline .timeline-item {
   position: relative;
-  z-index: 1; /* 중앙선 위에 올라오게 */
+  padding: 28px 0;      /* 아이템 간 간격 (겹치면 이 값 키워) */
+  min-height: 48px;
 }
 
 /* 점 */
-.timeline-item .dot-wrap{
-  grid-column: 2;
-  justify-self: center;
-  position: relative;
-  z-index: 2;
-}
-.timeline-item .dot{
-  width: var(--dot);
-  height: var(--dot);
+.k-timeline .timeline-item .dot {
+  position: absolute;
+  top: 28px;            /* 텍스트 첫 줄과 수평 느낌 */
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #fff;
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 4px rgba(255,255,255,.18);
+  z-index: 2;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15); /* 약한 링 */
 }
 
-/* 텍스트 */
-.timeline-item .text{
-  margin: 0;
-  line-height: 1.55;
-}
-.timeline-item.left  .text{ grid-column: 1; text-align: right; }
-.timeline-item.right .text{ grid-column: 3; text-align: left; }
-
-/* 사이드바 아이콘(있다면) 화면 위 요소와 겹치지 않게 */
-#timeline-page .sidebar{
-  z-index: 1100;
+/* 텍스트 박스 공통 */
+.k-timeline .timeline-item .content {
+  position: relative;
+  max-width: 42%;
+  color: #fff;
+  background: transparent;
+  line-height: 1.6;
 }
 
-/* ===== 모바일(<=768px): 안정/가독성 우선 =====
-   - 중앙선은 왼쪽으로
-   - 모든 텍스트는 오른쪽에 정렬/배치 (좌우 교차는 데스크톱에서만)
-*/
-@media (max-width: 768px){
-  #timeline-section{
-    padding-top: 100px;      /* 모바일에서 살짝 낮춰도 OK */
+/* 왼쪽/오른쪽 배치 */
+.k-timeline .timeline-item .content-left {
+  text-align: right;
+  margin-right: calc(50% + 28px); /* 선에서 28px 떨어짐 */
+}
+
+.k-timeline .timeline-item .content-right {
+  text-align: left;
+  margin-left: calc(50% + 28px);  /* 선에서 28px 떨어짐 */
+}
+
+/* 폰트 사이즈 조정 (데스크톱 기본) */
+.k-timeline .timeline-item .content {
+  font-size: 1.05rem;
+}
+
+/* 사이드바(기존 스타일 유지되지만 이 페이지에서 색 살짝 보정해도 OK) */
+.k-timeline .sidebar i {
+  color: #50b7ef;
+}
+
+/* 푸터와 간격 확보 (겹칠 일 방지) */
+.k-timeline footer {
+  margin-top: 20px;
+}
+
+/* ===== 반응형: 모바일(<= 768px)에서 한 줄 레이아웃 ===== */
+@media (max-width: 768px) {
+  /* 네비가 더 높아지는 경우가 있어서 여유 더 줌 */
+  .k-timeline #timeline-section {
+    padding-top: 170px;
     padding-bottom: 80px;
   }
 
-  .timeline{
-    row-gap: 32px;
-  }
-
-  .timeline::before{
-    left: 16px;              /* 왼쪽 여백 + 중앙선 */
+  /* 수직선: 화면 왼쪽으로 이동 */
+  .k-timeline .timeline::before {
+    left: 24px;           /* 화면 왼쪽 여백 + 선 위치 */
     transform: none;
   }
 
-  .timeline-item{
-    grid-template-columns: var(--mid-col-mo) 1fr;
-    column-gap: 12px;
+  /* 점: 수직선 위에 정확히 */
+  .k-timeline .timeline-item .dot {
+    left: 24px;
+    transform: translate(-50%, 0);
   }
 
-  .timeline-item .dot-wrap{ grid-column: 1; justify-self: center; }
-  .timeline-item .text{
-    grid-column: 2;
-    text-align: left;        /* 모바일은 모두 왼쪽 정렬 */
-    font-size: 15.5px;       /* 살짝 축소해서 줄바꿈 개선 */
+  /* 텍스트: 선 오른쪽에만 배치 (좌우 교차 X) */
+  .k-timeline .timeline-item .content,
+  .k-timeline .timeline-item .content-left,
+  .k-timeline .timeline-item .content-right {
+    max-width: 100%;
+    margin: 0 16px 0 56px;  /* 왼쪽은 선/점 피해서 56px, 오른쪽은 16px 여백 */
+    text-align: left;       /* 모두 왼쪽 정렬 (모바일 가독성 ↑) */
+    font-size: 1rem;        /* 살짝 축소 */
   }
 
-  /* 점 크기 약간 축소하면 겹침 감소 */
-  .timeline-item .dot{
-    width: 14px; height: 14px;
-    border-width: 2px;
-    box-shadow: 0 0 0 3px rgba(255,255,255,.18);
+  /* 타이틀 여백 조정 */
+  .k-timeline .page-title {
+    margin-bottom: 36px;
+    font-size: 1.4rem;
   }
 }
 
-/* 푸터가 올라오지 않도록 기본 여백/흐름 유지 (추가 조치 불필요) */
-/* 필요시: footer { margin-top: 40px; } */
+/* 고해상도 데스크톱에서 글자/간격 보정(optional) */
+@media (min-width: 1200px) {
+  .k-timeline .timeline-item {
+    padding: 32px 0;
+  }
+  .k-timeline .timeline-item .content {
+    font-size: 1.1rem;
+  }
+}
