@@ -1,182 +1,145 @@
-/* ========== 페이지 스코프: k.html 전용 ========== */
+/* ========== k-timeline.css ========== */
+
+/* 페이지 공통 */
+:root{
+  --line-w: 4px;
+  --line-col: #fff;
+  --dot: 18px;
+  --gap-y: 48px;
+  --mid-col-web: 40px;  /* 데스크톱 중앙선 영역폭 */
+  --mid-col-mo: 24px;   /* 모바일 중앙선(왼쪽) 영역폭 */
+}
+
 #timeline-page {
-  --bg: #000;
-  --fg: #fff;
-  --muted: rgba(255,255,255,.6);
-  --line: #fff;
-  --dot: 18px;         /* 점 크기 */
-  --line-w: 4px;       /* 중앙선 두께 */
-  --gap: 32px;         /* 아이템 간격 */
-  --maxw: 980px;       /* 본문 최대 너비 */
-  --pad-x: 16px;       /* 좌우 패딩 */
-  --radius: 999px;     /* 둥근 버튼 등 */
-  background: var(--bg);
-  color: var(--fg);
-  font-family: "Noto Sans KR", "Roboto", "Open Sans", system-ui, -apple-system, sans-serif;
+  background: #000;
+  color: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  overflow-x: hidden;
 }
 
-/* 전역 리셋(스코프 내) */
-#timeline-page * { box-sizing: border-box; }
-
-/* ========== 상단 네비가 겹치지 않게 여백 ========== */
-#timeline-section {
-  padding: 96px var(--pad-x) 80px;
-  background: var(--bg);
-  color: var(--fg);
-}
-
-/* ========== 홈(화살표) 버튼 ========== */
-#timeline-page .home-arrow {
+/* 이 페이지에서만 네비를 고정/반투명으로 */
+#timeline-page nav.navbar{
   position: fixed;
-  top: 18px;
-  left: 18px;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.12);
-  color: var(--fg);
-  text-decoration: none;
-  z-index: 1030; /* 부트스트랩 네비보다 살짝 위 */
-  transition: background .2s ease, transform .06s ease;
+  top: 0; left: 0; right: 0;
+  background: rgba(0,0,0,.6);
   backdrop-filter: blur(6px);
+  z-index: 1000;
 }
-#timeline-page .home-arrow:hover { background: rgba(255,255,255,0.25); }
-#timeline-page .home-arrow:active { transform: scale(0.98); }
-#timeline-page .home-arrow i { font-size: 20px; line-height: 1; }
 
-/* ========== 제목 & 보조 버튼 ========== */
-#timeline-page .title-wrap {
-  max-width: var(--maxw);
-  margin: 0 auto 32px;
-  padding: 0 var(--pad-x);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+/* 타임라인 섹션 — 네비 높이만큼 여백 줘서 겹침 방지 */
+#timeline-section{
+  padding-top: 120px;   /* 필요시 100~140px 사이로 조정 */
+  padding-bottom: 100px;
 }
-#timeline-page h1.page-title {
-  margin: 0;
-  font-weight: 700;
-  font-size: clamp(22px, 2.4vw, 32px);
-  letter-spacing: 0.2px;
+
+/* 제목 */
+#timeline-section .page-title{
   text-align: center;
+  margin: 0 16px 28px;
 }
-#timeline-page .btn-home {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: #fff;
-  color: #000;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform .06s ease, box-shadow .2s ease;
-}
-#timeline-page .btn-home:hover { box-shadow: 0 6px 20px rgba(255,255,255,0.12); }
-#timeline-page .btn-home:active { transform: translateY(1px); }
 
-/* ========== 타임라인 래퍼 & 중앙선 ========== */
-#timeline-page .timeline {
-  position: relative;
-  max-width: var(--maxw);
+/* 본문 컨테이너 */
+#timeline-section .main-container{
+  max-width: 980px;
   margin: 0 auto;
-  padding: 8px var(--pad-x) 8px;
-  display: grid;
-  row-gap: var(--gap);
+  padding: 0 16px;
 }
-#timeline-page .timeline::before {
-  content: "";
+
+/* ===== 타임라인 (데스크톱 기준) ===== */
+.timeline{
+  position: relative;
+  display: grid;
+  row-gap: var(--gap-y);
+  /* 중앙선 전체 길이 */
+}
+.timeline::before{
+  content:"";
   position: absolute;
   top: 0; bottom: 0;
   left: 50%;
-  width: var(--line-w);
-  background: var(--line);
   transform: translateX(-50%);
+  width: var(--line-w);
+  background: var(--line-col);
   z-index: 0;
-  opacity: 1;
 }
 
-/* ========== 아이템: 데스크톱은 좌/우 번갈아 ========== */
-#timeline-page .timeline-item {
+/* 각 아이템은 3열 그리드: 왼쪽 콘텐츠 | 중앙선 | 오른쪽 콘텐츠 */
+.timeline-item{
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr var(--mid-col-web) 1fr;
+  column-gap: 24px;
   align-items: center;
   position: relative;
-  z-index: 1; /* 중앙선 아래로 깔리지 않게 */
+  z-index: 1; /* 중앙선 위에 올라오게 */
 }
 
-/* 왼쪽(홀수): 점은 오른쪽 칼럼(중앙선 옆), 텍스트는 왼쪽 */
-#timeline-page .timeline-item.left {
-  grid-template-areas: "text dot";
+/* 점 */
+.timeline-item .dot-wrap{
+  grid-column: 2;
+  justify-self: center;
+  position: relative;
+  z-index: 2;
 }
-#timeline-page .timeline-item.left .dot-wrap { justify-content: flex-start; }
-
-/* 오른쪽(짝수): 점은 왼쪽 칼럼(중앙선 옆), 텍스트는 오른쪽 */
-#timeline-page .timeline-item.right {
-  grid-template-areas: "dot text";
-}
-#timeline-page .timeline-item.right .dot-wrap { justify-content: flex-end; }
-
-/* 칼럼 콘텐츠 */
-#timeline-page .timeline-item .text {
-  grid-area: text;
-  padding: 8px 12px;
-  max-width: 90%;
-  line-height: 1.6;
-  font-size: clamp(14px, 1.8vw, 16px);
-  color: var(--fg);
-  justify-self: stretch;
-}
-#timeline-page .timeline-item .dot-wrap {
-  grid-area: dot;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 점(글씨 ‘바로 옆’) */
-#timeline-page .timeline-item .dot {
+.timeline-item .dot{
   width: var(--dot);
   height: var(--dot);
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 0 0 4px rgba(255,255,255,.14);
-  flex-shrink: 0;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.18);
 }
 
-/* ========== 모바일(<= 768px): 한 줄 스택 + 점이 글 옆 유지 ========== */
-@media (max-width: 768px) {
-  #timeline-section { padding: 84px 12px 72px; }
+/* 텍스트 */
+.timeline-item .text{
+  margin: 0;
+  line-height: 1.55;
+}
+.timeline-item.left  .text{ grid-column: 1; text-align: right; }
+.timeline-item.right .text{ grid-column: 3; text-align: left; }
 
-  /* 중앙선은 그대로 가운데 유지 */
-  #timeline-page .timeline::before { left: 50%; }
+/* 사이드바 아이콘(있다면) 화면 위 요소와 겹치지 않게 */
+#timeline-page .sidebar{
+  z-index: 1100;
+}
 
-  /* 한 줄 스택이지만 dot과 text를 같은 줄에서 옆으로 */
-  #timeline-page .timeline-item {
-    grid-template-columns: 1fr;      /* 한 칼럼 */
-    grid-template-areas: "dot" "text";
-    justify-items: center;
-    row-gap: 8px;
+/* ===== 모바일(<=768px): 안정/가독성 우선 =====
+   - 중앙선은 왼쪽으로
+   - 모든 텍스트는 오른쪽에 정렬/배치 (좌우 교차는 데스크톱에서만)
+*/
+@media (max-width: 768px){
+  #timeline-section{
+    padding-top: 100px;      /* 모바일에서 살짝 낮춰도 OK */
+    padding-bottom: 80px;
   }
 
-  /* 양쪽 모두 dot → text 순으로 같은 줄에 보이도록 플렉스 */
-  #timeline-page .timeline-item .dot-wrap {
-    justify-content: center;
+  .timeline{
+    row-gap: 32px;
   }
 
-  /* dot과 text를 같은 줄에 붙여서 한 덩어리로 보이게 */
-  #timeline-page .timeline-item .text {
-    max-width: 92%;
-    text-align: center;
+  .timeline::before{
+    left: 16px;              /* 왼쪽 여백 + 중앙선 */
+    transform: none;
+  }
+
+  .timeline-item{
+    grid-template-columns: var(--mid-col-mo) 1fr;
+    column-gap: 12px;
+  }
+
+  .timeline-item .dot-wrap{ grid-column: 1; justify-self: center; }
+  .timeline-item .text{
+    grid-column: 2;
+    text-align: left;        /* 모바일은 모두 왼쪽 정렬 */
+    font-size: 15.5px;       /* 살짝 축소해서 줄바꿈 개선 */
+  }
+
+  /* 점 크기 약간 축소하면 겹침 감소 */
+  .timeline-item .dot{
+    width: 14px; height: 14px;
+    border-width: 2px;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.18);
   }
 }
 
-/* ========== 푸터 간격 확보 ========== */
-#timeline-page footer {
-  margin-top: 56px;
-}
+/* 푸터가 올라오지 않도록 기본 여백/흐름 유지 (추가 조치 불필요) */
+/* 필요시: footer { margin-top: 40px; } */
