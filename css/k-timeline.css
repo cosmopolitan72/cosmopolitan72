@@ -1,50 +1,45 @@
-/* k-timeline.css */
-/* Base */
-:root {
-  --line-w: 6px;
-  --dot: 18px;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  background: #000;
-  color: #fff;
-  font-family: "Noto Sans KR", sans-serif;
-  overflow-x: hidden;
-}
-
-/* Sidebar (네 사이트 기존 스타일 유지용 – 필요시 삭제) */
-.sidebar {
-  display: flex; flex-direction: column;
-  position: fixed; right: 1.5%; top: 50%;
-  transform: translateY(-50%); z-index: 1002;
-}
-.sidebar i { font-size: 48px; opacity: .6; color: #50b7ef; margin: 10px 0; }
-
-/* 상단에 네비가 있어도 타임라인이 겹치지 않도록 패딩 확보 */
-#timeline-section {
-  padding-top: 120px;   /* 네비 높이만큼 여유 */
-  padding-bottom: 100px;
-  background: #000;
-  color: #fff;
-}
-
-/* Title */
-h1 {
-  text-align: center;
-  margin: 0 0 48px;
-  font-weight: 700;
-}
-
-/* Timeline container: 3열(Grid) – 좌/중앙라인/우 */
+/* ===== 타임라인 점 글씨 옆으로 ===== */
 .timeline {
   position: relative;
   max-width: 980px;
   margin: 0 auto;
   padding: 0 16px 40px;
-  display: grid;
-  row-gap: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-item span {
+  flex-shrink: 0;
+  width: var(--dot);
+  height: var(--dot);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(255,255,255,.15);
+}
+
+/* 왼쪽/오른쪽 번갈아 배치 */
+.timeline-item.left {
+  justify-content: flex-start;
+}
+.timeline-item.right {
+  justify-content: flex-end;
+}
+
+/* 내용 텍스트 */
+.timeline-item p {
+  margin: 0;
+  padding: 8px 12px;
+  background: transparent;
+  line-height: 1.5;
+  font-size: 16px;
+  max-width: 45%;
 }
 
 /* 중앙 세로 라인 */
@@ -57,99 +52,12 @@ h1 {
   width: var(--line-w);
   background: #fff;
   transform: translateX(-50%);
-  z-index: 1;
-  opacity: 1;
+  z-index: -1;
 }
 
-/* 각 아이템: grid 1fr | 40px | 1fr */
-.timeline-item {
-  display: grid;
-  grid-template-columns: 1fr 40px 1fr;
-  align-items: center;
-  column-gap: 16px;
-  position: relative;
-  z-index: 2;
-}
-
-/* 타임라인 점 */
-.timeline-item > span {
-  grid-column: 2;
-  justify-self: center;
-  width: var(--dot);
-  height: var(--dot);
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 6px rgba(255,255,255,.1);
-}
-
-/* 좌/우 내용 영역 */
-.content-left,
-.content-right {
-  background: transparent;
-  word-break: keep-all;
-  line-height: 1.5;
-  font-size: 16px;
-}
-
-/* 데스크톱: 좌우로 번갈아 */
-.content-left  { grid-column: 1; text-align: right; padding-right: 16px; }
-.content-right { grid-column: 3; text-align: left;  padding-left: 16px; }
-
-/* ===== Responsive ===== */
-
-/* 태블릿 이하에서도 번갈아 유지 (그대로 3열 유지) */
-@media (max-width: 900px) {
-  .timeline { max-width: 760px; }
-}
-
-/* 아주 작은 화면에서도 좌/우 유지 (원하는 요구사항 반영) */
-@media (max-width: 600px) {
-  :root { --dot: 14px; --line-w: 4px; }
-
-  .timeline {
-    row-gap: 28px;
-  }
-  .timeline-item {
-    grid-template-columns: 1fr 28px 1fr;  /* 중앙 컬럼을 조금 줄임 */
-  }
-  .content-left, .content-right {
-    font-size: 15px;
+/* 모바일에서도 번갈아 유지 */
+@media (max-width: 768px) {
+  .timeline-item p {
+    max-width: 80%;
   }
 }
-
-/* 극소 화면(아이폰 SE 등)에서도 좌/우 유지 */
-@media (max-width: 380px) {
-  .timeline-item {
-    grid-template-columns: 1fr 24px 1fr;
-    column-gap: 10px;
-  }
-  .content-left, .content-right { font-size: 14px; }
-}
-
-/* 홈으로 가는 화살표 (더 큼, 더 둥글, 클릭영역 넓힘) */
-.home-arrow {
-  position: fixed;
-  top: 16px;
-  left: 16px;
-  width: 56px;
-  height: 56px;
-  border-radius: 9999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #fff;
-  background: rgba(255,255,255,0.12);
-  text-decoration: none;
-  z-index: 1100;
-  backdrop-filter: saturate(120%) blur(4px);
-  -webkit-backdrop-filter: saturate(120%) blur(4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.15);
-  transition: transform .15s ease, background .2s ease;
-  touch-action: manipulation;
-}
-.home-arrow:hover { background: rgba(255,255,255,0.22); transform: translateY(-1px); }
-.home-arrow:active { transform: translateY(0); }
-
-/* 부트스트랩 기본 컨테이너 여백이 과하게 겹칠 때 방지 */
-.navbar { position: sticky; top: 0; z-index: 1000; }
