@@ -21,7 +21,7 @@
          <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
             <div class="container">
                 <a class="navbar-brand" href="#"><img src="imgs/coss.png" alt="#" style="margin-left: -13px;" /></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgba(56, 55, 55, 0.51);">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu" aria-controls="show-menu" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgba(56, 55, 55, 0.51);">
                      <span class="fas fa-caret-down" style="color:white; font-size: 21px;"></span>
                 </button>
                  <div class="collapse navbar-collapse" id="show-menu">
@@ -297,8 +297,13 @@
                 <p>Copyright 2023  Design by <a href="https://sites.google.com/view/cosmopolitan72/home"> cosmopolitan72 </a></p>
             </div>
 	    </footer>
-          <script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+          <!-- jQuery 먼저 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<!-- Popper.js (Bootstrap4 토글 필수) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <script>
     $(function () {
         'use strict';
@@ -317,6 +322,7 @@
 </script>
     </body>
 	</html>
+
 
 
 
