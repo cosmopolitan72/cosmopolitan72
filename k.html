@@ -1,182 +1,167 @@
-/* ========== 페이지 스코프: k.html 전용 ========== */
-#timeline-page {
-  --bg: #000;
-  --fg: #fff;
-  --muted: rgba(255,255,255,.6);
-  --line: #fff;
-  --dot: 18px;         /* 점 크기 */
-  --line-w: 4px;       /* 중앙선 두께 */
-  --gap: 32px;         /* 아이템 간격 */
-  --maxw: 980px;       /* 본문 최대 너비 */
-  --pad-x: 16px;       /* 좌우 패딩 */
-  --radius: 999px;     /* 둥근 버튼 등 */
-  background: var(--bg);
-  color: var(--fg);
-  font-family: "Noto Sans KR", "Roboto", "Open Sans", system-ui, -apple-system, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cosmopolitan 타임라인</title>
 
-/* 전역 리셋(스코프 내) */
-#timeline-page * { box-sizing: border-box; }
+  <!-- 외부 스타일 -->
+  <link rel="icon" href="imgs/cos bo 1.png" type="image/png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css"> <!-- 사이트 공용 -->
+  <link rel="stylesheet" href="css/fontawesome.min.css"> <!-- 로컬 FA(있으면 유지) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- CDN FA -->
+  <!-- ★ 타임라인 전용 CSS는 제일 마지막에 -->
+  <link rel="stylesheet" href="css/k-timeline.css">
+</head>
 
-/* ========== 상단 네비가 겹치지 않게 여백 ========== */
-#timeline-section {
-  padding: 96px var(--pad-x) 80px;
-  background: var(--bg);
-  color: var(--fg);
-}
+<body id="timeline-page">
+  <!-- 왼쪽 상단 고정 화살표 -->
+  <a href="index.html#home" class="home-arrow" aria-label="홈으로 이동">
+    <i class="fas fa-arrow-left"></i>
+  </a>
 
-/* ========== 홈(화살표) 버튼 ========== */
-#timeline-page .home-arrow {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255,255,255,0.12);
-  color: var(--fg);
-  text-decoration: none;
-  z-index: 1030; /* 부트스트랩 네비보다 살짝 위 */
-  transition: background .2s ease, transform .06s ease;
-  backdrop-filter: blur(6px);
-}
-#timeline-page .home-arrow:hover { background: rgba(255,255,255,0.25); }
-#timeline-page .home-arrow:active { transform: scale(0.98); }
-#timeline-page .home-arrow i { font-size: 20px; line-height: 1; }
+  <!-- 사이드바 -->
+  <div class="sidebar">
+    <a href="https://github.com/cosmopolitan72" target="_blank"><i class="fas fa-compass"></i></a>
+    <a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="k.html"><i class="fas fa-chart-bar"></i></a>
+  </div>
 
-/* ========== 제목 & 보조 버튼 ========== */
-#timeline-page .title-wrap {
-  max-width: var(--maxw);
-  margin: 0 auto 32px;
-  padding: 0 var(--pad-x);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-#timeline-page h1.page-title {
-  margin: 0;
-  font-weight: 700;
-  font-size: clamp(22px, 2.4vw, 32px);
-  letter-spacing: 0.2px;
-  text-align: center;
-}
-#timeline-page .btn-home {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: #fff;
-  color: #000;
-  border-radius: 10px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform .06s ease, box-shadow .2s ease;
-}
-#timeline-page .btn-home:hover { box-shadow: 0 6px 20px rgba(255,255,255,0.12); }
-#timeline-page .btn-home:active { transform: translateY(1px); }
+  <!-- 상단 네비게이션 -->
+  <nav class="navbar navbar-expand-lg navbar-light text-capitalize">
+    <div class="container">
+      <a class="navbar-brand" href="index.html#home">
+        <img src="imgs/coss.png" alt="로고" style="margin-left: -13px;" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#show-menu"
+        aria-controls="show-menu" aria-expanded="false" aria-label="Toggle navigation"
+        style="background-color: rgba(56, 55, 55, 0.51);">
+        <span class="fas fa-caret-down" style="color:white; font-size: 21px;"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="show-menu">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#service">History</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#agency">Vision</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact us">Contact us</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://sites.google.com/view/cosmopolitan72/blog/branch/about" target="_blank" rel="noopener">
+              <i class="far fa-address-card"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://sites.google.com/view/cosmopolitan72/home" target="_blank" rel="noopener">
+              <i class="fas fa-globe"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.instagram.com/cosm_opolitan72/" target="_blank" rel="noopener">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-/* ========== 타임라인 래퍼 & 중앙선 ========== */
-#timeline-page .timeline {
-  position: relative;
-  max-width: var(--maxw);
-  margin: 0 auto;
-  padding: 8px var(--pad-x) 8px;
-  display: grid;
-  row-gap: var(--gap);
-}
-#timeline-page .timeline::before {
-  content: "";
-  position: absolute;
-  top: 0; bottom: 0;
-  left: 50%;
-  width: var(--line-w);
-  background: var(--line);
-  transform: translateX(-50%);
-  z-index: 0;
-  opacity: 1;
-}
+  <!-- 타임라인 섹션 -->
+  <section id="timeline-section">
+    <div class="title-wrap">
+      <h1 class="page-title">웹사이트 타임라인</h1>
+      <a href="index.html#home" class="btn-home"><i class="fas fa-home"></i> 홈으로 이동</a>
+    </div>
 
-/* ========== 아이템: 데스크톱은 좌/우 번갈아 ========== */
-#timeline-page .timeline-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  position: relative;
-  z-index: 1; /* 중앙선 아래로 깔리지 않게 */
-}
+    <div class="timeline">
+      <!-- 1 -->
+      <div class="timeline-item left">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">2023년 웹사이트 시작</p>
+      </div>
+      <!-- 2 -->
+      <div class="timeline-item right">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">2024년 8월 네트워크관리사 2급 취득</p>
+      </div>
+      <!-- 3 -->
+      <div class="timeline-item left">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">2024년 10월 영상정보관리사 취득</p>
+      </div>
+      <!-- 4 -->
+      <div class="timeline-item right">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">KISA-2025 가명정보 전문인력 양성교육 기본과정 수료</p>
+      </div>
+      <!-- 5 -->
+      <div class="timeline-item left">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">KISA-가명정보 전문인력 양성 기획과정 수료</p>
+      </div>
+      <!-- 6 -->
+      <div class="timeline-item right">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">2025년 7월 CCTV 관제센터 종사자 교육 수료</p>
+      </div>
+      <!-- 7 -->
+      <div class="timeline-item left">
+        <div class="dot-wrap"><span class="dot"></span></div>
+        <p class="text">2025년 7월 개인정보 보호법 주요 개정사항 교육 수료</p>
+      </div>
+    </div>
+  </section>
 
-/* 왼쪽(홀수): 점은 오른쪽 칼럼(중앙선 옆), 텍스트는 왼쪽 */
-#timeline-page .timeline-item.left {
-  grid-template-areas: "text dot";
-}
-#timeline-page .timeline-item.left .dot-wrap { justify-content: flex-start; }
+  <!-- 푸터 -->
+  <footer>
+    <div class="container">
+      <ul>
+        <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank" rel="noopener"><i class="far fa-address-card"></i></a></li>
+        <li><a href="https://sites.google.com/view/cosmopolitan72/home?authuser=0" target="_blank" rel="noopener"><i class="fas fa-globe"></i></a></li>
+        <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank" rel="noopener"><i class="fab fa-google-plus-g"></i></a></li>
+      </ul>
+      <div class="row">
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item">
+            <h4 class="text-uppercase">Contact us</h4>
+            <p class="EMAIL">sjy00000000927@likelion.org</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item">
+            <h4 class="text-uppercase">additional links</h4>
+            <ul>
+              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank" rel="noopener">About us</a></li>
+              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/365?authuser=0" target="_blank" rel="noopener">News</a></li>
+              <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank" rel="noopener">Contact us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item date">
+            <h4 class="text-uppercase">recent posts</h4>
+            <p><a href="#">06/20/2023</a></p>
+            <p><a href="#">06/02/2023</a></p>
+            <p><a href="#">05/31/2023</a></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12">
+          <div class="item">
+            <h4 class="text-uppercase">newsletter</h4>
+            <p class="NEWS">Coming soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright text-center">
+      <p>Copyright 2023 Design by <a href="https://sites.google.com/view/cosmopolitan72/home">cosmopolitan72</a></p>
+    </div>
+  </footer>
 
-/* 오른쪽(짝수): 점은 왼쪽 칼럼(중앙선 옆), 텍스트는 오른쪽 */
-#timeline-page .timeline-item.right {
-  grid-template-areas: "dot text";
-}
-#timeline-page .timeline-item.right .dot-wrap { justify-content: flex-end; }
-
-/* 칼럼 콘텐츠 */
-#timeline-page .timeline-item .text {
-  grid-area: text;
-  padding: 8px 12px;
-  max-width: 90%;
-  line-height: 1.6;
-  font-size: clamp(14px, 1.8vw, 16px);
-  color: var(--fg);
-  justify-self: stretch;
-}
-#timeline-page .timeline-item .dot-wrap {
-  grid-area: dot;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* 점(글씨 ‘바로 옆’) */
-#timeline-page .timeline-item .dot {
-  width: var(--dot);
-  height: var(--dot);
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(255,255,255,.14);
-  flex-shrink: 0;
-}
-
-/* ========== 모바일(<= 768px): 한 줄 스택 + 점이 글 옆 유지 ========== */
-@media (max-width: 768px) {
-  #timeline-section { padding: 84px 12px 72px; }
-
-  /* 중앙선은 그대로 가운데 유지 */
-  #timeline-page .timeline::before { left: 50%; }
-
-  /* 한 줄 스택이지만 dot과 text를 같은 줄에서 옆으로 */
-  #timeline-page .timeline-item {
-    grid-template-columns: 1fr;      /* 한 칼럼 */
-    grid-template-areas: "dot" "text";
-    justify-items: center;
-    row-gap: 8px;
-  }
-
-  /* 양쪽 모두 dot → text 순으로 같은 줄에 보이도록 플렉스 */
-  #timeline-page .timeline-item .dot-wrap {
-    justify-content: center;
-  }
-
-  /* dot과 text를 같은 줄에 붙여서 한 덩어리로 보이게 */
-  #timeline-page .timeline-item .text {
-    max-width: 92%;
-    text-align: center;
-  }
-}
-
-/* ========== 푸터 간격 확보 ========== */
-#timeline-page footer {
-  margin-top: 56px;
-}
+  <!-- 스크립트 -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
