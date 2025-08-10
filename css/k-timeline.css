@@ -9,7 +9,7 @@
 /* 네비와 겹치지 않게 타임라인 섹션 아래로 내리기 */
 .k-timeline #timeline-section {
   padding-top: 200px;   /* 필요하면 140~200px 사이로 조절 */
-  padding-bottom: 100px;
+  padding-bottom: 120px;
   background-color: #000;
   position: relative;
   z-index: 1;
