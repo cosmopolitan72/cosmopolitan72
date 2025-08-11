@@ -150,3 +150,23 @@
     font-size: 1.1rem;
   }
 }
+
+.back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 26px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    border-radius: 50%;
+    text-decoration: none;
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.back-arrow:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
