@@ -157,7 +157,7 @@
   left: 20px;
   width: 50px;
   height: 50px;
-  border-radius: 50%; /* 완전 원형 */
+  border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
@@ -168,10 +168,9 @@
   z-index: 1000;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
-
 .back-arrow:hover {
   background-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1); /* 호버 시 살짝 커짐 */
+  transform: scale(1.1);
 }
 
 
