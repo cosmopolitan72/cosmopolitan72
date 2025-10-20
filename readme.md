@@ -1,5 +1,6 @@
 # Hi there! 👾
   #### I'm JYS and I'm currently studying cybersecurity. I majored in computer science in the past.
+  ### Slow and steady!
 
   <img src="https://github-readme-stats.vercel.app/api?username=cosmopolitan72&show_icons=true&theme=graywhite" alt="GitHub Stats" style="margin-right: 20px;" />
 
