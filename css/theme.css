@@ -79,11 +79,15 @@ html[data-theme="light"] .back-arrow {
 }
 html[data-theme="light"] .back-arrow:hover { background-color: #1d2228; color: #fff; }
 
-html[data-theme="light"] footer { background-color: #f3f4f6; }
+/* 푸터: 위쪽 내용과 맨 아래 저작권 줄을 회색 하나로 통일 (다크: 진한 회색, 라이트: 연한 회색) */
+html[data-theme="dark"] footer,
+html[data-theme="dark"] footer .copyright { background-color: #222; }
+
+html[data-theme="light"] footer,
+html[data-theme="light"] footer .copyright { background-color: #f3f4f6; }
 html[data-theme="light"] footer,
 html[data-theme="light"] footer a { color: #1d2228; }
 html[data-theme="light"] footer a:hover { color: #50b7ef; }
-html[data-theme="light"] footer .copyright { background-color: #e3e6ea; }
 
 
 /* =====================================================================
