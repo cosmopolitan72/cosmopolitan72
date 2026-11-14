@@ -11,6 +11,8 @@ redirect_from: /k.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cosmopolitan</title>
 
+  <!-- 다크/라이트 모드: 화면이 그려지기 전에 저장된 모드를 적용 -->
+  <script>(function(){var t='dark';try{if(localStorage.getItem('theme')==='light')t='light';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
   <link rel="icon" href="../imgs/cos bo 1.png" type="image/png">
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/style.css"> <!-- 기존 사이트 공통 -->
@@ -19,6 +21,7 @@ redirect_from: /k.html
   <!-- 폰트어썸 CDN 보강 (아이콘 안 뜨는 경우 대비) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Noto+Sans+KR&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/theme.css"> <!-- 다크/라이트 모드 -->
 </head>
 <body class="k-timeline">
 
@@ -238,5 +241,6 @@ redirect_from: /k.html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <!-- Bootstrap JS -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="../js/theme.js"></script>
 </body>
 </html>
