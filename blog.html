@@ -5,18 +5,11 @@ title: Blog
 permalink: /blog.html
 description: cosmopolitan 블로그. 사이버보안을 공부하며 배우고 만든 것들을 기록합니다.
 ---
-<header class="blog-hero">
-  <div class="overlay">
-    <div class="container blog-hero__inner">
-      <p class="blog-eyebrow">cosmopolitan</p>
-      <h1 class="blog-hero__title"><span>Blog</span></h1>
-      <p class="blog-hero__lead">사이버보안을 공부하며 배우고 만든 것들을 기록합니다.</p>
-    </div>
-  </div>
-</header>
+<section class="blog-section">
+  <div class="container narrow">
+    <h1 class="page-title">Blog</h1>
+    <p class="page-lead">사이버보안을 공부하며 배우고 만든 것들을 기록합니다.</p>
 
-<main class="blog-main">
-  <div class="blog-list">
     {% assign posts = site.posts %}
     {% if posts.size > 0 %}
       <p class="blog-count">글 {{ posts.size }}개</p>
@@ -41,4 +34,4 @@ description: cosmopolitan 블로그. 사이버보안을 공부하며 배우고 �
       <p class="blog-empty">아직 글이 없습니다.</p>
     {% endif %}
   </div>
-</main>
+</section>
