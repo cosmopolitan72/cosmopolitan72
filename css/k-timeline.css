@@ -139,6 +139,13 @@
     margin-bottom: 36px;
     font-size: 1.4rem;
   }
+
+  /* 뒤로가기 버튼과 로고가 겹치지 않게 (블로그와 동일) */
+  .k-timeline .navbar-brand img {
+    height: 96px;
+    width: auto;
+    margin-left: 52px !important;
+  }
 }
 
 /* 고해상도 데스크톱에서 글자/간격 보정(optional) */
@@ -166,7 +173,7 @@
   text-decoration: none;
   font-size: 20px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  z-index: 1000;
+  z-index: 1005; /* 상단 메뉴(z-index 1004)보다 위에 있어야 눌림 */
   transition: background-color 0.3s ease;
 }
 
