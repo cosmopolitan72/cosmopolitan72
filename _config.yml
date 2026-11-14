@@ -11,6 +11,10 @@ timezone: Asia/Seoul
 # Post addresses look like /cosmopolitan72/blog/2026/11/14/hello-blog/
 permalink: /blog/:year/:month/:day/:title/
 
+# Old page addresses (e.g. /k.html) forward to their new folders.
+plugins:
+  - jekyll-redirect-from
+
 markdown: kramdown
 kramdown:
   input: GFM
