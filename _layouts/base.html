@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 150 | escape }}">
+  <!-- 다크/라이트 모드: 화면이 그려지기 전에 저장된 모드를 적용 -->
+  <script>(function(){var t='dark';try{if(localStorage.getItem('theme')==='light')t='light';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
 
   <link rel="icon" href="{{ '/imgs/cos%20bo%201.png' | relative_url }}" type="image/png">
   <link rel="stylesheet" href="{{ '/css/bootstrap.min.css' | relative_url }}">
@@ -14,6 +16,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto|Noto+Sans+KR:400,500,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/css/blog.css' | relative_url }}"> <!-- 블로그 전용 -->
+  <link rel="stylesheet" href="{{ '/css/theme.css' | relative_url }}"> <!-- 다크/라이트 모드 -->
 </head>
 <body class="blog-page">
 
@@ -106,5 +109,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="{{ '/js/theme.js' | relative_url }}"></script>
 </body>
 </html>
