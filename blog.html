@@ -1,0 +1,42 @@
+---
+layout: base
+title: Blog
+description: cosmopolitan 블로그. 사이버보안을 공부하며 배우고 만든 것들을 기록합니다.
+---
+<header class="blog-hero">
+  <div class="overlay">
+    <div class="container blog-hero__inner">
+      <p class="blog-eyebrow">cosmopolitan</p>
+      <h1 class="blog-hero__title"><span>Blog</span></h1>
+      <p class="blog-hero__lead">사이버보안을 공부하며 배우고 만든 것들을 기록합니다.</p>
+    </div>
+  </div>
+</header>
+
+<main class="blog-main">
+  <div class="blog-list">
+    {% assign posts = site.posts %}
+    {% if posts.size > 0 %}
+      <p class="blog-count">글 {{ posts.size }}개</p>
+      <ul class="post-list">
+        {% for post in posts %}
+          <li class="post-card">
+            <a class="post-card__link" href="{{ post.url | relative_url }}">
+              <div class="post-card__text">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+                <h2>{{ post.title | escape }}</h2>
+                <p>{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 120 }}</p>
+                {% if post.tags and post.tags.size > 0 %}
+                  <div class="post-card__tags">{% for tag in post.tags %}<span class="blog-tag">#{{ tag }}</span>{% endfor %}</div>
+                {% endif %}
+              </div>
+              {% if post.cover %}<img class="post-card__cover" src="{{ post.cover }}" alt="" loading="lazy">{% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="blog-empty">아직 글이 없습니다.</p>
+    {% endif %}
+  </div>
+</main>

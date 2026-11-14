@@ -1,0 +1,28 @@
+# Jekyll settings for the cosmopolitan72 GitHub Pages site.
+# GitHub Pages builds this automatically on every push; posts live in _posts/.
+
+title: cosmopolitan
+description: 사이버보안을 공부하는 JYS의 기록
+lang: ko
+url: "https://cosmopolitan72.github.io"
+baseurl: "/cosmopolitan72"
+timezone: Asia/Seoul
+
+# Post addresses look like /cosmopolitan72/blog/2026/11/14/hello-blog/
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+
+# readme.md is the GitHub profile README, not a page of the site.
+exclude:
+  - readme.md
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

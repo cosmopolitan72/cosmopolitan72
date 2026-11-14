@@ -1,0 +1,59 @@
+# Pages CMS settings: https://pagescms.org/docs/configuration/
+# Sign in at https://app.pagescms.org with GitHub and open this repository.
+
+# Images uploaded in the editor are saved to imgs/blog/.
+# The site lives under /cosmopolitan72/, so that prefix is part of the public path.
+media:
+  input: imgs/blog
+  output: /cosmopolitan72/imgs/blog
+  rename: safe
+  categories: [image]
+
+content:
+  - name: posts
+    label: 블로그 글
+    type: collection
+    path: _posts
+    format: yaml-frontmatter
+    # Jekyll needs YYYY-MM-DD-name.md. The time keeps Korean titles out of the address;
+    # you can type an English name (e.g. 2026-11-14-xss-basics.md) when creating a post.
+    filename:
+      template: "{year}-{month}-{day}-{hour}{minute}{second}.md"
+      field: create
+    view:
+      primary: title
+      fields: [title, date, published]
+      sort: date
+      order: desc
+    fields:
+      - name: title
+        label: 제목
+        type: string
+        required: true
+      - name: date
+        label: 날짜
+        type: date
+        options:
+          format: yyyy-MM-dd
+      - name: description
+        label: 요약
+        type: text
+        description: 글 목록에 보이는 한두 문장입니다. 비워 두면 본문 앞부분이 대신 나옵니다.
+      - name: tags
+        label: 태그
+        type: string
+        list: true
+      - name: cover
+        label: 대표 이미지
+        type: image
+        description: 선택 사항입니다. 글 목록과 글 맨 위에 보입니다.
+      - name: published
+        label: 공개
+        type: boolean
+        default: true
+        description: 끄고 저장하면 사이트에 보이지 않는 임시 저장 글이 됩니다.
+      - name: body
+        label: 본문
+        type: rich-text
+        options:
+          format: markdown

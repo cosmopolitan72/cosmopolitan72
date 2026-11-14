@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,6 +42,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#contact us">contact us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">blog</a>
                         </li>
                         <li class="nav-item">
 				<a class="nav-link" href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank"><i class="far fa-address-card"></i></a>
@@ -277,9 +282,11 @@
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="item date">
                             <h4 class="text-uppercase">resent posts</h4>
-				<p><a href="#">06/20/2023</a></p>
-                            <p><a href="#">06/02/2023</a></p>
-                            <p><a href="#">05/31/2023</a></p>
+				{% for post in site.posts limit:3 %}
+                            <p><a href="{{ post.url | relative_url }}">{{ post.date | date: '%m/%d/%Y' }} · {{ post.title | escape | truncate: 18 }}</a></p>
+                            {% else %}
+                            <p><a href="blog.html">blog</a></p>
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
