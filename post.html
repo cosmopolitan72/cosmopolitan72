@@ -1,0 +1,42 @@
+---
+layout: base
+---
+<header class="blog-hero blog-hero--post">
+  <div class="overlay">
+    <div class="container blog-hero__inner">
+      <a class="blog-back" href="{{ '/blog.html' | relative_url }}"><i class="fas fa-arrow-left" aria-hidden="true"></i> 글 목록</a>
+      <h1 class="blog-hero__title">{{ page.title | escape }}</h1>
+      <p class="blog-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time>
+        {% if page.tags and page.tags.size > 0 %}
+          <span class="blog-meta__dot" aria-hidden="true">·</span>
+          {% for tag in page.tags %}<span class="blog-tag">#{{ tag }}</span>{% endfor %}
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</header>
+
+<main class="blog-main">
+  <article class="post-body">
+    {% if page.cover %}<img class="post-cover" src="{{ page.cover }}" alt="">{% endif %}
+    {{ content }}
+  </article>
+
+  <nav class="post-pager" aria-label="이전 글과 다음 글">
+    {% if page.previous %}
+      <a class="post-pager__link" href="{{ page.previous.url | relative_url }}">
+        <span class="post-pager__label"><i class="fas fa-arrow-left" aria-hidden="true"></i> 이전 글</span>
+        <span class="post-pager__title">{{ page.previous.title | escape }}</span>
+      </a>
+    {% else %}
+      <span></span>
+    {% endif %}
+    {% if page.next %}
+      <a class="post-pager__link post-pager__link--next" href="{{ page.next.url | relative_url }}">
+        <span class="post-pager__label">다음 글 <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+        <span class="post-pager__title">{{ page.next.title | escape }}</span>
+      </a>
+    {% endif %}
+  </nav>
+</main>
