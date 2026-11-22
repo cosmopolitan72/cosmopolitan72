@@ -130,6 +130,17 @@ html[data-theme="dark"] .services p { color: #fff; }
 /* 흰 바탕 슬라이드 이미지를 검은 바탕 + 흰 글씨로 (색은 유지) */
 html[data-theme="dark"] .services .carousel-inner img { filter: invert(1) hue-rotate(180deg); }
 
+/* Workspace의 약력 요약 (bio.css의 기본값이 다크라서 라이트일 때만 색을 바꿈) */
+html[data-theme="light"] .bio-list {
+  --bio-line: rgba(0, 0, 0, .1);
+  --bio-date: #0b6fa4;
+  --bio-text: #1d2228;
+  --bio-tag-bg: #eef1f4;
+  --bio-tag-ink: rgba(29, 34, 40, .7);
+  --bio-award-bg: #fdf3d7;
+  --bio-award-ink: #8a5a00;
+}
+
 /* Projects 카드 (projects.css의 기본값이 다크라서 라이트일 때만 색을 바꿈) */
 html[data-theme="light"] .projects {
   --pj-card: #fff;
@@ -160,6 +171,7 @@ html[data-theme="light"] .k-timeline .page-title { color: #1d2228; }
 html[data-theme="light"] .k-timeline .timeline::before { background: #1d2228; }
 html[data-theme="light"] .k-timeline .timeline-item .dot { background: #1d2228; box-shadow: 0 0 0 3px rgba(0, 0, 0, .08); }
 html[data-theme="light"] .k-timeline .timeline-item .content { color: #1d2228; }
+html[data-theme="light"] .k-timeline .timeline-item .timeline-date { color: #0b6fa4; }
 
 
 /* =====================================================================

@@ -94,3 +94,31 @@ content:
         label: 링크
         type: string
         description: GitHub 저장소나 데모 주소 (https://로 시작)
+
+  # 약력. Timeline 페이지(pages/k.html)에 위에서부터 이 순서대로 보입니다(오래된 것이 위).
+  # "홈에 표시"를 켠 항목은 홈 My Workspace에도 최신순으로 최대 5개 보입니다.
+  - name: timeline
+    label: 약력
+    type: file
+    path: _data/timeline.yml
+    format: yaml
+    list: true
+    fields:
+      - name: date
+        label: 날짜
+        type: string
+        description: 예) 2026.11 또는 2023
+      - name: title
+        label: 내용
+        type: string
+        required: true
+      - name: type
+        label: 종류
+        type: select
+        options:
+          values: [수상, 경력, 자격증, 교육, 대회, 프로젝트, 활동]
+      - name: highlight
+        label: 홈에 표시
+        type: boolean
+        default: false
+        description: 켜면 홈 My Workspace의 약력 요약에도 보입니다.

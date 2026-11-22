@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fontawesome.min.css">
         <link rel="stylesheet" href="css/projects.css">
+        <link rel="stylesheet" href="css/bio.css">
         <link rel="stylesheet" href="css/theme.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
@@ -96,9 +97,21 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 text-right">
-                                <h4 class="text-uppercase">I'm<span>&nbsp; working on</span></h4>
-                                <p> 1. Privacy-enhancing techniques for personal information protection.&nbsp; 2. Keep your data secure and private with powerful encryption tools.</p>
-				     <button><a href="https://sites.google.com/view/cosmopolitan72/home" target="_blank" rel="noopener noreferrer">Deepdiving</a></button>
+                                <h4 class="text-uppercase">Recent<span>&nbsp; timeline</span></h4>
+                                <!-- 약력 요약: _data/timeline.yml에서 "홈에 표시"(highlight)한 항목을 최신순으로 5개까지 -->
+                                {% assign bio = site.data.timeline | where: "highlight", true | reverse %}
+                                <ol class="bio-list">
+                                    {% for item in bio limit:5 %}
+                                    <li class="bio-item">
+                                        <span class="bio-item__date">{{ item.date | escape }}</span>
+                                        <span class="bio-item__text">{{ item.title | escape }}{% if item.type %} <span class="bio-item__type" data-type="{{ item.type | escape }}">{{ item.type | escape }}</span>{% endif %}</span>
+                                    </li>
+                                    {% endfor %}
+                                </ol>
+                                <div class="bio-actions">
+                                    <button><a href="pages/k.html">Timeline</a></button>
+                                    <button><a href="https://sites.google.com/view/cosmopolitan72/home" target="_blank" rel="noopener noreferrer">Deepdiving</a></button>
+                                </div>
                             </div>
                         </div>
                     </div>

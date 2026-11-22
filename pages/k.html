@@ -47,6 +47,7 @@ redirect_from: /k.html
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="../index.html#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="../index.html#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="../index.html#service">History</a></li>
           <li class="nav-item"><a class="nav-link" href="../blog.html">Blog</a></li>
           <li class="nav-item"><a class="nav-link" href="https://sites.google.com/view/cosmopolitan72/blog/branch/about" target="_blank"><i class="far fa-address-card"></i></a></li>
@@ -62,144 +63,17 @@ redirect_from: /k.html
     <div class="container narrow">
       <h1 class="page-title">Timeline</h1>
 
+      <!-- 항목은 _data/timeline.yml (Pages CMS의 "약력" 메뉴)에서 고칩니다 -->
       <div class="timeline">
-        <!-- item 1 -->
+        {% for item in site.data.timeline %}
         <div class="timeline-item">
           <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            21년 6월 사용자 경험 중심의 포트폴리오 웹사이트 제작
+          <div class="content {% cycle 'content-left', 'content-right' %}">
+            {% if item.date and item.date != "" %}<span class="timeline-date">{{ item.date | escape }}</span>{% endif %}
+            {{ item.title | escape }}
           </div>
         </div>
-         <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            22년 반응형 웹사이트 디자인 및 개발
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            23년 cosmopolitna72 블로그 개설
-          </div>
-        </div>
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            23년 블록체인 교육
-          </div>
-        </div>
-        <!-- item 2 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            24년 8월 네트워크관리사 2급 취득
-          </div>
-        </div>
-        <!-- item 3 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            24년 10월 영상정보관리사 취득
-          </div>
-        </div>
-        <!-- item 4 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            KISA-2025 가명정보 전문인력 양성교육 기본과정 수료
-          </div>
-        </div>
-        <!-- item 5 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            KISA-가명정보 전문인력 양성 기획과정 수료
-          </div>
-        </div>
-        <!-- item 6 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            25년 7월 CCTV 관제센터 종사자 교육 수료
-          </div>
-        </div>
-        <!-- item 7 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            25년 7월 개인정보 보호법 주요 개정사항 <br>교육 수료</br>
-          </div>
-        </div>
-          <!-- item 8 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            25년 8월 NCA 취득
-          </div>
-        </div>
-         <!-- item 9 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            25년 9월 K-Shield 주니어 기초과정 16차 <br>수료</br>
-          </div>
-        </div>
-        <!-- item 10 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            25년 11월 2025 가명정보 전문인력 양성교육 검증전문과정
-          </div>
-        </div>
-        <!-- item 11 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            25년 11월 암호모듈검증 전문교육 심화과정 수료
-          </div>
-        </div>
-        <!-- item 12 -->
-        <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            25년 11월 공군 정보보호병 근무
-          </div>
-           <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            26년 5월 버그헌팅 실습훈련 초급과정 수료
-          </div>
-        </div>
-           <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            26년 6월 버그헌팅 실습훈련 중급과정 수료
-          </div>
-        </div>
-          <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-            26년 10월 AI Fluency: <br>Framework and foundations 수료</br>
-          </div>
-        </div>
-          <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-            26년 11월 claude code 101 과정 수료
-          </div>
-        </div>
-           <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-right">
-             26년 11월 공군 정보통신경연대회 참가
-          </div>
-        </div>
-          <div class="timeline-item">
-          <span class="dot" aria-hidden="true"></span>
-          <div class="content content-left">
-             26년 11월 공군 정보통신경연대회 AI활용 <br> 체계개발부분 우수 수상</br>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
   </section>
@@ -210,13 +84,14 @@ redirect_from: /k.html
       <ul>
         <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank"><i class="far fa-address-card"></i></a></li>
         <li><a href="https://sites.google.com/view/cosmopolitan72/home?authuser=0" target="_blank"><i class="fas fa-globe"></i></a></li>
-        <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
+        <li><a href="https://github.com/cosmopolitan72" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank" aria-label="Google Groups" title="Google Groups"><i class="fas fa-users"></i></a></li>
       </ul>
       <div class="row">
         <div class="col-lg-3 col-md-6 col-12">
           <div class="item">
-            <h4 class="text-uppercase">Contact us</h4>
+            <h4 class="text-uppercase">Contact</h4>
             <p class="EMAIL">sjy00000000927@likelion.org</p>
           </div>
         </div>
@@ -224,30 +99,35 @@ redirect_from: /k.html
           <div class="item">
             <h4 class="text-uppercase">additional links</h4>
             <ul>
-              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank">About us</a></li>
+              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank">About</a></li>
               <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/365?authuser=0" target="_blank">News</a></li>
-              <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank">Contact us</a></li>
+              <li><a href="mailto:sjy00000000927@likelion.org" target="_blank">Email</a></li>
             </ul>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
           <div class="item date">
             <h4 class="text-uppercase">recent posts</h4>
-            <p><a href="#">06/20/2023</a></p>
-            <p><a href="#">06/02/2023</a></p>
-            <p><a href="#">05/31/2023</a></p>
+            {% for post in site.posts limit:3 %}
+            <p><a href="{{ post.url | relative_url }}">{{ post.date | date: '%m/%d/%Y' }} · {{ post.title | escape | truncate: 18 }}</a></p>
+            {% else %}
+            <p><a href="../blog.html">blog</a></p>
+            {% endfor %}
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-12">
-          <div class="item">
-            <h4 class="text-uppercase">newsletter</h4>
-            <p class="NEWS">Coming soon</p>
+          <div class="item date">
+            <h4 class="text-uppercase">projects</h4>
+            {% for project in site.data.projects limit:3 %}
+            <p><a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.title | escape }}</a></p>
+            {% endfor %}
+            <p><a href="../index.html#projects">전체 보기</a></p>
           </div>
         </div>
       </div>
     </div>
     <div class="copyright text-center">
-      <p>Copyright 2023 Design by <a href="https://sites.google.com/view/cosmopolitan72/home">cosmopolitan72</a></p>
+      <p>Copyright 2023–{{ site.time | date: '%Y' }} Design by <a href="https://sites.google.com/view/cosmopolitan72/home">cosmopolitan72</a></p>
     </div>
   </div>
   </footer>

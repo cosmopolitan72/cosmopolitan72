@@ -1,0 +1,93 @@
+# 약력. 위에서 아래로 오래된 것부터 적습니다.
+# - 전체 목록은 pages/k.html(Timeline)에 이 순서대로 보입니다.
+# - highlight: true인 항목은 홈의 My Workspace에도 최신순으로 최대 5개 보입니다.
+# Pages CMS의 "약력" 메뉴에서도 고칠 수 있어요.
+
+- date: "2021.06"
+  title: 사용자 경험 중심의 포트폴리오 웹사이트 제작
+  type: 프로젝트
+
+- date: "2022"
+  title: 반응형 웹사이트 디자인 및 개발
+  type: 프로젝트
+
+- date: "2023"
+  title: cosmopolitan72 블로그 개설
+  type: 활동
+
+- date: "2023"
+  title: 블록체인 교육
+  type: 교육
+
+- date: "2024.08"
+  title: 네트워크관리사 2급 취득
+  type: 자격증
+
+- date: "2024.10"
+  title: 영상정보관리사 취득
+  type: 자격증
+
+- date: ""
+  title: KISA-2025 가명정보 전문인력 양성교육 기본과정 수료
+  type: 교육
+
+- date: ""
+  title: KISA-가명정보 전문인력 양성 기획과정 수료
+  type: 교육
+
+- date: "2025.07"
+  title: CCTV 관제센터 종사자 교육 수료
+  type: 교육
+
+- date: "2025.07"
+  title: 개인정보 보호법 주요 개정사항 교육 수료
+  type: 교육
+
+- date: "2025.08"
+  title: NCA 취득
+  type: 자격증
+  highlight: true
+
+- date: "2025.09"
+  title: K-Shield 주니어 기초과정 16차 수료
+  type: 교육
+  highlight: true
+
+- date: "2025.11"
+  title: 2025 가명정보 전문인력 양성교육 검증전문과정
+  type: 교육
+
+- date: "2025.11"
+  title: 암호모듈검증 전문교육 심화과정 수료
+  type: 교육
+
+- date: "2025.11"
+  title: 공군 정보보호병 근무
+  type: 경력
+  highlight: true
+
+- date: "2026.05"
+  title: 버그헌팅 실습훈련 초급과정 수료
+  type: 교육
+
+- date: "2026.06"
+  title: 버그헌팅 실습훈련 중급과정 수료
+  type: 교육
+  highlight: true
+
+- date: "2026.10"
+  title: "AI Fluency: Framework and foundations 수료"
+  type: 교육
+
+- date: "2026.11"
+  title: claude code 101 과정 수료
+  type: 교육
+
+- date: "2026.11"
+  title: 공군 정보통신경연대회 참가
+  type: 대회
+
+- date: "2026.11"
+  title: 공군 정보통신경연대회 AI활용 체계개발부문 우수 수상
+  type: 수상
+  highlight: true

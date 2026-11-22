@@ -76,6 +76,7 @@
   color: #fff;
   background: transparent;
   line-height: 1.6;
+  word-break: keep-all;  /* 한국어가 단어 중간에서 줄바꿈되지 않게 */
 }
 
 /* 왼쪽/오른쪽 배치 */
@@ -87,6 +88,16 @@
 .k-timeline .timeline-item .content-right {
   text-align: left;
   margin-left: calc(50% + 28px);  /* 선에서 28px 떨어짐 */
+}
+
+/* 날짜 (_data/timeline.yml의 date) */
+.k-timeline .timeline-item .timeline-date {
+  display: block;
+  margin-bottom: 2px;
+  font-size: .85em;
+  font-weight: 700;
+  letter-spacing: .04em;
+  color: #50b7ef;
 }
 
 /* 폰트 사이즈 조정 (데스크톱 기본) */
