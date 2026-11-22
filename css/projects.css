@@ -1,0 +1,154 @@
+/* 홈(index.html)의 Projects 섹션.
+   색은 아래 변수로만 정하고, 기본값은 다크 모드입니다. 라이트 모드 색은 theme.css에서 바꿉니다.
+   카드 내용은 _data/projects.yml에서 옵니다. */
+
+.projects {
+  --pj-card: #111;
+  --pj-line: rgba(255, 255, 255, .12);
+  --pj-line-hover: rgba(80, 183, 239, .55);
+  --pj-shadow: none;
+  --pj-heading: #fff;
+  --pj-text: rgba(255, 255, 255, .78);
+  --pj-muted: rgba(255, 255, 255, .5);
+  --pj-accent: #50b7ef;
+  --pj-link: #50b7ef;
+  --pj-tag-bg: rgba(80, 183, 239, .12);
+  --pj-tag-ink: #8fd0f5;
+
+  padding: 0 0 100px;
+  font-family: 'Open Sans', sans-serif;
+  word-break: keep-all;  /* 한국어가 단어 중간에서 줄바꿈되지 않게 */
+  overflow-wrap: break-word;
+}
+
+.projects h2 { color: var(--pj-heading); }
+
+.projects__lead {
+  color: var(--pj-muted);
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 24px;
+  background-color: var(--pj-card);
+  border: 1px solid var(--pj-line);
+  border-radius: 14px;
+  box-shadow: var(--pj-shadow);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.project-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--pj-line-hover);
+}
+
+.project-card__year {
+  margin: 0 0 6px;
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: var(--pj-muted);
+}
+
+.project-card__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--pj-heading);
+}
+
+.project-card__repo {
+  margin: 4px 0 14px;
+  font-family: SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  font-size: 14px;
+  color: var(--pj-link);
+  word-break: break-all;
+}
+
+.project-card__summary {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--pj-text);
+}
+
+.project-card__points {
+  margin: 0 0 20px;
+  padding: 0;
+}
+.project-card__points li {
+  position: relative;
+  margin-bottom: 4px;
+  padding-left: 16px;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--pj-text);
+}
+.project-card__points li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: .72em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--pj-accent);
+}
+
+/* 태그와 링크는 카드 맨 아래에 붙여서, 옆 카드와 높이가 달라도 줄이 맞게 */
+.project-card__bottom {
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--pj-line);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.project-card__tags span {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  background-color: var(--pj-tag-bg);
+  color: var(--pj-tag-ink);
+}
+
+.project-card__link,
+.projects__more a {
+  font-weight: 600;
+  color: var(--pj-link);
+}
+.project-card__link { font-size: 15px; white-space: nowrap; }
+.project-card__link:hover,
+.projects__more a:hover { color: var(--pj-heading); }
+
+.projects__more {
+  margin: 36px 0 0;
+  font-size: 16px;
+}
+.projects__more i { font-size: 13px; margin-left: 4px; }
+
+@media (max-width: 767.98px) {
+  .project-grid { grid-template-columns: 1fr; gap: 16px; }
+  .project-card { padding: 22px 20px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card { transition: none; }
+  .project-card:hover { transform: none; }
+}

@@ -130,6 +130,21 @@ html[data-theme="dark"] .services p { color: #fff; }
 /* 흰 바탕 슬라이드 이미지를 검은 바탕 + 흰 글씨로 (색은 유지) */
 html[data-theme="dark"] .services .carousel-inner img { filter: invert(1) hue-rotate(180deg); }
 
+/* Projects 카드 (projects.css의 기본값이 다크라서 라이트일 때만 색을 바꿈) */
+html[data-theme="light"] .projects {
+  --pj-card: #fff;
+  --pj-line: rgba(0, 0, 0, .1);
+  --pj-line-hover: rgba(11, 111, 164, .45);
+  --pj-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+  --pj-heading: #1d2228;
+  --pj-text: rgba(29, 34, 40, .8);
+  --pj-muted: rgba(29, 34, 40, .55);
+  --pj-accent: #50b7ef;
+  --pj-link: #0b6fa4;
+  --pj-tag-bg: #eaf5fc;
+  --pj-tag-ink: #0b6fa4;
+}
+
 html[data-theme="dark"] .statistics { background-color: #0b0b0b; }
 html[data-theme="dark"] .statistics i,
 html[data-theme="dark"] .statistics p,

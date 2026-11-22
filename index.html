@@ -6,12 +6,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>cosmopolitan</title>
+        <meta name="description" content="사이버보안을 공부하는 JYS의 포트폴리오. 개인정보 가명처리, 악성코드 검사, 포트 스캔 등 직접 만든 보안 도구와 블로그.">
 	<link rel="icon" href="imgs/cos bo 1.png" type="image/png">
         <!-- 다크/라이트 모드: 화면이 그려지기 전에 저장된 모드를 적용 -->
         <script>(function(){var t='dark';try{if(localStorage.getItem('theme')==='light')t='light';}catch(e){}document.documentElement.setAttribute('data-theme',t);})();</script>
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/fontawesome.min.css">
+        <link rel="stylesheet" href="css/projects.css">
         <link rel="stylesheet" href="css/theme.css">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
     </head>
@@ -36,6 +38,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#about">about</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">projects</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#service">History</a>
@@ -91,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-12 text-right">
-                                <h4 class="text-uppercase">I'm<span>&nbsp; getting ready.</span></h4>
+                                <h4 class="text-uppercase">I'm<span>&nbsp; working on</span></h4>
                                 <p> 1. Privacy-enhancing techniques for personal information protection.&nbsp; 2. Keep your data secure and private with powerful encryption tools.</p>
 				     <button><a href="https://sites.google.com/view/cosmopolitan72/home" target="_blank" rel="noopener noreferrer">Deepdiving</a></button>
                             </div>
@@ -102,6 +107,36 @@
                 <div class="second"></div>
             </div>
         </div>
+
+        <!-- 프로젝트: 내용은 _data/projects.yml (Pages CMS의 "프로젝트" 메뉴)에서 고칩니다 -->
+        <section class="projects" id="projects">
+            <div class="container">
+                <h2 class="text-center">My<span>&nbsp; Projects</span></h2>
+                <p class="text-center projects__lead">보안을 공부하면서 직접 만든 도구들입니다.</p>
+                <div class="project-grid">
+                    {% for project in site.data.projects %}
+                    <article class="project-card">
+                        {% if project.year %}<p class="project-card__year">{{ project.year | escape }}</p>{% endif %}
+                        <h3 class="project-card__title">{{ project.title | escape }}</h3>
+                        {% if project.repo %}<p class="project-card__repo">{{ project.repo | escape }}</p>{% endif %}
+                        <p class="project-card__summary">{{ project.summary | escape }}</p>
+                        {% if project.points and project.points.size > 0 %}
+                        <ul class="project-card__points">
+                            {% for point in project.points %}<li>{{ point | escape }}</li>{% endfor %}
+                        </ul>
+                        {% endif %}
+                        <div class="project-card__bottom">
+                            {% if project.tags and project.tags.size > 0 %}
+                            <div class="project-card__tags">{% for tag in project.tags %}<span>{{ tag | escape }}</span>{% endfor %}</div>
+                            {% endif %}
+                            {% if project.link %}<a class="project-card__link" href="{{ project.link }}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i> 코드 보기</a>{% endif %}
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+                <p class="text-center projects__more"><a href="https://github.com/cosmopolitan72?tab=repositories" target="_blank" rel="noopener noreferrer">GitHub에서 전체 저장소 보기 <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+            </div>
+        </section>
 
         <div class="services" id="service">
             <div class="container">
@@ -194,14 +229,14 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-12">
-                        <i class="fas fa-lock fa-3x"></i>
-                        <h3>∞</h3>
-                        <p>Security</p>
+                        <i class="fas fa-code fa-3x"></i>
+                        <h3>{{ site.data.projects.size }}</h3>
+                        <p>Projects</p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
-                        <i class="fas fa-check fa-3x"></i>
-                        <h3>∞</h3>
-                        <p>Stability</p>
+                        <i class="fas fa-pen-nib fa-3x"></i>
+                        <h3>{{ site.posts.size }}</h3>
+                        <p>Blog posts</p>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
                         <i class="fa fa-file fa-3x"></i>
@@ -232,15 +267,16 @@
         <footer>
             <div class="container">
                 <ul>
-                    <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank"><i class="far fa-address-card"></i></a></li>
-                    <li><a href="https://sites.google.com/view/cosmopolitan72/home?authuser=0" target="_blank"><i class="fas fa-globe"></i></a></li>
-                    <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank"><i class="fab fa-google-plus-g"></i></a></li>
+                    <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank" aria-label="About" title="About"><i class="far fa-address-card"></i></a></li>
+                    <li><a href="https://sites.google.com/view/cosmopolitan72/home?authuser=0" target="_blank" aria-label="Google Sites" title="Google Sites"><i class="fas fa-globe"></i></a></li>
+                    <li><a href="https://github.com/cosmopolitan72" target="_blank" aria-label="GitHub" title="GitHub"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.instagram.com/cosm_opolitan72/" target="_blank" aria-label="Instagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://groups.google.com/g/cosmopolitan72" target="_blank" aria-label="Google Groups" title="Google Groups"><i class="fas fa-users"></i></a></li>
                 </ul>
                 <div class="row">
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="item">
-                            <h4 class="text-uppercase">Contact us</h4>
+                            <h4 class="text-uppercase">Contact</h4>
                             <p class="EMAIL">
                                 sjy00000000927@likelion.org<br>
                             </p>
@@ -250,15 +286,15 @@
                         <div class="item">
                             <h4 class="text-uppercase">additional links</h4>
                               <ul>
-                                <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank">About us</a></li>
+                                <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/about?authuser=0" target="_blank">About</a></li>
                              <li><a href="https://sites.google.com/view/cosmopolitan72/blog/branch/365?authuser=0" target="_blank">News</a></li>
-                                <li><a href="mailto:sjy00000000927@likelion.org" target="_blank">Contact us</a></li> <br>
+                                <li><a href="mailto:sjy00000000927@likelion.org" target="_blank">Email</a></li> <br>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
                         <div class="item date">
-                            <h4 class="text-uppercase">resent posts</h4>
+                            <h4 class="text-uppercase">recent posts</h4>
 				{% for post in site.posts limit:3 %}
                             <p><a href="{{ post.url | relative_url }}">{{ post.date | date: '%m/%d/%Y' }} · {{ post.title | escape | truncate: 18 }}</a></p>
                             {% else %}
@@ -267,18 +303,19 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 col-12">
-                        <div class="item">
-                            <h4 class="text-uppercase">newsletter</h4>
-				<p class="NEWS">
-					Coming soon
-				</p>
+                        <div class="item date">
+                            <h4 class="text-uppercase">projects</h4>
+                            {% for project in site.data.projects limit:3 %}
+                            <p><a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">{{ project.title | escape }}</a></p>
+                            {% endfor %}
+                            <p><a href="#projects">전체 보기</a></p>
                         </div>
                     </div>
 			<!-- 여기 밑에 div 이동 -->
 			  </div>
 	    </div>
             <div class="copyright text-center">
-                <p>Copyright 2023  Design by <a href="https://sites.google.com/view/cosmopolitan72/home"> cosmopolitan72 </a></p>
+                <p>Copyright 2023–{{ site.time | date: '%Y' }}  Design by <a href="https://sites.google.com/view/cosmopolitan72/home"> cosmopolitan72 </a></p>
             </div>
 	    </footer>
           <!-- jQuery 먼저 -->

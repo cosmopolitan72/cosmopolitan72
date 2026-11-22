@@ -57,3 +57,40 @@ content:
         type: rich-text
         options:
           format: markdown
+
+  # 홈의 Projects 카드. 순서를 바꾸면 홈에 보이는 순서도 바뀝니다.
+  - name: projects
+    label: 프로젝트
+    type: file
+    path: _data/projects.yml
+    format: yaml
+    list: true
+    fields:
+      - name: title
+        label: 이름
+        type: string
+        required: true
+        description: 카드 제목입니다. 예) 개인정보 가명처리 도구
+      - name: repo
+        label: 저장소 이름
+        type: string
+        description: 제목 아래 작게 보입니다. 예) pseudonymization_tool
+      - name: year
+        label: 연도
+        type: string
+      - name: summary
+        label: 소개
+        type: text
+        description: 무엇을 하는 프로젝트인지 한두 문장으로 적어 주세요.
+      - name: points
+        label: 주요 기능
+        type: string
+        list: true
+      - name: tags
+        label: 기술 태그
+        type: string
+        list: true
+      - name: link
+        label: 링크
+        type: string
+        description: GitHub 저장소나 데모 주소 (https://로 시작)

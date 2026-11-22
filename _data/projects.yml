@@ -1,0 +1,44 @@
+# 홈(index.html)의 Projects 섹션에 보이는 프로젝트 목록입니다.
+# 위에 있는 프로젝트가 먼저 보입니다. Pages CMS의 "프로젝트" 메뉴에서도 고칠 수 있어요.
+
+- title: 개인정보 가명처리 도구
+  repo: pseudonymization_tool
+  year: "2025"
+  summary: CSV 파일 속 개인정보를 삭제·통계·일반화 기법으로 가명처리하고, 가명키를 만들어 서로 다른 데이터를 결합하는 도구입니다.
+  points:
+    - "삭제: 마스킹, 부분 삭제, 행 항목 삭제, 로컬 삭제"
+    - "통계: 총계 처리, 부분 총계"
+    - "일반화: 라운딩, 상하단 코딩, 로컬 일반화, 범위 방법, 범주화"
+    - "가명키 생성 후 여러 CSV 결합"
+  tags: [Python, CSV, 개인정보보호]
+  link: https://github.com/cosmopolitan72/pseudonymization_tool
+
+- title: 악성코드 검사기
+  repo: Malwaredetecter
+  year: "2025"
+  summary: 파일의 SHA-256 해시를 VirusTotal API로 조회해 악성코드 여부를 알려 주는 윈도우용 프로그램입니다.
+  points:
+    - 파일 우클릭 메뉴에서 바로 검사 (레지스트리 등록)
+    - PyInstaller로 만든 단일 실행 파일
+  tags: [Python, VirusTotal API, Windows]
+  link: https://github.com/cosmopolitan72/Malwaredetecter
+
+- title: 포트 스캐너
+  repo: por-portscan
+  year: "2025"
+  summary: 여러 스레드로 TCP 포트를 빠르게 훑고, 열린 포트와 그 포트의 서비스 이름을 보여 주는 스캐너입니다.
+  points:
+    - 호스트 이름을 IP로 바꿔 지정한 범위 스캔
+    - 다음 목표는 Tor 프록시와 IP 정보 조회
+  tags: [Python, socket, threading]
+  link: https://github.com/cosmopolitan72/por-portscan
+
+- title: Flask 로그인 웹
+  repo: impess_web
+  year: "2023"
+  summary: 회원가입, 로그인, 로그아웃을 갖춘 Flask 웹입니다. 비밀번호는 해시로 저장하고 로그인 상태는 세션으로 관리합니다.
+  points:
+    - Flask-WTF 폼으로 입력 검증
+    - SQLAlchemy와 SQLite로 회원 정보 저장
+  tags: [Python, Flask, SQLite]
+  link: https://github.com/cosmopolitan72/impess_web
