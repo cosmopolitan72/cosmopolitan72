@@ -92,7 +92,7 @@ html[data-theme="light"] footer a:hover { color: #50b7ef; }
 
 /* =====================================================================
    홈 (index.html)
-   라이트: 맨 위 영역을 밝게. 가운데 흰 영역은 그대로, MY VISION·Why cosmopolitan 사진 띠는 어두운 채로 둠
+   라이트: 맨 위 영역과 Why cosmopolitan 띠를 밝게. 가운데 흰 영역은 그대로
    다크: 가운데 흰 영역(Workspace, History, 통계)까지 어둡게
    ===================================================================== */
 html[data-theme="light"] header#home {
@@ -121,8 +121,6 @@ html[data-theme="dark"] .about-us .small-container > p + div {
 }
 html[data-theme="dark"] .about-us .item { background-color: #111; color: #fff; box-shadow: none; }
 html[data-theme="dark"] .about-us .item img { filter: invert(1); }  /* 검은 선 아이콘을 흰색으로 */
-html[data-theme="dark"] .about-us .first,
-html[data-theme="dark"] .about-us .second { background-color: #1f6f99; }
 html[data-theme="dark"] .about-us .small-container > p + div button { border: 1px solid rgba(255, 255, 255, .4); }
 
 html[data-theme="dark"] .services h2,
@@ -157,6 +155,15 @@ html[data-theme="light"] .projects {
 }
 
 html[data-theme="dark"] .statistics { background-color: #0b0b0b; }
+
+/* Why cosmopolitan: 라이트 모드에서는 우주 사진 없이 흰 배경 (다크는 사진 그대로) */
+html[data-theme="light"] .contact {
+  background-image: none;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, .08);
+}
+html[data-theme="light"] .contact .violet-overlay { background-color: transparent; }
+html[data-theme="light"] .contact h2 { color: #1d2228; }
 html[data-theme="dark"] .statistics i,
 html[data-theme="dark"] .statistics p,
 html[data-theme="dark"] .statistics h3 { color: #fff; }
