@@ -1,0 +1,110 @@
+/* 홈 My Workspace 상자 (style.css 다음에 불러옵니다)
+   - 왼쪽: 아이콘 3개 (연필, 자물쇠, 방패)
+   - 오른쪽: 약력 요약 (Recent timeline). 내용은 _data/timeline.yml에서 highlight: true인 항목
+   약력 색은 아래 변수로만 정하고 기본값은 다크 모드, 라이트 모드 색은 theme.css에서 바꿉니다. */
+
+/* ---------- 왼쪽 아이콘 ----------
+   style.css는 아이콘을 하나씩 absolute로 흩어 놓았는데, 그 배치를 덮어쓰고
+   왼쪽에 작게 한 줄로 모읍니다. 세로로는 오른쪽 약력의 가운데에 맞춥니다. */
+.about-us .row > .col-lg-6.workspace-icons {
+  left: 0;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;     /* 아이콘 줄 전체는 세로 가운데 */
+  align-items: flex-start;   /* 아이콘끼리는 위를 맞춰서 글자 줄도 나란히 */
+  justify-content: flex-start;
+  gap: 24px;
+}
+.about-us .row > .workspace-icons > .item {
+  position: static;
+  width: 112px;
+  margin: 0;
+  background-color: transparent;
+  box-shadow: none;
+}
+.about-us .row > .workspace-icons > .item img {
+  position: static;
+  width: 84px;
+  height: 84px;
+  object-fit: contain;   /* 정사각형 그림이 납작하게 늘어나지 않게 */
+}
+.about-us .row > .workspace-icons > .item h5 {
+  margin: 10px 0 0;
+  font-size: 13px;
+  line-height: 1.35;
+  letter-spacing: .04em;
+}
+
+/* ---------- 오른쪽 약력 요약 ---------- */
+
+.bio-list {
+  --bio-line: rgba(255, 255, 255, .12);
+  --bio-date: #50b7ef;
+  --bio-text: rgba(255, 255, 255, .85);
+  --bio-tag-bg: rgba(255, 255, 255, .08);
+  --bio-tag-ink: rgba(255, 255, 255, .7);
+  --bio-award-bg: rgba(242, 193, 78, .16);
+  --bio-award-ink: #f2c14e;
+
+  width: 80%;
+  margin: 0 0 32px auto;   /* 오른쪽 정렬된 칸 안에서 오른쪽에 붙임 */
+  padding: 0;
+  text-align: left;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+.bio-item {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--bio-line);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.bio-item:first-child { border-top: 1px solid var(--bio-line); }
+
+.bio-item__date {
+  padding-top: 1px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .03em;
+  font-variant-numeric: tabular-nums;
+  color: var(--bio-date);
+}
+
+.bio-item__text { color: var(--bio-text); }
+
+.bio-item__type {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1.6;
+  vertical-align: 1px;
+  white-space: nowrap;
+  background-color: var(--bio-tag-bg);
+  color: var(--bio-tag-ink);
+}
+.bio-item__type[data-type="수상"] {
+  background-color: var(--bio-award-bg);
+  color: var(--bio-award-ink);
+}
+
+.bio-actions button + button { margin-left: 10px; }
+
+@media (max-width: 1200px) {
+  .bio-list { width: 90%; }
+}
+
+/* 좁은 화면: 아이콘 줄이 약력 위로 내려옴. 768px 이하는 예전처럼 아이콘을 숨김 */
+@media (max-width: 992px) {
+  .about-us .row > .col-lg-6.workspace-icons { padding-bottom: 40px; }
+  .bio-list { width: 100%; }
+}
+@media (max-width: 768px) {
+  .about-us .row > .col-lg-6.workspace-icons { display: none; }
+}
