@@ -5,17 +5,23 @@
 
 /* ---------- 왼쪽 아이콘 ----------
    style.css는 아이콘을 하나씩 absolute로 흩어 놓았는데, 그 배치를 덮어쓰고
-   왼쪽에 작게 한 줄로 모읍니다. 세로로는 오른쪽 약력의 가운데에 맞춥니다. */
-.about-us .row > .col-lg-6.workspace-icons {
-  left: 0;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;     /* 아이콘 줄 전체는 세로 가운데 */
-  align-items: flex-start;   /* 아이콘끼리는 위를 맞춰서 글자 줄도 나란히 */
-  justify-content: flex-start;
-  gap: 24px;
+   역삼각형으로 모읍니다: 위에 연필·방패, 아래 가운데 자물쇠.
+   왼쪽 칸은 col-lg-4(좁게), 오른쪽 약력 칸은 col-lg-8(넓게)입니다. */
+.about-us .row > .workspace-icons {
+  display: grid;
+  grid-template-columns: repeat(2, 112px);
+  grid-template-areas:
+    "pen  shield"
+    "lock lock";
+  column-gap: 32px;
+  row-gap: 18px;
+  align-content: center;     /* 세로로는 오른쪽 약력의 가운데 */
+  justify-content: start;    /* 가로로는 왼쪽에 붙임 */
 }
+.about-us .row > .workspace-icons > .item--pen    { grid-area: pen; }
+.about-us .row > .workspace-icons > .item--shield { grid-area: shield; }
+.about-us .row > .workspace-icons > .item--lock   { grid-area: lock; justify-self: center; }
+
 .about-us .row > .workspace-icons > .item {
   position: static;
   width: 112px;
@@ -47,8 +53,8 @@
   --bio-award-bg: rgba(242, 193, 78, .16);
   --bio-award-ink: #f2c14e;
 
-  width: 80%;
-  margin: 0 0 32px auto;   /* 오른쪽 정렬된 칸 안에서 오른쪽에 붙임 */
+  width: 100%;             /* 약력 칸(col-lg-8) 너비를 다 씀 */
+  margin: 0 0 32px;
   padding: 0;
   text-align: left;
   word-break: keep-all;
@@ -96,15 +102,10 @@
 
 .bio-actions button + button { margin-left: 10px; }
 
-@media (max-width: 1200px) {
-  .bio-list { width: 90%; }
-}
-
-/* 좁은 화면: 아이콘 줄이 약력 위로 내려옴. 768px 이하는 예전처럼 아이콘을 숨김 */
-@media (max-width: 992px) {
-  .about-us .row > .col-lg-6.workspace-icons { padding-bottom: 40px; }
-  .bio-list { width: 100%; }
+/* 좁은 화면: 아이콘이 약력 위로 내려옴. 768px 이하는 예전처럼 아이콘을 숨김 */
+@media (max-width: 991.98px) {
+  .about-us .row > .workspace-icons { padding-bottom: 40px; }
 }
 @media (max-width: 768px) {
-  .about-us .row > .col-lg-6.workspace-icons { display: none; }
+  .about-us .row > .workspace-icons { display: none; }
 }

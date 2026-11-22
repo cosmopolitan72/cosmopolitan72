@@ -82,21 +82,21 @@
                 <div> &nbsp;
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-6 col-12 text-center workspace-icons">
-                                <div class="item">
+                            <div class="col-lg-4 col-12 text-center workspace-icons">
+                                <div class="item item--pen">
                                     <img src="imgs/pen_icon.png" alt="">
                                     <h5 class="text-uppercase">Experiments</h5>
                                 </div>
-                                <div class="item">
+                                <div class="item item--lock">
                                     <img src="imgs/lock_icon.png" alt="">
                                     <h5 class="text-uppercase">Encryption programs</h5>
                                 </div>
-                                <div class="item">
+                                <div class="item item--shield">
                                     <img src="imgs/protect.png" alt="">
                                     <h5 class="text-uppercase">Cybersecurity</h5>
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-12 text-right">
+                            <div class="col-lg-8 col-12 text-right">
                                 <h4 class="text-uppercase">Recent<span>&nbsp; timeline</span></h4>
                                 <!-- 약력 요약: _data/timeline.yml에서 "홈에 표시"(highlight)한 항목을 최신순으로 5개까지 -->
                                 {% assign bio = site.data.timeline | where: "highlight", true | reverse %}
